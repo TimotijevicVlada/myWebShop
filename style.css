@@ -1,0 +1,311 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*NAVBAR*/
+.content {
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 30px;
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    padding: 25px 0px;
+    transition: all 0.3s ease;
+}
+.navbar.sticky {     /*Ova klasa ce da bude dodata naknadno preko JS*/
+    background-color: black;
+    padding: 10px 0px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.navbar .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a {
+    color: white;  
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.navbar .logo span {
+    color: rgb(47, 148, 243);
+}
+.navbar .menu-list {
+    display: flex; 
+}
+.menu-list li {
+    list-style-type: none;
+}
+.menu-list li a {
+    color: white; 
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 25px;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.menu-list li a:hover {
+    color: rgb(47, 148, 243);
+}
+.probna-slika {       /*Ovo je probna slika zbog NAVBAR-a*/
+    background: url("images/comp img4.jpeg") no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.icon {
+    display: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.menu-list .cancel-btn {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+.fa-shopping-bag {
+  font-size: 25px;
+}
+
+/*CONTACT FORM*/
+.wrapper{
+    margin: 50px auto;
+    overflow: hidden;
+    max-width: 390px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.5);
+  }
+  .wrapper .title-text{
+    display: flex;
+    width: 200%;
+  }
+  .wrapper .title{
+    width: 50%;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  .wrapper .slide-controls{
+    position: relative;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0 10px 0;
+    justify-content: space-between;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+  }
+  .slide-controls .slide{
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 48px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.6s ease;
+  }
+  .slide-controls label.signup{
+    color: #000;
+  }
+  .slide-controls .slider-tab{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    z-index: 0;
+    border-radius: 5px;
+    background: linear-gradient(to right, #2F94F3 0%, #8CC8FF 100%);
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  #signup:checked ~ .slider-tab{
+    left: 50%;
+  }
+  #signup:checked ~ label.signup{
+    color: #fff;
+    cursor: default;
+    user-select: none;
+  }
+  #signup:checked ~ label.login{
+    color: #000;
+  }
+  #login:checked ~ label.signup{
+    color: #000;
+  }
+  #login:checked ~ label.login{
+    cursor: default;
+    user-select: none;
+  }
+  .wrapper .form-container{
+    width: 100%;
+    overflow: hidden;
+  }
+  .form-container .form-inner{
+    display: flex;
+    width: 200%;
+  }
+  .form-container .form-inner form{
+    width: 50%;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  .form-inner form .field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative; /*Zbog font-awesome*/
+  }
+  .form-inner form .field input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+  }
+  .form-inner form .field input:focus{
+    border-color: rgb(47, 148, 243);
+  }
+  .form-inner form .field input::placeholder{
+    color: #999;
+    transition: all 0.3s ease;
+  }
+  form .field input:focus::placeholder{
+    color: #b3b3b3;
+  }
+  .form-inner form .pass-link{
+    margin-top: 5px;
+  }
+  .form-inner form .signup-link{
+    text-align: center;
+    margin-top: 30px;
+  }
+  .form-inner form .pass-link a,
+  .form-inner form .signup-link a{
+    color: rgb(47, 148, 243);
+    text-decoration: none;
+  }
+  .form-inner form .pass-link a:hover,
+  .form-inner form .signup-link a:hover{
+    text-decoration: underline;
+  }
+  form .btn{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  form .btn .btn-layer{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: linear-gradient(to right, #2F94F3 0%, #8CC8FF 100%);
+    border-radius: 5px;
+    transition: all 0.4s ease;;
+  }
+  form .btn:hover .btn-layer{
+    left: 0;
+  }
+  form .btn input[type="submit"]{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    padding-left: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .fa-check-circle, .fa-times-circle {   /*Ovo ce da se pojavljuje samo ako je regex ispravan*/
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    font-size: 20px;
+    display: none;
+  }
+  .fa-check-circle {
+    color: green;
+  }
+  .fa-times-circle {
+    color: red;
+  }
+
+/*RESPONSIVE*/
+@media screen and (max-width: 1230px) {
+    .content {
+        padding: 0px 60px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .content {
+        padding: 0px 40px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .content {
+        padding: 0px 30px;
+    }
+}
+@media screen and (max-width: 768px) {
+    body.disabled {       /*Ovo ce da bude aktivirano sa JS*/
+        overflow: hidden;
+    }
+    .icon {
+        display: block;
+    }
+    .icon.hide {
+        display: none;  /*Ovo ce da bude aktivirano sa JS*/
+    }
+    .navbar .menu-list {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0px;
+        display: block;
+        padding: 40px 0px;
+        text-align: center;
+        background-color:black;
+        transition: all 0.3s ease;
+    }
+    .navbar.show .menu-list {    /*Ovo ce da bude kasnije aktivirano*/
+        left: 0%;
+    }
+    .navbar .menu-list li {
+        margin-top: 45px;
+    }
+    .navbar .menu-list li a {
+        font-size: 23px;
+        margin-left: -100%;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .navbar.show .menu-list li a {
+        margin-left: 0px;
+    }
+}
