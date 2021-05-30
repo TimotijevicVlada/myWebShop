@@ -17,6 +17,7 @@
     z-index: 10;
     padding: 25px 0px;
     transition: all 0.3s ease;
+    z-index: 100;
 }
 .navbar.sticky {     /*Ova klasa ce da bude dodata naknadno preko JS*/
     background-color: black;
@@ -55,11 +56,44 @@
     color: rgb(47, 148, 243);
 }
 .probna-slika {       /*Ovo je probna slika zbog NAVBAR-a*/
-    background: url("images/comp img4.jpeg") no-repeat;
+    background: url("images/pocetnaImg/livningRoom.jpg") no-repeat;
     height: 100vh;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     background-attachment: fixed;
+}
+.start-text {
+  background-color: rgba(255, 255, 255, 0.3);;
+  border: 1px solid white;
+  border-radius: 10px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: 15%;
+  left: 35%;
+}
+.start-text:hover {
+  cursor: pointer;
+  background-color: transparent;
+}
+.start-text .p1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: rgb(180, 180, 180);;
+  padding: 0.5em 0.5em 0em 0.5em;
+}
+.start-text .p2 {
+  font-size: 1.5em;
+  color: rgb(180, 180, 180);;
+}
+.start-text .p3 {
+  font-size: 1.5em;
+  color: rgb(180, 180, 180);
+  padding-bottom: 0.5em;
+}
+.start-text span {
+  color: rgb(47, 148, 243);;
 }
 .icon {
     display: none;
@@ -75,6 +109,69 @@
 .fa-shopping-bag {
   font-size: 25px;
 }
+/*MAIN SECTION*/
+.section-wrapper {
+  margin: 0 100px;
+}
+.section-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+}
+.section-inner .livingRoom {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.section-inner .bedRoom {
+  position: relative;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+.section-inner .kitchen {
+  position: relative;
+  grid-column-start: 5;
+  grid-column-end: 7;
+}
+.section-inner .bathRoom {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.section-inner .garden {
+  position: relative;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+.section-inner .workRoom {
+  position: relative;
+  grid-column-start: 5;
+  grid-column-end: 7;
+}
+.section-inner div {
+  overflow: hidden;
+  margin: 10px;
+}
+.section-inner div img {
+  width: 100%;
+  transition: all 0.6s ease;
+}
+.section-inner div img:hover {
+  transform: scale(1.1);
+}
+.section-inner p {
+  position: absolute;
+  font-size: 2em;
+  font-weight: bold;
+  color: gray;
+  top: 10px;
+  left: 50px;
+  z-index: 10;
+}
+
+
+
+
 
 /*CONTACT FORM*/
 .wrapper{
@@ -255,6 +352,30 @@
   .fa-times-circle {
     color: red;
   }
+
+/*FOOTER*/
+footer {
+  display: flex;
+  background-color: black;
+  color: white;
+}
+footer div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+footer div p {
+  padding: 1.2rem 0rem;
+}
+footer div p span {
+  color: rgb(47, 148, 243);;
+}
+footer div img {
+  width: 4rem;
+  padding: 0.6em 0.2em;
+}
+
+
 
 /*RESPONSIVE*/
 @media screen and (max-width: 1230px) {
