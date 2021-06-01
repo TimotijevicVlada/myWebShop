@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LivingRoom</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="content">
+          <div class="logo">
+            <a href="#">my<span>Shop</span></a>
+          </div>
+          <ul class="menu-list">
+            <div class="icon cancel-btn">
+              <i class="fas fa-times"></i>
+            </div>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Images</a></li>
+            <li><a href="form.html">Contact Form</a></li>
+            <li><a href="#"><i class="fas fa-shopping-bag"></i></a></li>
+          </ul>
+          <div class="icon menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+
+      <div class="empty-div"></div>
+      <section class="filter-menu">
+        <div>
+            <select class="custom-select" id="sort">
+                <option value="asc" selected>Sort by price ascending</option>
+                <option value="desc">Sort by price descending</option>
+            </select>
+        </div>
+        <div><input type="search" name="search" id="search" placeholder="Search by name"></div>
+        <div>
+            <label class="dostupno" for="dostupno">Trenutno dostupne</label>
+            <input class="stanje" type="radio" name="dostupno" id="dostupno">
+            <label class="nedostupno" for="nedostupno">Trenutno nedostupne</label>
+            <input class="stanje" type="radio" name="nedostupne" id="nedostupne">
+        </div>
+        <div>
+            <label for="uRadnji">U radnji</label>
+            <input type="checkbox" name="uRadnji" id="uRadnji">
+            <label for="online">Online</label>
+            <input type="checkbox" name="online" id="online">
+        </div>
+      </section>
+
+      <section class="livingRoom-products">
+          <div class="livingRoom-inner">
+              <div class="LR-inner-inside">
+                <div><img src="images/DnevnaSoba/106729.jfif" alt=""></div>
+                <div><img src="images/DnevnaSoba/108898.jfif" alt=""></div>
+              </div>
+              <div class="LR-inner-inside">
+                <div><img src="images/DnevnaSoba/113702.jfif" alt=""></div>
+                <div><img src="images/DnevnaSoba/121866.jfif" alt=""></div>
+              </div>
+          </div>
+          <div class="livingRoom-inner">
+              <div class="LR-inner-inside">
+                <div><img src="images/DnevnaSoba/150587.jfif" alt=""></div>
+                <div><img src="images/DnevnaSoba/72164.jfif" alt=""></div>
+              </div>
+              <div class="LR-inner-inside">
+                <div><img src="images/DnevnaSoba/75103.jfif" alt=""></div>
+                <div><img src="images/DnevnaSoba/86984.jfif" alt=""></div>
+              </div>
+          </div>
+          <div class="livingRoom-inner">
+              <div class="LR-inner-inside">    
+                <div><img src="images/DnevnaSoba/99114.jfif" alt=""></div>
+                <div><img src="images/DnevnaSoba/99137.jfif" alt=""></div>
+              </div>
+              <div class="LR-inner-inside">    
+                <div><img src="images/DnevnaSoba/119459.jfif" alt=""></div>
+                <div><img src="images/DnevnaSoba/119772.jfif" alt=""></div>
+              </div>
+          </div>
+          
+      </section>
+
+      <footer>
+        <div>
+          <p>&copy; Internet shop by |<span> Vladimir Timotijevic</span></p>
+        </div>
+        <div>
+          <img src="images/cards/master card.png" alt="master card" />
+          <img src="images/cards/maestro card.jpg" alt="maestro card" />
+          <img src="images/cards/visa card.png" alt="visa card" />
+          <img src="images/cards/banca-intesa-logo.jpg" alt="banka intesa" />
+          <img src="images/cards/verified by visa.png" alt="by visa" />
+          <img src="images/cards/mastercard secure code.png" alt="mastercard secure code" />
+          <img src="images/cards/american express.jpg" alt="american express" />
+          <img src="images/cards/dina card.png" alt="dina card" />
+        </div>
+      </footer>
+
+    <script src="js.js" type="text/javascript"></script>
+</body>
+</html>

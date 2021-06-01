@@ -3,6 +3,10 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+html {
+  background-color: rgb(247, 247, 247);
 }
 
 /*NAVBAR*/
@@ -45,7 +49,7 @@
     list-style-type: none;
 }
 .menu-list li a {
-    color: white; 
+    color: darkgray; 
     font-size: 18px;
     font-weight: bold;
     margin-left: 25px;
@@ -55,7 +59,7 @@
 .menu-list li a:hover {
     color: rgb(47, 148, 243);
 }
-.probna-slika {       /*Ovo je probna slika zbog NAVBAR-a*/
+.probna-slika {     
     background: url("images/pocetnaImg/livningRoom.jpg") no-repeat;
     height: 100vh;
     background-size: cover;
@@ -63,7 +67,7 @@
     background-attachment: fixed;
 }
 .start-text {
-  background-color: rgba(255, 255, 255, 0.3);;
+  background-color: rgba(255, 255, 255, 0.2);;
   border: 1px solid white;
   border-radius: 10px;
   position: absolute;
@@ -93,7 +97,7 @@
   padding-bottom: 0.5em;
 }
 .start-text span {
-  color: rgb(47, 148, 243);;
+  color: rgb(47, 148, 243);
 }
 .icon {
     display: none;
@@ -109,7 +113,15 @@
 .fa-shopping-bag {
   font-size: 25px;
 }
+.white {
+  color: white;
+}
 /*MAIN SECTION*/
+.categories h1 {
+  text-align: center;
+  padding: 1em;
+  color: gray;
+}
 .section-wrapper {
   margin: 0 100px;
 }
@@ -167,6 +179,76 @@
   top: 10px;
   left: 50px;
   z-index: 10;
+}
+/*FILTER MENU*/
+.empty-div {
+  height: 150px;
+}
+.filter-menu {
+  display: flex;
+  justify-content: center;
+  margin: 0 100px;
+  background-color: rgb(233, 233, 233);
+}
+.filter-menu div {
+  margin: 0 20px;
+  padding: 10px 20px;
+}
+.custom-select {
+  color: gray;
+  font-size: 1.1em;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.custom-select:focus, .custom-select:hover {
+  outline: none;
+  border: 1px solid #ffffff;
+}
+input[type=search] {
+  font-size: 1.1em;
+  padding: 9px 13px;
+  border: none;
+  border-radius: 5px;
+}
+input[type=search]:focus {
+  outline: none;
+}
+input[type=checkbox] {
+  /*appearance: none;*/
+  /*-webkit-appearance: none;*/
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+
+/*LIVING ROOM PRODUCTS*/
+.livingRoom-products {
+  margin: 0 100px;
+  padding: 100px 0 0 0;
+}
+.livingRoom-inner {
+  display: flex;
+  justify-content: center;
+}
+.LR-inner-inside {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.LR-inner-inside div {
+  background-color: white;
+  border: 2px solid rgb(224, 224, 224);
+  height: 350px;
+  margin: 5px;
+}
+.livingRoom-products img {
+  display: flex;
+  justify-content: center;
+  width: 250px;
 }
 
 
