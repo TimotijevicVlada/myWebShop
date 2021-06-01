@@ -226,26 +226,31 @@ input[type=checkbox] {
 
 
 /*LIVING ROOM PRODUCTS*/
-.livingRoom-products {
-  margin: 0 100px;
-  padding: 100px 0 0 0;
+.naslov h1 {
+  text-align: center;
+  padding-top: 50px;
+  color: gray;
 }
-.livingRoom-inner {
+.products-wrapper {
+  margin: 0 100px;
+  padding: 50px 0 0 0;
+}
+.products-inner {
   display: flex;
   justify-content: center;
 }
-.LR-inner-inside {
+.products-inner-inside {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
-.LR-inner-inside div {
+.products-inner-inside div {
   background-color: white;
   border: 2px solid rgb(224, 224, 224);
   height: 350px;
   margin: 5px;
 }
-.livingRoom-products img {
+.products-inner-inside div img {
   display: flex;
   justify-content: center;
   width: 250px;
