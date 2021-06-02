@@ -1,3 +1,14 @@
+//CARTS FUNCTION  
+const cartsPage = document.getElementsByClassName("carts")[0];
+const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
+const cartsExit = document.getElementsByClassName("exit")[0];
+cartsIcon.addEventListener("click", function() {
+    cartsPage.style.right = "0%";
+});
+cartsExit.addEventListener("click", function() {
+   cartsPage.style.right = "-100%";
+});
+
 //RESPONSIVE NAVBAR 
 const body = document.querySelector("body");
 const navBar = document.querySelector(".navbar");
@@ -166,4 +177,5 @@ document.getElementById("signupBtn").addEventListener("click", function(e) {
         passConfirmTrue.style.display = "none";
     }
 })
+
 
