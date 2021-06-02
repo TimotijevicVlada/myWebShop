@@ -116,6 +116,7 @@ html {
 .white {
   color: white;
 }
+
 /*MAIN SECTION*/
 .categories h1 {
   text-align: center;
@@ -180,6 +181,7 @@ html {
   left: 50px;
   z-index: 10;
 }
+
 /*FILTER MENU*/
 .empty-div {
   height: 150px;
@@ -225,7 +227,7 @@ input[type=checkbox] {
 }
 
 
-/*LIVING ROOM PRODUCTS*/
+/*PRODUCTS PAGES*/
 .naslov h1 {
   text-align: center;
   padding-top: 50px;
@@ -254,6 +256,34 @@ input[type=checkbox] {
   display: flex;
   justify-content: center;
   width: 250px;
+}
+
+/*SUBMENU CATEGORIES*/
+.sub-menu {
+  text-align: center;
+  color: gray;
+  padding: 20px 0px;
+}
+.sub-menu-wrapper {
+  display: flex;   /*Ovo cemo da promeni na grid kasnije*/
+  justify-content: center;  /*Iovo brisemo kada bude grid*/
+}
+.sub-menu-wrapper div {
+  padding-bottom: 20px;
+  margin: 0 15px;
+}
+.sub-menu-wrapper div img {
+  width: 200px;
+}
+.sub-menu-wrapper div img {
+  border: 2px solid transparent;
+}
+.sub-menu-wrapper div img:hover {
+  border: 2px solid gray;
+}
+.sub-menu-wrapper div h3 {
+  text-align: center;
+  color: gray;
 }
 
 
