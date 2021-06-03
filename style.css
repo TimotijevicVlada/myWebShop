@@ -27,6 +27,40 @@ html {
   font-size: 1.5em;
   color: gray;
 }
+.carts-info {
+  margin: 70px 100px 0px 100px;
+  display: flex;
+  border-bottom: 1px solid black;
+  background-color: lightblue;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+.carts-product {
+  width: 45%;
+}
+.carts-price {
+  width: 20%;
+}
+.carts-quantity {
+  width: 35%;
+}
+.carts-in-total {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em 0em;
+  margin: 0 100px;
+  border-top: 1px solid black;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.carts-in-total span {
+  margin: 0 0.2em;
+}
+
+
 
 
 /*NAVBAR*/
