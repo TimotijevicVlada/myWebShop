@@ -2,6 +2,7 @@
 const cartsPage = document.getElementsByClassName("carts")[0];
 const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
 const cartsExit = document.getElementsByClassName("exit")[0];
+
 cartsIcon.addEventListener("click", function() {
     cartsPage.style.right = "0%";
 });
@@ -41,7 +42,7 @@ const loginText = document.querySelector(".title-text .login");
 const loginForm = document.querySelector("form.login");
 const loginBtn = document.querySelector("label.login");
 const signupBtn = document.querySelector("label.signup");
-const signupLink = document.querySelector("form .signup-link a");
+const signupLink = document.querySelector("form.signup-link a");
 
 signupBtn.addEventListener("click", function() {
     loginForm.style.marginLeft = "-50%";
