@@ -1,3 +1,4 @@
+
 //CARTS FUNCTION  
 const cartsPage = document.getElementsByClassName("carts")[0];
 const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
@@ -42,7 +43,7 @@ const loginText = document.querySelector(".title-text .login");
 const loginForm = document.querySelector("form.login");
 const loginBtn = document.querySelector("label.login");
 const signupBtn = document.querySelector("label.signup");
-const signupLink = document.querySelector("form.signup-link a");
+const signupLink = document.querySelector("form .signup-link a");
 
 signupBtn.addEventListener("click", function() {
     loginForm.style.marginLeft = "-50%";
@@ -56,6 +57,7 @@ signupLink.addEventListener("click", function() {
     signupBtn.click();
     return false;
 })
+
 
 //CONTACT FORM REGEX 
     document.getElementById("loginBtn").addEventListener("click", function(e) {

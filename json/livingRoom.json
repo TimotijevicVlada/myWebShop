@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Komoda Sofija",
+        "image": "images/DnevnaSoba/72164.jfif",
+        "stars": 5,
+        "description": "Tv komoda za dnevnu sobu",
+        "material": "drvo",
+        "guaranty": "5 years",
+        "price": 12.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Fotelja Zumbul",
+        "image": "images/DnevnaSoba/75103.jfif",
+        "stars": 4,
+        "description": "Fotelja za dnevnu sobu",
+        "material": ["stof", "metal"],
+        "guaranty": "4 years",
+        "price": 22.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Fotelja Ruza",
+        "image": "images/DnevnaSoba/86984.jfif",
+        "stars": 4.5,
+        "description": "Fotelja za dnevnu sobu",
+        "material": ["stof", "metal"],
+        "guaranty": "4 years",
+        "price": 25.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Sofa Kaktus",
+        "image": "images/DnevnaSoba/99114.jfif",
+        "stars": 5,
+        "description": "Sofa za dnevnu sobu",
+        "material": ["stof", "drvo"],
+        "guaranty": "7 years",
+        "price": 59.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Ugaona garnitura Bagrem",
+        "image": "images/DnevnaSoba/99137.jfif",
+        "stars": 4.5,
+        "description": "Ugaona garnitura za dnevnu sobu",
+        "material": ["stof", "drvo"],
+        "guaranty": "7 years",
+        "price": 109.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Tv komoda Marija",
+        "image": "images/DnevnaSoba/106729.jfif",
+        "stars": 3.5,
+        "description": "Tv komoda za dnevnu sobu",
+        "material": "drvo",
+        "guaranty": "5 years",
+        "price": 15.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Klub sto Lana",
+        "image": "images/DnevnaSoba/108898.jfif",
+        "stars": 4,
+        "description": "Klub sto za dnevnu sobu",
+        "material": "drvo",
+        "guaranty": "5 years",
+        "price": 5.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    }, 
+    {
+        "name": "Klub sto Masa",
+        "image": "images/DnevnaSoba/113702.jfif",
+        "stars": 4.5,
+        "description": "Klub sto za dnevnu sobu",
+        "material": ["drvo", "metal"],
+        "guaranty": "5 years",
+        "price": 9.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    }, 
+    {
+        "name": "Ugaona garnitura Maslacak",
+        "image": "images/DnevnaSoba/119459.jfif",
+        "stars": 5,
+        "description": "Ugaona garnitura za dnevnu sobu",
+        "material": ["stof", "metal"],
+        "guaranty": "7 years",
+        "price": 49.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Ugaona garnitura Neven",
+        "image": "images/DnevnaSoba/119772.jfif",
+        "stars": 4.5,
+        "description": "Ugaona garnitura za dnevnu sobu",
+        "material": ["stof", "drvo"],
+        "guaranty": "7 years",
+        "price": 54.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    }, 
+    {
+        "name": "Sofa Ruza",
+        "image": "images/DnevnaSoba/121866.jfif",
+        "stars": 4.5,
+        "description": "Sofa za dnevnu sobu",
+        "material": ["stof", "drvo"],
+        "guaranty": "5 years",
+        "price": 34.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Sofa Suncokret",
+        "image": "images/DnevnaSoba/150587.jfif",
+        "stars": 4.5,
+        "description": "Sofa za dnevnu sobu",
+        "material": ["stof", "drvo"],
+        "guaranty": "5 years",
+        "price": 32.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    }
+]

@@ -321,6 +321,9 @@ input[type=checkbox] {
   justify-content: space-between;
   align-items: center;
 }
+.shopping-card:hover {
+  border-color: black;
+}
 .shopping-card .small-img {
   width: 250px;
 }

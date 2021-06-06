@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Trpezarijski sto Luna",
+        "image": "images/Trpezarija/50247.jfif",
+        "stars": 4.5,
+        "description": "Trpezarijski sto",
+        "material": "drvo",
+        "guaranty": "7 godina",
+        "price": 11.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijska komoda Nera",
+        "image": "images/Trpezarija/60246.jfif",
+        "stars": 5,
+        "description": "Trpezarijska komoda",
+        "material": "drvo",
+        "guaranty": "7 godina",
+        "price": 9.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijski set Mona",
+        "image": "images/Trpezarija/62605.jfif",
+        "stars": 4,
+        "description": "Trpezarijski set stolica i stola",
+        "material": ["stof", "drvo", "metal", "sundjer"],
+        "guaranty": "5 godina",
+        "price": 49.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijski set Neva",
+        "image": "images/Trpezarija/72382.jfif",
+        "stars": 4,
+        "description": "Trpezarijski set stolica i stola",
+        "material": ["stof", "drvo", "metal", "sundjer"],
+        "guaranty": "5 godina",
+        "price": 39.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijski sto Sara",
+        "image": "images/Trpezarija/99580.jfif",
+        "stars": 5,
+        "description": "Trpezarijski sto",
+        "material": "drvo",
+        "guaranty": "5 godina",
+        "price": 13.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijska komoda Petra",
+        "image": "images/Trpezarija/109882.jfif",
+        "stars": 3,
+        "description": "Trpezarijska komoda",
+        "material": "drvo",
+        "guaranty": "7 godina",
+        "price": 8.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijski sto Helena",
+        "image": "images/Trpezarija/114550.jfif",
+        "stars": 4.5,
+        "description": "Trpezarijski sto",
+        "material": "drvo",
+        "guaranty": "4 godine",
+        "price": 9.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijski sto Viktorija",
+        "image": "images/Trpezarija/128401.jfif",
+        "stars": 4,
+        "description": "Trpezarijski sto",
+        "material": "drvo",
+        "guaranty": "5 godina",
+        "price": 15.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijski sto Ema",
+        "image": "images/Trpezarija/128412.jfif",
+        "stars": 3.5,
+        "description": "Trpezarijski sto",
+        "material": ["drvo", "metal"],
+        "guaranty": "5 godina",
+        "price": 11.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijski set Teodora",
+        "image": "images/Trpezarija/160598.jfif",
+        "stars": 4,
+        "description": "Trpezarijski set",
+        "material": ["drvo", "metal", "stof", "sundjer"],
+        "guaranty": "5 godina",
+        "price": 44.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijska polica Aurora",
+        "image": "images/Trpezarija/slika1.jfif",
+        "stars": 4,
+        "description": "Trpezarijska polica",
+        "material": "drvo",
+        "guaranty": "5 godina",
+        "price": 6.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    },
+    {
+        "name": "Trpezarijska stolica Vanja",
+        "image": "images/Trpezarija/slika2.jfif",
+        "stars": 4.5,
+        "description": "Trpezarijska visoka stolica",
+        "material": ["drvo", "plastika"],
+        "guaranty": "3 godine",
+        "price": 5.999,
+        "currency": "RSD",
+        "btn": "Add to cart"
+    }
+]
