@@ -1,134 +1,146 @@
 [
     {
         "name": "Garderober Jelena",
-        "image": "images/SpavacaSoba/36850.jfif",
+        "image": "images/SpavacaSoba/garderoberJelena.jfif",
         "stars": 5,
         "description": "Garderober za spavacu sobu",
         "material": ["drvo", "staklo"],
         "guaranty": "7 godina",
         "price": 44.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "big-img"
     },
     {
         "name": "Bracni krevet Mehur",
-        "image": "images/SpavacaSoba/42078.jfif",
+        "image": "images/SpavacaSoba/bracniKrevetMehur.jfif",
         "stars": 4.5,
         "description": "Krevet za spavacu sobu",
         "material": ["drvo", "sundjer"],
         "guaranty": "5 godina",
         "price": 55.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "small-img"
     },
     {
         "name": "Bracni krevet Lokvanj",
-        "image": "images/SpavacaSoba/50179.jfif",
+        "image": "images/SpavacaSoba/bracniKrevetLokvanj.jfif",
         "stars": 4.5,
         "description": "Krevet za spavacu sobu",
         "material": ["drvo", "sundjer"],
         "guaranty": "5 godina",
         "price": 49.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "small-img"
     },
     {
         "name": "Nocni ormaric Bjanka",
-        "image": "images/SpavacaSoba/59693.jfif",
+        "image": "images/SpavacaSoba/nocniOrmaricBjanka.jfif",
         "stars": 4,
         "description": "Nocni ormaric za spavacu sobu",
         "material": ["drvo", "metal"],
         "guaranty": "3 godine",
         "price": 7.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "big-img"
     },
     {
         "name": "Garderober Eva",
-        "image": "images/SpavacaSoba/72271.jfif",
+        "image": "images/SpavacaSoba/garderoberEva.jfif",
         "stars": 4.5,
         "description": "Garderober za spavacu sobu",
         "material": "drvo",
         "guaranty": "5 godina",
         "price": 34.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "big-img"
     },
     {
         "name": "Nocni ormaric Nina",
-        "image": "images/SpavacaSoba/72282.jfif",
+        "image": "images/SpavacaSoba/nocniOrmaricNina.jfif",
         "stars": 3,
         "description": "Nocni ormaric za spavacu sobu",
         "material": "drvo",
         "guaranty": "3 godine",
         "price": 5.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "big-img"
     },
     {
         "name": "Nocni ormaric Ana",
-        "image": "images/SpavacaSoba/72284.jfif",
+        "image": "images/SpavacaSoba/nocniOrmaricAna.jfif",
         "stars": 4,
         "description": "Nocni ormaric za spavacu sobu",
         "material": "drvo",
         "guaranty": "3 godine",
         "price": 6.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "big-img"
     },
     {
         "name": "Bracni krevet Oblak",
-        "image": "images/SpavacaSoba/91777.jfif",
+        "image": "images/SpavacaSoba/bracniKrevetOblak.jfif",
         "stars": 5,
         "description": "Bracni krevet za spavacu sobu",
         "material": "stof",
         "guaranty": "5 godina",
         "price": 64.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "small-img"
     },
     {
         "name": "Bracni krevet Cardak",
-        "image": "images/SpavacaSoba/114581.jfif",
+        "image": "images/SpavacaSoba/bracniKrevetCardak.jfif",
         "stars": 4.5,
         "description": "Bracni krevet za spavacu sobu",
         "material": ["drvo", "sundjer"],
         "guaranty": "5 godina",
         "price": 54.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "small-img"
     },
     {
         "name": "Garderober Milica",
-        "image": "images/SpavacaSoba/119126.jfif",
+        "image": "images/SpavacaSoba/garderoberMilica.jfif",
         "stars": 4,
         "description": "Garderober za spavacu sobu",
         "material": "drvo",
         "guaranty": "5 godina",
         "price": 33.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "big-img"
     },
     {
         "name": "Jastuk Svila",
-        "image": "images/SpavacaSoba/slika1.jfif",
+        "image": "images/SpavacaSoba/jastukSvila.jfif",
         "stars": 4.5,
         "description": "Jastuk za spavanje",
         "material": ["pamuk", "perje"],
         "guaranty": "3 godine",
         "price": 6.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "small-img"
     },
     {
         "name": "Jastuk Anatomik",
-        "image": "images/SpavacaSoba/slika2.jfif",
+        "image": "images/SpavacaSoba/jastukAnatomik.jfif",
         "stars": 5,
         "description": "Jastuk za spavanje",
         "material": ["pamuk", "memorijska pena"],
         "guaranty": "3 godine",
         "price": 8.999,
         "currency": "RSD",
-        "btn": "Add to cart"
+        "btn": "Add to cart",
+        "imageSize": "small-img"
     }
 ]

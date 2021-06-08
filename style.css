@@ -299,23 +299,23 @@ input[type=checkbox] {
   margin: 0 100px;
   padding: 50px 0 0 0;
 }
-.products-inner {
-  display: flex;
-  justify-content: center;
-}
-.products-inner-inside {
+.products-inner-livingroom,
+.products-inner-bedroom,
+.products-inner-bathroom,
+.products-inner-kitchen,
+.products-inner-garden,
+.products-inner-workroom {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap; 
+  justify-content: space-evenly;    
 }
-.products-inner-inside .shopping-card {
+.shopping-card {
   background-color: white;
   border: 2px solid rgb(224, 224, 224);
   height: 370px;
   width: 260px;
-  margin: 5px;
-}
-.shopping-card {
+  margin: 10px 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -329,6 +329,9 @@ input[type=checkbox] {
 }
 .shopping-card .big-img {
   width: 150px;
+}
+.shopping-card .very-big-img {
+  width: 90px;
 }
 .shopping-card h3 {
   margin-top: 5px;

@@ -1,3 +1,174 @@
+//FETCH PRODUCTS FROM JSON AND DISPLAY DINAMICALY
+
+//FETCH FROM LIVINGROOM JSON
+fetch("json/livingRoom.json").then(function(response) {
+    //console.log(response);
+    return response.json();
+}).then(function(object) {
+    //console.log(object);
+    let div = document.getElementsByClassName("products-inner-livingroom")[0];
+    let html = "";
+    for(let i in object) {
+        html += `
+        <div class="shopping-card">
+                <h3>${object[i].name}</h3>
+                <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
+                <p>${object[i].stars}</p>
+                <p>${object[i].description}</p>
+                <p>Materijal: ${object[i].material}</p>
+                <p>Garancija: ${object[i].guaranty}</p>
+                <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
+                <div class="btn">${object[i].btn}</div>
+              </div>
+        `;
+    }
+    div.innerHTML = html;
+}).catch(function(error) {
+    console.log(error);
+})
+
+//FETCH FROM BEDROOM JSON
+fetch("json/bedRoom.json").then(function(response) {
+    //console.log(response);
+    return response.json();
+}).then(function(object) {
+    //console.log(object);
+    const div = document.getElementsByClassName("products-inner-bedroom")[0];
+    let html = "";
+    for(let i in object) {
+        html += `
+        <div class="shopping-card">
+                <h3>${object[i].name}</h3>
+                <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
+                <p>${object[i].stars}</p>
+                <p>${object[i].description}</p>
+                <p>Materijal: ${object[i].material}</p>
+                <p>Garancija: ${object[i].guaranty}</p>
+                <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
+                <div class="btn">${object[i].btn}</div>
+              </div>
+        `;
+    }
+    div.innerHTML = html;
+}).catch(function(error) {
+    console.log(error);
+})
+
+//FETCH FROM BATHROOM JSON
+fetch("json/bathRoom.json").then(function(response) {
+    //console.log(response);
+    return response.json();
+}).then(function(object) {
+    //console.log(object);
+    const div = document.getElementsByClassName("products-inner-bathroom")[0];
+    let html = "";
+    for(let i in object) {
+        html += `
+        <div class="shopping-card">
+                <h3>${object[i].name}</h3>
+                <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
+                <p>${object[i].stars}</p>
+                <p>${object[i].description}</p>
+                <p>Materijal: ${object[i].material}</p>
+                <p>Garancija: ${object[i].guaranty}</p>
+                <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
+                <div class="btn">${object[i].btn}</div>
+              </div>
+        `;
+    }
+    div.innerHTML = html;
+}).catch(function(error) {
+    console.log(error);
+})
+
+//FETCH FROM KITCHEN JSON
+fetch("json/kitchen.json").then(function(response) {
+    //console.log(response);
+    return response.json();
+}).then(function(object) {
+    //console.log(object);
+    const div = document.getElementsByClassName("products-inner-kitchen")[0];
+    let html = "";
+    for(let i in object) {
+        html += `
+        <div class="shopping-card">
+                <h3>${object[i].name}</h3>
+                <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
+                <p>${object[i].stars}</p>
+                <p>${object[i].description}</p>
+                <p>Materijal: ${object[i].material}</p>
+                <p>Garancija: ${object[i].guaranty}</p>
+                <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
+                <div class="btn">${object[i].btn}</div>
+              </div>
+        `;
+    }
+    div.innerHTML = html;
+}).catch(function(error) {
+    console.log(error);
+})
+
+//FETCH FROM GARDEN JSON
+fetch("json/garden.json").then(function(response) {
+    //console.log(response);
+    return response.json();
+}).then(function(object) {
+    //console.log(object);
+    const div = document.getElementsByClassName("products-inner-garden")[0];
+    let html = "";
+    for(let i in object) {
+        html += `
+        <div class="shopping-card">
+                <h3>${object[i].name}</h3>
+                <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
+                <p>${object[i].stars}</p>
+                <p>${object[i].description}</p>
+                <p>Materijal: ${object[i].material}</p>
+                <p>Garancija: ${object[i].guaranty}</p>
+                <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
+                <div class="btn">${object[i].btn}</div>
+              </div>
+        `;
+    }
+    div.innerHTML = html;
+}).catch(function(error) {
+    console.log(error);
+})
+
+//fETCH FROM WORKROOM JSON
+fetch("json/workRoom.json").then(function(response) {
+    //console.log(response);
+    return response.json();
+}).then(function(object) {
+    //console.log(object);
+    const div = document.getElementsByClassName("products-inner-workroom")[0];
+    let html = "";
+    for(let i in object) {
+        html += `
+        <div class="shopping-card">
+                <h3>${object[i].name}</h3>
+                <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
+                <p>${object[i].stars}</p>
+                <p>${object[i].description}</p>
+                <p>Materijal: ${object[i].material}</p>
+                <p>Garancija: ${object[i].guaranty}</p>
+                <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
+                <div class="btn">${object[i].btn}</div>
+              </div>
+        `;
+    }
+    div.innerHTML = html;
+}).catch(function(error) {
+    console.log(error);
+})
+
+
+
+
+
+
+
+
 
 //CARTS FUNCTION  
 const cartsPage = document.getElementsByClassName("carts")[0];
