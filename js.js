@@ -13,7 +13,7 @@ fetch("json/livingRoom.json").then(function(response) {
         <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
-                <p>${object[i].stars}</p>
+                <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].description}</p>
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
@@ -26,6 +26,34 @@ fetch("json/livingRoom.json").then(function(response) {
 }).catch(function(error) {
     console.log(error);
 })
+
+
+//FUNCTION FOR COUNTING STAR OF PRODUCT  (I NEED ONLY ONE CODE, JUST TO MAP OTHER FUNCTIONS)
+function printStars(brojZvezdica) {
+    //console.log(brojZvezdica)
+    let html = "";
+        if(brojZvezdica >= 0.8 && brojZvezdica <= 1.2) {
+            html = `<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+        }else if(brojZvezdica >= 1.3 && brojZvezdica <= 1.7) {
+            html = `<i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+        }else if(brojZvezdica >= 1.8 && brojZvezdica <= 2.2) {
+            html = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+        }else if(brojZvezdica >= 2.3 && brojZvezdica <= 2.7) {
+            html = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+        }else if(brojZvezdica >= 2.8 && brojZvezdica <= 3.2) { 
+            html = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+        }else if(brojZvezdica >= 3.3 && brojZvezdica <= 3.7) {
+            html = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>`;
+        }else if(brojZvezdica >= 3.8 && brojZvezdica <= 4.2) {
+            html = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>`;
+        }else if(brojZvezdica >= 4.3 && brojZvezdica <= 4.7) {
+            html = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>`;
+        }else {
+            html = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>`;
+        }
+    return html;
+}
+
 
 //FETCH FROM BEDROOM JSON
 fetch("json/bedRoom.json").then(function(response) {
@@ -40,7 +68,7 @@ fetch("json/bedRoom.json").then(function(response) {
         <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
-                <p>${object[i].stars}</p>
+                <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].description}</p>
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
@@ -67,7 +95,7 @@ fetch("json/bathRoom.json").then(function(response) {
         <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
-                <p>${object[i].stars}</p>
+                <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].description}</p>
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
@@ -94,7 +122,7 @@ fetch("json/kitchen.json").then(function(response) {
         <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
-                <p>${object[i].stars}</p>
+                <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].description}</p>
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
@@ -121,7 +149,7 @@ fetch("json/garden.json").then(function(response) {
         <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
-                <p>${object[i].stars}</p>
+                <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].description}</p>
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
@@ -148,7 +176,7 @@ fetch("json/workRoom.json").then(function(response) {
         <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
-                <p>${object[i].stars}</p>
+                <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].description}</p>
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
