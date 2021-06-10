@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Home",
+        "href": "index.html"
+    },
+    {
+        "name": "About",
+        "href": "#"
+    },
+    {
+        "name": "Categories",
+        "href": "#categories"
+    },
+    {
+        "name": "Account",
+        "href": "form.html"
+    },
+    {
+        "name": "<i class='fas fa-shopping-bag'></i>",
+        "href": "#"
+    }
+]

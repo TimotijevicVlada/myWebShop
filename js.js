@@ -1,3 +1,27 @@
+//FETCH NAVBAR 
+
+//Da proverim zasto mi ne radi Shopping carts kada sam ovo ispisao
+fetch("json/navBar.json").then(function(response) {
+    console.log(response)
+    return response.json();
+}).then(function(object) {
+    //console.log(object)
+    let div = document.getElementsByClassName("menu-list")[0];
+    let html = "";
+    for(let i in object) {
+        html += `
+            <li><a class="menu-word" href="${object[i].href}">${object[i].name}</a></li>
+            `;
+        }
+        div.innerHTML = html;
+
+        console.log(div)
+}).catch(function(error) {
+    console.log(error);
+})
+
+
+
 //FETCH PRODUCTS FROM JSON AND DISPLAY DINAMICALY
 
 //FETCH FROM LIVINGROOM JSON
@@ -5,7 +29,7 @@ fetch("json/livingRoom.json").then(function(response) {
     //console.log(response);
     return response.json();
 }).then(function(object) {
-    //console.log(object);
+    console.log(object);
     let div = document.getElementsByClassName("products-inner-livingroom")[0];
     let html = "";
     for(let i in object) {
@@ -23,6 +47,7 @@ fetch("json/livingRoom.json").then(function(response) {
         `;
     }
     div.innerHTML = html;
+
 }).catch(function(error) {
     console.log(error);
 })
