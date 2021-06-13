@@ -1,40 +1,81 @@
 //FETCH NAVBAR 
-
-//Da proverim zasto mi ne radi Shopping carts kada sam ovo ispisao
 fetch("json/navBar.json").then(function(response) {
-    console.log(response)
+    //console.log(response)
     return response.json();
 }).then(function(object) {
     //console.log(object)
     let div = document.getElementsByClassName("menu-list")[0];
     let html = "";
+        html = `
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+            `;
     for(let i in object) {
         html += `
             <li><a class="menu-word" href="${object[i].href}">${object[i].name}</a></li>
             `;
         }
         div.innerHTML = html;
+   
+        //CARTS FUNCTION  
+        const cartsPage = document.getElementsByClassName("carts")[0];
+        const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
+        const cartsExit = document.getElementsByClassName("exit")[0];
 
-        console.log(div)
-}).catch(function(error) {
+        cartsIcon.addEventListener("click", function() {
+        cartsPage.style.right = "0%";
+        });
+        cartsExit.addEventListener("click", function() {
+        cartsPage.style.right = "-100%";
+        });
+
+        //RESPONSIVE NAVBAR 
+        const body = document.querySelector("body");
+        const navBar = document.querySelector(".navbar");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+
+        menuBtn.addEventListener("click", function() {
+            navBar.classList.add("show");
+            menuBtn.classList.add("hide");
+            body.classList.add("disabled");
+        })
+
+        cancelBtn.addEventListener("click", function() {
+            body.classList.remove("disabled");
+            navBar.classList.remove("show");
+            menuBtn.classList.remove("hide");
+        })
+
+        //SCROLL FUNCTION
+        window.addEventListener("scroll", function() {
+            if(this.scrollY > 20) {
+                navBar.classList.add("sticky");
+                navBar.classList.add(".navbar.sticky a .white");
+            }else {
+                navBar.classList.remove("sticky");
+                navBar.classList.remove(".navbar.sticky a .white");
+            }
+        })
+        
+
+    }).catch(function(error) {
     console.log(error);
 })
 
-
-
-//FETCH PRODUCTS FROM JSON AND DISPLAY DINAMICALY
 
 //FETCH FROM LIVINGROOM JSON
 fetch("json/livingRoom.json").then(function(response) {
     //console.log(response);
     return response.json();
 }).then(function(object) {
-    console.log(object);
+    //console.log(object);
     let div = document.getElementsByClassName("products-inner-livingroom")[0];
     let html = "";
     for(let i in object) {
         html += `
-        <div class="shopping-card">
+            <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
@@ -42,11 +83,15 @@ fetch("json/livingRoom.json").then(function(response) {
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
                 <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
-                <div class="btn">${object[i].btn}</div>
-              </div>
+                <div class="btn btn-purchase">${object[i].btn}</div>
+            </div>
         `;
     }
     div.innerHTML = html;
+
+    //Odavde ne mogu da vidim karticu i proizvode (moram da proverim zasto)
+    //let kartica = document.getElementsByClassName("shopping.card")[0];
+    //console.log(kartica);
 
 }).catch(function(error) {
     console.log(error);
@@ -90,7 +135,7 @@ fetch("json/bedRoom.json").then(function(response) {
     let html = "";
     for(let i in object) {
         html += `
-        <div class="shopping-card">
+            <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
@@ -98,8 +143,8 @@ fetch("json/bedRoom.json").then(function(response) {
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
                 <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
-                <div class="btn">${object[i].btn}</div>
-              </div>
+                <div class="btn btn-purchase">${object[i].btn}</div>
+            </div>
         `;
     }
     div.innerHTML = html;
@@ -117,7 +162,7 @@ fetch("json/bathRoom.json").then(function(response) {
     let html = "";
     for(let i in object) {
         html += `
-        <div class="shopping-card">
+            <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
@@ -125,8 +170,8 @@ fetch("json/bathRoom.json").then(function(response) {
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
                 <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
-                <div class="btn">${object[i].btn}</div>
-              </div>
+                <div class="btn btn-purchase">${object[i].btn}</div>
+            </div>
         `;
     }
     div.innerHTML = html;
@@ -144,7 +189,7 @@ fetch("json/kitchen.json").then(function(response) {
     let html = "";
     for(let i in object) {
         html += `
-        <div class="shopping-card">
+            <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
@@ -152,8 +197,8 @@ fetch("json/kitchen.json").then(function(response) {
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
                 <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
-                <div class="btn">${object[i].btn}</div>
-              </div>
+                <div class="btn btn-purchase">${object[i].btn}</div>
+            </div>
         `;
     }
     div.innerHTML = html;
@@ -171,7 +216,7 @@ fetch("json/garden.json").then(function(response) {
     let html = "";
     for(let i in object) {
         html += `
-        <div class="shopping-card">
+            <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
@@ -179,8 +224,8 @@ fetch("json/garden.json").then(function(response) {
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
                 <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
-                <div class="btn">${object[i].btn}</div>
-              </div>
+                <div class="btn btn-purchase">${object[i].btn}</div>
+            </div>
         `;
     }
     div.innerHTML = html;
@@ -198,7 +243,7 @@ fetch("json/workRoom.json").then(function(response) {
     let html = "";
     for(let i in object) {
         html += `
-        <div class="shopping-card">
+            <div class="shopping-card">
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
@@ -206,8 +251,8 @@ fetch("json/workRoom.json").then(function(response) {
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
                 <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
-                <div class="btn">${object[i].btn}</div>
-              </div>
+                <div class="btn btn-purchase">${object[i].btn}</div>
+            </div>
         `;
     }
     div.innerHTML = html;
@@ -215,52 +260,6 @@ fetch("json/workRoom.json").then(function(response) {
     console.log(error);
 })
 
-
-
-
-
-
-
-
-
-//CARTS FUNCTION  
-const cartsPage = document.getElementsByClassName("carts")[0];
-const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
-const cartsExit = document.getElementsByClassName("exit")[0];
-
-cartsIcon.addEventListener("click", function() {
-    cartsPage.style.right = "0%";
-});
-cartsExit.addEventListener("click", function() {
-   cartsPage.style.right = "-100%";
-});
-
-//RESPONSIVE NAVBAR 
-const body = document.querySelector("body");
-const navBar = document.querySelector(".navbar");
-const menuBtn = document.querySelector(".menu-btn");
-const cancelBtn = document.querySelector(".cancel-btn");
-
-menuBtn.addEventListener("click", function() {
-    navBar.classList.add("show");
-    menuBtn.classList.add("hide");
-    body.classList.add("disabled");
-})
-
-cancelBtn.addEventListener("click", function() {
-    body.classList.remove("disabled");
-    navBar.classList.remove("show");
-    menuBtn.classList.remove("hide");
-})
-
-//SCROLL FUNCTION
-window.addEventListener("scroll", function() {
-    if(this.scrollY > 20) {
-        navBar.classList.add("sticky");
-    }else {
-        navBar.classList.remove("sticky");
-    }
-})
 
 //CONTACT FORM STYLING
 const loginText = document.querySelector(".title-text .login");
