@@ -12,6 +12,11 @@
     <title>bathRoom</title>
 </head>
 <body>
+    <!--Go up btn-->
+    <div class="btn-up">
+      <a href="#"><i class="fas fa-chevron-up"></i></a>
+    </div>
+
     <!--CARTS-->
     <div class="carts">
       <i class="exit fas fa-times"></i>
@@ -56,19 +61,20 @@
       <section class="filter-menu">
         <div>
             <select class="custom-select" id="sort">
-                <option value="asc" selected>Sort by price ascending</option>
-                <option value="desc">Sort by price descending</option>
+                <option value="asc" selected>Price ascending</option>
+                <option value="desc">Price descending</option>
             </select>
         </div>
         <div><input type="search" name="search" id="search" placeholder="Search by name"></div>
         <div>
-            <label class="dostupno" for="dostupno">Trenutno dostupne</label>
-            <input class="stanje" type="radio" name="dostupno" id="dostupno">
-            <label class="nedostupno" for="nedostupno">Trenutno nedostupne</label>
-            <input class="stanje" type="radio" name="nedostupne" id="nedostupne">
+          <select class="custom-select" id="sort">
+            <option value="avaAndNotAva" selected>All</option>
+            <option value="available">Currently available</option>
+            <option value="notAvailable">Currently not available</option>
+        </select>
         </div>
         <div>
-            <label for="uRadnji">U radnji</label>
+            <label for="uRadnji">In the shop</label>
             <input type="checkbox" name="uRadnji" id="uRadnji">
             <label for="online">Online</label>
             <input type="checkbox" name="online" id="online">

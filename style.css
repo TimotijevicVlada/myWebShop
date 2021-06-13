@@ -67,8 +67,28 @@ html {
   width: 300px;
 }
 
-
-
+/*BTN GO UP*/
+.btn-up {
+  /*display: none;*/
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  border: 2px solid gray;
+}
+.btn-up:hover {
+  border-color: black;
+}
+.btn-up i {
+  font-size: 2em;
+  padding: 7px;
+  color: gray;
+}
+.btn-up:hover i {
+  color: black;
+}
+.visible {
+  display: block;
+}
 
 /*NAVBAR*/
 .content {
@@ -102,8 +122,8 @@ html {
     font-weight: bold;
     text-decoration: none;
 }
-.navbar .logo span {
-    color: rgb(47, 148, 243);
+.navbar .logo a .white {
+  color: white;
 }
 .navbar .menu-list {
     display: flex; 
@@ -178,6 +198,19 @@ html {
 }
 .white {
   color: white;
+}
+.social-network i {
+  font-size: 2.5em;
+  color: black;
+}
+.social-network .fa-instagram-square:hover {
+  color: #E1306C;
+}
+.social-network .fa-facebook-square:hover {
+  color: #4267B2;
+}
+.social-network .fa-twitter-square:hover {
+  color: #1DA1F2;
 }
 
 /*MAIN SECTION*/
