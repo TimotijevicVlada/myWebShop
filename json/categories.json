@@ -1,0 +1,44 @@
+[
+    {
+        "class": "livingRoom",
+        "name": "Livingroom",
+        "href": "livingRoom.html",
+        "src": "images/pocetnaImg/livingroomImg.jpg",
+        "alt": "livingRoom"
+    },
+    {
+        "class": "bedRoom",
+        "name": "Bedroom",
+        "href": "bedRoom.html",
+        "src": "images/pocetnaImg/bedroomImg.jpg",
+        "alt": "bedRoom"
+    },
+    {
+        "class": "kitchen",
+        "name": "Kitchen",
+        "href": "kitchen.html",
+        "src": "images/pocetnaImg/kitchenImg.jpg",
+        "alt": "kitchen"
+    },
+    {
+        "class": "bathRoom",
+        "name": "Bathroom",
+        "href": "bathRoom.html",
+        "src": "images/pocetnaImg/bathroomImg.jpg",
+        "alt": "bathRoom"
+    },
+    {
+        "class": "garden",
+        "name": "Garden",
+        "href": "garden.html",
+        "src": "images/pocetnaImg/gardenImg.webp",
+        "alt": "garden"
+    },
+    {
+        "class": "workRoom",
+        "name": "Workroom",
+        "href": "workRoom.html",
+        "src": "images/pocetnaImg/workroomImg.jpg",
+        "alt": "workRoom"
+    }
+]

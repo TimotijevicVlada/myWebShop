@@ -1,0 +1,34 @@
+[
+    {
+        "src": "images/cards/master card.png",
+        "alt": "master card"
+    },
+    {
+        "src": "images/cards/maestro card.jpg",
+        "alt": "maestro card"
+    },
+    {
+        "src": "images/cards/visa card.png",
+        "alt": "visa card"
+    },
+    {
+        "src": "images/cards/banca-intesa-logo.jpg",
+        "alt": "banka intesa"
+    },
+    {
+        "src": "images/cards/verified by visa.png",
+        "alt": "by visa"
+    },
+    {
+        "src": "images/cards/mastercard secure code.png",
+        "alt": "mastercard secure code"
+    },
+    {
+        "src": "images/cards/american express.jpg",
+        "alt": "american express"
+    },
+    {
+        "src": "images/cards/dina card.png",
+        "alt": "dina card"
+    }
+]

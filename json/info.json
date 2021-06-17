@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "fas fa-truck",
+        "naslov": "Isporuke na teritoriji Srbije i regiona",
+        "tekst": "U roku od 2 do 5 dana"
+    },
+    {
+        "icon": "fas fa-euro-sign",
+        "naslov": "Vracamo novac",
+        "tekst": "U roku od 15 dana"
+    },
+    {
+        "icon": "fas fa-phone-alt",
+        "naslov": "Pozovite nas ili pisite na:",
+        "tekst": "+381 64 253 XXX"
+    },
+    {
+        "icon": "fas fa-question",
+        "naslov": "Pomoc i podrska",
+        "tekst": "Najcesca pitanja i odgovori"
+    }
+]
