@@ -52,10 +52,10 @@ fetch("json/navBar.json").then(function(response) {
         window.addEventListener("scroll", function() {
             if(this.scrollY > 20) {
                 navBar.classList.add("sticky");
-                navBar.classList.add(".navbar.sticky a .white");
+                navBar.classList.add(".navbar .sticky a .white");
             }else {
                 navBar.classList.remove("sticky");
-                navBar.classList.remove(".navbar.sticky a .white");
+                navBar.classList.remove(".navbar .sticky a .white");
             }
         })
         
@@ -75,6 +75,7 @@ const workroomContainer = document.getElementsByClassName("products-inner-workro
 
 //UNIVERSAL FUNCTION FOR PRODUCTS PRINTING
 function printProducts(object, container) {
+    sort(object);   //Zovemo zbog sortiranja 
     let html = "";
     for(let i in object) {
         html += `
@@ -90,9 +91,22 @@ function printProducts(object, container) {
             </div>
         `;
     }
-    
     container.innerHTML = html;
 }
+
+//FUNCTION FOR SORTING PRODUCTS BY PRICE
+//Moram da proverim zasto mi ne radi lisener change, ispisuje samo kada je ASC a kada je DESC onda nece!!!!!!!!!!!!!
+document.getElementById("sort").addEventListener("change", sort);   //Ovo mi ne radi iz nekog razloga (Da proverim)!
+
+function sort(data) {
+    const sortTip = document.getElementById("sort").value;
+    if(sortTip == "asc") {
+        return data.sort((a, b) => parseInt(a.price) > parseInt(b.price) ? 1 : -1); 
+    }else {
+        return data.sort((a, b) => parseInt(a.price) < parseInt(b.price) ? 1 : -1);
+    }
+}
+
 
 //FUNCTION FOR COUNTING STAR OF PRODUCT  (I NEED ONLY ONE CODE, JUST TO MAP OTHER FUNCTIONS)
 function printStars(brojZvezdica) {
