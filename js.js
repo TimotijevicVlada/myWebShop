@@ -1,3 +1,4 @@
+
 //FETCH NAVBAR 
 fetch("json/navBar.json").then(function(response) {
     //console.log(response)
@@ -65,6 +66,7 @@ fetch("json/navBar.json").then(function(response) {
 })
 
 
+
 //CONTAINER WHERE WILL BE DISPLAYED PRODUCTS
 const livingroomContainer = document.getElementsByClassName("products-inner-livingroom")[0];
 const bedroomContainer = document.getElementsByClassName("products-inner-bedroom")[0];
@@ -73,9 +75,22 @@ const kitchenContainer = document.getElementsByClassName("products-inner-kitchen
 const gardenContainer = document.getElementsByClassName("products-inner-garden")[0];
 const workroomContainer = document.getElementsByClassName("products-inner-workroom")[0];
 
-//UNIVERSAL FUNCTION FOR PRODUCTS PRINTING
-function printProducts(object, container) {
-    sort(object);   //Zovemo zbog sortiranja 
+//Calling function for fatching json
+fetchJson("json/livingRoom.json", livingroomContainer);
+fetchJson("json/bedRoom.json", bedroomContainer);
+fetchJson("json/kitchen.json", kitchenContainer);
+fetchJson("json/bathRoom.json", bathroomContainer);
+fetchJson("json/garden.json", gardenContainer);
+fetchJson("json/workRoom.json", workroomContainer);
+
+
+//Universal function for fetch Json
+function fetchJson(json, container) {
+    fetch(json).then(function(response) {
+        return response.json();
+    }).then(function(object) {
+    //object = sort(object);   //Da proverim zasto mi ne radi 
+    //object = pretraziKnjige(object);    //da proverim zasto mi ne radi
     let html = "";
     for(let i in object) {
         html += `
@@ -92,14 +107,20 @@ function printProducts(object, container) {
         `;
     }
     container.innerHTML = html;
+    
+    }).catch(function(error) {
+        console.log(error);
+    })
 }
+
+/*****************************************************************************************************************/
 
 //FUNCTION FOR SORTING PRODUCTS BY PRICE
 //Moram da proverim zasto mi ne radi lisener change, ispisuje samo kada je ASC a kada je DESC onda nece!!!!!!!!!!!!!
-document.getElementById("sort").addEventListener("change", sort);   //Ovo mi ne radi iz nekog razloga (Da proverim)!
-
+//document.getElementById("sort").addEventListener("change", printProducts());   //Ovo mi ne radi iz nekog razloga (Da proverim)!
+/*
 function sort(data) {
-    const sortTip = document.getElementById("sort").value;
+    let sortTip = document.getElementById("sort").value;
     if(sortTip == "asc") {
         return data.sort((a, b) => parseInt(a.price) > parseInt(b.price) ? 1 : -1); 
     }else {
@@ -108,6 +129,21 @@ function sort(data) {
 }
 
 
+//FUNKCIJA ZA PRETRAZIVANJE KNJIGA
+//document.getElementById("search").addEventListener("keyup", printProducts);
+
+function pretraziKnjige(data) {
+    let value = document.getElementById("search").value.toLowerCase();
+      //console.log(value);
+      if (value) {
+        return data.filter(function (el) {
+          return el.naslov.toLowerCase().indexOf(value) !== -1;
+        });
+      }
+      return data;
+    }
+*/
+/************************************************************************************************************/
 //FUNCTION FOR COUNTING STAR OF PRODUCT  (I NEED ONLY ONE CODE, JUST TO MAP OTHER FUNCTIONS)
 function printStars(brojZvezdica) {
     //console.log(brojZvezdica)
@@ -133,78 +169,6 @@ function printStars(brojZvezdica) {
         }
     return html;
 }
-
-//FETCH FROM LIVINGROOM JSON
-fetch("json/livingRoom.json").then(function(response) {
-    //console.log(response);
-    return response.json();
-}).then(function(object) {
-    //console.log(object);
-    printProducts(object, livingroomContainer);   //I am calling the function to display products
-
-}).catch(function(error) {
-    console.log(error);
-})
-
-//FETCH FROM BEDROOM JSON
-fetch("json/bedRoom.json").then(function(response) {
-    //console.log(response);
-    return response.json();
-}).then(function(object) {
-    //console.log(object);
-    printProducts(object, bedroomContainer);
-
-}).catch(function(error) {
-    console.log(error);
-})
-
-//FETCH FROM BATHROOM JSON
-fetch("json/bathRoom.json").then(function(response) {
-    //console.log(response);
-    return response.json();
-}).then(function(object) {
-    //console.log(object);
-    printProducts(object, bathroomContainer);
-
-}).catch(function(error) {
-    console.log(error);
-})
-
-//FETCH FROM KITCHEN JSON
-fetch("json/kitchen.json").then(function(response) {
-    //console.log(response);
-    return response.json();
-}).then(function(object) {
-    //console.log(object);
-    printProducts(object, kitchenContainer);
-
-}).catch(function(error) {
-    console.log(error);
-})
-
-//FETCH FROM GARDEN JSON
-fetch("json/garden.json").then(function(response) {
-    //console.log(response);
-    return response.json();
-}).then(function(object) {
-    //console.log(object);
-    printProducts(object, gardenContainer);
-
-}).catch(function(error) {
-    console.log(error);
-})
-
-//fETCH FROM WORKROOM JSON
-fetch("json/workRoom.json").then(function(response) {
-    //console.log(response);
-    return response.json();
-}).then(function(object) {
-    //console.log(object);
-    printProducts(object, workroomContainer);
-
-}).catch(function(error) {
-    console.log(error);
-})
 
 //FETCH CATEGORIES
 fetch("json/categories.json").then(function(response) {
@@ -426,5 +390,4 @@ document.getElementById("signupBtn").addEventListener("click", function(e) {
         passConfirmTrue.style.display = "none";
     }
 })
-
 
