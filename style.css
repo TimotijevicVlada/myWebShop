@@ -103,7 +103,7 @@ html {
     padding: 25px 0px;
     transition: all 0.3s ease;
 }
-.navbar.sticky {     /*Ova klasa ce da bude dodata naknadno preko JS*/
+.sticky {     /*Ova klasa ce da bude dodata naknadno preko JS*/
     background-color: black;
     padding: 10px 0px;
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
@@ -122,7 +122,7 @@ html {
     font-weight: bold;
     text-decoration: none;
 }
-.navbar .logo a .white {
+.white {       /*Dodajemo preko JS*/
   color: white;
 }
 .navbar .menu-list {
@@ -195,9 +195,6 @@ html {
 }
 .fa-shopping-bag {
   font-size: 25px;
-}
-.white {
-  color: white;
 }
 
 /*MAIN SECTION*/

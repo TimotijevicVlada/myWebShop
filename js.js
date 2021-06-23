@@ -1,5 +1,5 @@
 
-//FETCH NAVBAR 
+//Fetch-ovanje navBar-a 
 fetch("json/navBar.json").then(function(response) {
     //console.log(response)
     return response.json();
@@ -19,7 +19,7 @@ fetch("json/navBar.json").then(function(response) {
         }
         div.innerHTML = html;
    
-        //CARTS FUNCTION  
+        //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];
         const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
         const cartsExit = document.getElementsByClassName("exit")[0];
@@ -31,11 +31,12 @@ fetch("json/navBar.json").then(function(response) {
         cartsPage.style.right = "-100%";
         });
 
-        //RESPONSIVE NAVBAR 
+        //Funkcija za responzivan navBar
         const body = document.querySelector("body");
         const navBar = document.querySelector(".navbar");
         const menuBtn = document.querySelector(".menu-btn");
         const cancelBtn = document.querySelector(".cancel-btn");
+        const navBarWords = document.querySelector(".menu-word");
 
         menuBtn.addEventListener("click", function() {
             navBar.classList.add("show");
@@ -49,25 +50,22 @@ fetch("json/navBar.json").then(function(response) {
             menuBtn.classList.remove("hide");
         })
 
-        //SCROLL FUNCTION
+        //Scroll funkcija za navBar
         window.addEventListener("scroll", function() {
             if(this.scrollY > 20) {
                 navBar.classList.add("sticky");
-                navBar.classList.add(".navbar .sticky a .white");
+                navBarWords.classList.add("white");
             }else {
                 navBar.classList.remove("sticky");
-                navBar.classList.remove(".navbar .sticky a .white");
+                navBarWords.classList.remove("white");
             }
         })
-        
 
     }).catch(function(error) {
     console.log(error);
 })
 
-
-
-//CONTAINER WHERE WILL BE DISPLAYED PRODUCTS
+//Kontejneri gde ce biti ispisani proivodi na svojim stranicama
 const livingroomContainer = document.getElementsByClassName("products-inner-livingroom")[0];
 const bedroomContainer = document.getElementsByClassName("products-inner-bedroom")[0];
 const bathroomContainer = document.getElementsByClassName("products-inner-bathroom")[0];
@@ -75,22 +73,33 @@ const kitchenContainer = document.getElementsByClassName("products-inner-kitchen
 const gardenContainer = document.getElementsByClassName("products-inner-garden")[0];
 const workroomContainer = document.getElementsByClassName("products-inner-workroom")[0];
 
-//Calling function for fatching json
-fetchJson("json/livingRoom.json", livingroomContainer);
-fetchJson("json/bedRoom.json", bedroomContainer);
-fetchJson("json/kitchen.json", kitchenContainer);
-fetchJson("json/bathRoom.json", bathroomContainer);
-fetchJson("json/garden.json", gardenContainer);
-fetchJson("json/workRoom.json", workroomContainer);
+//Ako postoji ovaj kontejner onda fetch-uj proizvode
+if(livingroomContainer){
+    fetchJson("json/livingRoom.json", livingroomContainer);
+}
+if(bedroomContainer) {
+    fetchJson("json/bedRoom.json", bedroomContainer);
+}
+if(bathroomContainer) {
+   fetchJson("json/bathRoom.json", bathroomContainer); 
+}
+if(kitchenContainer) {
+   fetchJson("json/kitchen.json", kitchenContainer); 
+}
+if(gardenContainer) {
+   fetchJson("json/garden.json", gardenContainer); 
+}
+if(workroomContainer) {
+   fetchJson("json/workRoom.json", workroomContainer); 
+}
 
-
-//Universal function for fetch Json
+//Univerzalna funkcija za fetch-ovanje Json-a
 function fetchJson(json, container) {
     fetch(json).then(function(response) {
         return response.json();
     }).then(function(object) {
-    //object = sort(object);   //Da proverim zasto mi ne radi 
-    //object = pretraziKnjige(object);    //da proverim zasto mi ne radi
+    object = sort(object);   //Object pretvaram u sortirani objekat 
+    object = pretraziKnjige(object);    //Objekat pretvaram u novi objekat
     let html = "";
     for(let i in object) {
         html += `
@@ -113,14 +122,10 @@ function fetchJson(json, container) {
     })
 }
 
-/*****************************************************************************************************************/
-
-//FUNCTION FOR SORTING PRODUCTS BY PRICE
-//Moram da proverim zasto mi ne radi lisener change, ispisuje samo kada je ASC a kada je DESC onda nece!!!!!!!!!!!!!
-//document.getElementById("sort").addEventListener("change", printProducts());   //Ovo mi ne radi iz nekog razloga (Da proverim)!
-/*
+//Funkcija za sortiranje proizvoda
 function sort(data) {
     let sortTip = document.getElementById("sort").value;
+    //console.log(sortTip)
     if(sortTip == "asc") {
         return data.sort((a, b) => parseInt(a.price) > parseInt(b.price) ? 1 : -1); 
     }else {
@@ -128,23 +133,19 @@ function sort(data) {
     }
 }
 
-
-//FUNKCIJA ZA PRETRAZIVANJE KNJIGA
-//document.getElementById("search").addEventListener("keyup", printProducts);
-
+//Funkcija za pretragu proizvoda po naslovu
 function pretraziKnjige(data) {
     let value = document.getElementById("search").value.toLowerCase();
       //console.log(value);
       if (value) {
         return data.filter(function (el) {
-          return el.naslov.toLowerCase().indexOf(value) !== -1;
+          return el.name.toLowerCase().indexOf(value) !== -1;
         });
       }
       return data;
     }
-*/
-/************************************************************************************************************/
-//FUNCTION FOR COUNTING STAR OF PRODUCT  (I NEED ONLY ONE CODE, JUST TO MAP OTHER FUNCTIONS)
+
+//Funkcija za ispisivanje broja zvezdica na proizvodima
 function printStars(brojZvezdica) {
     //console.log(brojZvezdica)
     let html = "";
@@ -170,7 +171,7 @@ function printStars(brojZvezdica) {
     return html;
 }
 
-//FETCH CATEGORIES
+//Fetch-ovanje kategorija na pocetnoj strani
 fetch("json/categories.json").then(function(response) {
     return response.json();
 }).then(function(data) {
@@ -192,7 +193,7 @@ fetch("json/categories.json").then(function(response) {
     console.log(error);
 })
 
-//FETCH SOCIAL NETWORK ICONS
+//Fetch-ovanje ikonica za drustvene mreze
 fetch("json/socialNetwork.json").then(function(response) {
     return response.json();
 }).then(function(data) {
@@ -209,7 +210,7 @@ fetch("json/socialNetwork.json").then(function(response) {
     console.log(error);
 })
 
-//FETCH BANK-CARDS FOR FOOTER
+//Fetchovanje kartica banaka za futer
 fetch("json/bankCard.json").then(function(response) {
     return response.json();
 }).then(function(data) {
@@ -226,7 +227,7 @@ fetch("json/bankCard.json").then(function(response) {
     console.log(error);
 })
 
-//FETCH INFO 
+//Fetchovanje info bar-a na dnu stranice 
 fetch("json/info.json").then(function(response) {
     return response.json();
 }).then(function(data) {
@@ -247,147 +248,29 @@ fetch("json/info.json").then(function(response) {
     console.log(error);
 })
 
-//CONTACT FORM STYLING
-const loginText = document.querySelector(".title-text .login");
-const loginForm = document.querySelector("form.login");
-const loginBtn = document.querySelector("label.login");
-const signupBtn = document.querySelector("label.signup");
-const signupLink = document.querySelector("form .signup-link a");
+//Lisener za sortiranje proizvoda
+const sortSelect = document.querySelector("#sort");
+//console.log("sortSelect", sortSelect);
 
-signupBtn.addEventListener("click", function() {
-    loginForm.style.marginLeft = "-50%";
-    loginText.style.marginLeft = "-50%";
-})
-loginBtn.addEventListener("click", function() {
-    loginForm.style.marginLeft = "0%";
-    loginText.style.marginLeft = "0%";
-})
-signupLink.addEventListener("click", function() {
-    signupBtn.click();
-    return false;
-})
+sortSelect.addEventListener("change", function() {
+    fetchJson("json/livingRoom.json", livingroomContainer);
+    fetchJson("json/bedRoom.json", bedroomContainer);
+    fetchJson("json/bathRoom.json", bathroomContainer);
+    fetchJson("json/kitchen.json", kitchenContainer);
+    fetchJson("json/garden.json", gardenContainer);
+    fetchJson("json/workRoom.json", workroomContainer);
+});
 
-//CONTACT FORM REGEX 
-    //LISTENER FOR LOGIN BTN 
-    document.getElementById("loginBtn").addEventListener("click", function(e) {
-    e.preventDefault();  //Da ponistimo default funkciju dugmeta submit
+//Lisener za pretragu proizvoda po nazivu naslova
+const searchInput = document.querySelector("#search");
+//console.log("Search input", searchInput);
 
-    let name = document.getElementById("nameInput");
-    let email = document.getElementById("emailInput");
-    let pass = document.getElementById("passInput");
-
-    let nameRegex = /^[A-Z][a-z]{2,}/;
-    let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-
-    let nameTest = nameRegex.test(name.value);   
-    let emailTest = emailRegex.test(email.value);
-    let passTest = passRegex.test(pass.value);
-
-    let nameTrue = document.getElementById("nameTrue");  
-    let nameFalse = document.getElementById("nameFalse");
-    let emailTrue = document.getElementById("emailTrue");
-    let emailFalse = document.getElementById("emailFalse");
-    let passTrue = document.getElementById("passTrue");
-    let passFalse = document.getElementById("passFalse");
-
-    if(nameTest) {
-        nameTrue.style.display = "block";
-        name.style.borderColor = "green";
-        nameFalse.style.display = "none";
-    }else {
-        nameFalse.style.display = "block";
-        name.style.borderColor = "red";
-        nameTrue.style.display = "none";
-    }
-
-    if(emailTest) {
-        emailTrue.style.display = "block";
-        email.style.borderColor = "green";
-        emailFalse.style.display = "none";
-    }else {
-        emailFalse.style.display = "block";
-        email.style.borderColor = "red";
-        emailTrue.style.display = "none";
-    }
-
-    if(passTest) {
-        passTrue.style.display = "block";
-        pass.style.borderColor = "green";
-        passFalse.style.display = "none";
-    }else {
-        passFalse.style.display = "block";
-        pass.style.borderColor = "red";
-        passTrue.style.display = "none";
-    }
-})
-
-//LISTENER FOR SIGN-UP BTN 
-document.getElementById("signupBtn").addEventListener("click", function(e) {
-    e.preventDefault();
-
-    let name = document.getElementById("nameInputSignup");
-    let email = document.getElementById("emailInputSignup");
-    let pass = document.getElementById("passInputSignup");
-    let passConfirm = document.getElementById("passConfirmInputSignup");
-
-    let nameRegex = /^[A-Z][a-z]{2,}/;
-    let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-    let passConfirmRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-
-    let nameTest = nameRegex.test(name.value);
-    let emailTest = emailRegex.test(email.value);
-    let passTest = passRegex.test(pass.value);
-    let passConfirmTest = passConfirmRegex.test(passConfirm.value);
-
-    let nameTrue = document.getElementById("nameTrueSignup");  
-    let nameFalse = document.getElementById("nameFalseSignup");
-    let emailTrue = document.getElementById("emailTrueSignup");
-    let emailFalse = document.getElementById("emailFalseSignup");
-    let passTrue = document.getElementById("passTrueSignup");
-    let passFalse = document.getElementById("passFalseSignup");
-    let passConfirmTrue = document.getElementById("passConfirmTrueSignup");
-    let passConfirmFalse = document.getElementById("passConfirmFalseSignup");
-
-    if(nameTest) {
-        nameTrue.style.display = "block";
-        name.style.borderColor = "green";
-        nameFalse.style.display = "none";
-    }else {
-        nameFalse.style.display = "block";
-        name.style.borderColor = "red";
-        nameTrue.style.display = "none";
-    }
-
-    if(emailTest) {
-        emailTrue.style.display = "block";
-        email.style.borderColor = "green";
-        emailFalse.style.display = "none";
-    }else {
-        emailFalse.style.display = "block";
-        email.style.borderColor = "red";
-        emailTrue.style.display = "none";
-    }
-
-    if(passTest) {
-        passTrue.style.display = "block";
-        pass.style.borderColor = "green";
-        passFalse.style.display = "none";
-    }else {
-        passFalse.style.display = "block";
-        pass.style.borderColor = "red";
-        passTrue.style.display = "none";
-    }
-
-    if(passConfirmTest) {
-        passConfirmTrue.style.display = "block";
-        passConfirm.style.borderColor = "green";
-        passConfirmFalse.style.display = "none";
-    }else {
-        passConfirmFalse.style.display = "block";
-        passConfirm.style.borderColor = "red";
-        passConfirmTrue.style.display = "none";
-    }
+searchInput.addEventListener("keyup" , function() {
+    fetchJson("json/livingRoom.json", livingroomContainer);
+    fetchJson("json/bedRoom.json", bedroomContainer);
+    fetchJson("json/bathRoom.json", bathroomContainer);
+    fetchJson("json/kitchen.json", kitchenContainer);
+    fetchJson("json/garden.json", gardenContainer);
+    fetchJson("json/workRoom.json", workroomContainer);
 })
 
