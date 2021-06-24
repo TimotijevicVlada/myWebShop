@@ -98,9 +98,10 @@ function fetchJson(json, container) {
     fetch(json).then(function(response) {
         return response.json();
     }).then(function(object) {
-    object = filterStanje(object);
+    object = filterInStoreOnline(object);   //Objekat pretvaram u filtrirani objekat
+    object = filterStanje(object);    //Objekat pretvaram u filtrirani objekat 
     object = sort(object);   //Object pretvaram u sortirani objekat 
-    object = searchProducts(object);    //Objekat pretvaram u novi objekat
+    object = searchProducts(object);    //Objekat pretvaram u novi sortiran objekat
     let html = "";
     for(let i in object) {
         html += `
@@ -109,9 +110,10 @@ function fetchJson(json, container) {
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
-                <p>Materijal: ${object[i].material}</p>
-                <p>Garancija: ${object[i].guaranty}</p>
-                <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
+                <p>Materijal: <span class="boldovano">${object[i].material}</span></p>
+                <p>Garancija: <span class="boldovano">${object[i].guaranty}</span></p>
+                <p>Dostupno: <span class="boldovano">${object[i].dostupno}</span></p>
+                <p>Cena: <span class="boldovano boldovanaCena">${object[i].price}<sup>${object[i].currency}</sup></span></p>
                 <div class="btn btn-purchase">${object[i].btn}</div>
             </div>
         `;
@@ -157,6 +159,20 @@ function filterStanje(data) {
     }
     if(elem == "avaAndNotAva") {
         return data.filter((x) => x.naStanju + !x.naStanju)
+    }
+    return data;
+  }
+
+//Funkcija za filtriranje InStore or Online
+function filterInStoreOnline(data) {
+    let niz = [];
+    const chek = document.querySelectorAll(".InStore-Online:checked");
+    //console.log(chek)
+    chek.forEach((element) => {
+      niz.push(element.value);
+    });
+    if (niz.length > 0) {
+      return data.filter((x) => niz.includes(x.dostupno));
     }
     return data;
   }
@@ -264,40 +280,26 @@ fetch("json/info.json").then(function(response) {
     console.log(error);
 })
 
-//Lisener za sortiranje proizvoda
+//Liseneri za sortiranje i filtriranje proizvoda
 const sortSelect = document.querySelector("#sort");
-//console.log("sortSelect", sortSelect);
-
-sortSelect.addEventListener("change", function() {
-    fetchJson("json/livingRoom.json", livingroomContainer);
-    fetchJson("json/bedRoom.json", bedroomContainer);
-    fetchJson("json/bathRoom.json", bathroomContainer);
-    fetchJson("json/kitchen.json", kitchenContainer);
-    fetchJson("json/garden.json", gardenContainer);
-    fetchJson("json/workRoom.json", workroomContainer);
-});
-
-//Lisener za pretragu proizvoda po nazivu naslova
 const searchInput = document.querySelector("#search");
-//console.log("Search input", searchInput);
-
-searchInput.addEventListener("keyup" , function() {
-    fetchJson("json/livingRoom.json", livingroomContainer);
-    fetchJson("json/bedRoom.json", bedroomContainer);
-    fetchJson("json/bathRoom.json", bathroomContainer);
-    fetchJson("json/kitchen.json", kitchenContainer);
-    fetchJson("json/garden.json", gardenContainer);
-    fetchJson("json/workRoom.json", workroomContainer);
-})
-
 const sortAvailable = document.querySelector("#stanje");
-//console.log(sortAvailable)
+const filterDostupno = document.querySelector("#uRadnji-Online");
 
-sortAvailable.addEventListener("change" , function() {
-    fetchJson("json/livingRoom.json", livingroomContainer);
-    fetchJson("json/bedRoom.json", bedroomContainer);
-    fetchJson("json/bathRoom.json", bathroomContainer);
-    fetchJson("json/kitchen.json", kitchenContainer);
-    fetchJson("json/garden.json", gardenContainer);
-    fetchJson("json/workRoom.json", workroomContainer);
-})
+//Ponovno ispisivanje proizvoda prilikom svake aktivacije lisenera
+function liseneri(lisenerName, eventName) {
+    lisenerName.addEventListener(eventName, function() {
+        fetchJson("json/livingRoom.json", livingroomContainer);
+        fetchJson("json/bedRoom.json", bedroomContainer);
+        fetchJson("json/bathRoom.json", bathroomContainer);
+        fetchJson("json/kitchen.json", kitchenContainer);
+        fetchJson("json/garden.json", gardenContainer);
+        fetchJson("json/workRoom.json", workroomContainer);
+    })
+}
+
+//Egzekucija funkcija lisenera 
+liseneri(sortSelect, "change");
+liseneri(searchInput, "keyup");
+liseneri(sortAvailable, "change");
+liseneri(filterDostupno, "change");
