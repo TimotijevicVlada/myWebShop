@@ -98,8 +98,9 @@ function fetchJson(json, container) {
     fetch(json).then(function(response) {
         return response.json();
     }).then(function(object) {
+    object = filterStanje(object);
     object = sort(object);   //Object pretvaram u sortirani objekat 
-    object = pretraziKnjige(object);    //Objekat pretvaram u novi objekat
+    object = searchProducts(object);    //Objekat pretvaram u novi objekat
     let html = "";
     for(let i in object) {
         html += `
@@ -107,7 +108,7 @@ function fetchJson(json, container) {
                 <h3>${object[i].name}</h3>
                 <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
-                <p>${object[i].description}</p>
+                <p>${object[i].naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
                 <p>Materijal: ${object[i].material}</p>
                 <p>Garancija: ${object[i].guaranty}</p>
                 <p>Cena: ${object[i].price}<sup>${object[i].currency}</sup></p>
@@ -134,7 +135,7 @@ function sort(data) {
 }
 
 //Funkcija za pretragu proizvoda po naslovu
-function pretraziKnjige(data) {
+function searchProducts(data) {
     let value = document.getElementById("search").value.toLowerCase();
       //console.log(value);
       if (value) {
@@ -144,6 +145,21 @@ function pretraziKnjige(data) {
       }
       return data;
     }
+
+//Funkcija za filtriranje da li je na stanju
+function filterStanje(data) {
+    const elem = document.querySelector("#stanje").value;
+    if (elem == "available") {
+      return data.filter((x) => x.naStanju);
+    }
+    if (elem == "notAvailable") {
+      return data.filter((x) => !x.naStanju);
+    }
+    if(elem == "avaAndNotAva") {
+        return data.filter((x) => x.naStanju + !x.naStanju)
+    }
+    return data;
+  }
 
 //Funkcija za ispisivanje broja zvezdica na proizvodima
 function printStars(brojZvezdica) {
@@ -274,3 +290,14 @@ searchInput.addEventListener("keyup" , function() {
     fetchJson("json/workRoom.json", workroomContainer);
 })
 
+const sortAvailable = document.querySelector("#stanje");
+//console.log(sortAvailable)
+
+sortAvailable.addEventListener("change" , function() {
+    fetchJson("json/livingRoom.json", livingroomContainer);
+    fetchJson("json/bedRoom.json", bedroomContainer);
+    fetchJson("json/bathRoom.json", bathroomContainer);
+    fetchJson("json/kitchen.json", kitchenContainer);
+    fetchJson("json/garden.json", gardenContainer);
+    fetchJson("json/workRoom.json", workroomContainer);
+})
