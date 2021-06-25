@@ -24,10 +24,12 @@ fetch("json/navBar.json").then(function(response) {
         const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
         const cartsExit = document.getElementsByClassName("exit")[0];
 
-        cartsIcon.addEventListener("click", function() {
+        cartsIcon.addEventListener("click", function(e) {
+        e.preventDefault();
         cartsPage.style.right = "0%";
         });
-        cartsExit.addEventListener("click", function() {
+        cartsExit.addEventListener("click", function(e) {
+        e.preventDefault();
         cartsPage.style.right = "-100%";
         });
 
@@ -65,7 +67,7 @@ fetch("json/navBar.json").then(function(response) {
     console.log(error);
 })
 
-//Kontejneri gde ce biti ispisani proivodi na svojim stranicama
+//Kontejneri gde ce biti ispisani proizvodi na svojim stranicama
 const livingroomContainer = document.getElementsByClassName("products-inner-livingroom")[0];
 const bedroomContainer = document.getElementsByClassName("products-inner-bedroom")[0];
 const bathroomContainer = document.getElementsByClassName("products-inner-bathroom")[0];
@@ -106,14 +108,14 @@ function fetchJson(json, container) {
     for(let i in object) {
         html += `
             <div class="shopping-card">
-                <h3>${object[i].name}</h3>
-                <img class="${object[i].imageSize}" src="${object[i].image}" alt="">
+                <h3 class="shopping-card-title">${object[i].name}</h3>
+                <img class="shopping-card-img ${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
                 <p>Materijal: <span class="boldovano">${object[i].material}</span></p>
                 <p>Garancija: <span class="boldovano">${object[i].guaranty}</span></p>
                 <p>Dostupno: <span class="boldovano">${object[i].dostupno}</span></p>
-                <p>Cena: <span class="boldovano boldovanaCena">${object[i].price}<sup>${object[i].currency}</sup></span></p>
+                <p class="shopping-card-price">Cena: <span class="boldovano boldovanaCena">${object[i].price}<sup>${object[i].currency}</sup></span></p>
                 <div class="btn btn-purchase">${object[i].btn}</div>
             </div>
         `;
@@ -303,3 +305,106 @@ liseneri(sortSelect, "change");
 liseneri(searchInput, "keyup");
 liseneri(sortAvailable, "change");
 liseneri(filterDostupno, "change");
+
+/************************************************************************/
+
+//Pravimo ispis za dodavanje u korpu
+if(document.readyState == "loading") {
+//Sa ovime izbegavamo situaciju da nam pucaju liseneri a nije nam ucitan DOM
+    document.addEventListener("DOMContentLoaded", ucitavanje);
+}else {
+    ucitavanje();  //inicijalizacija
+}
+
+//Stavljamo lisenere na "Add-to-cart" dugmice
+function ucitavanje() {
+let addToCartBtn = document.getElementsByClassName("btn-purchase");
+for(let i = 0; i < addToCartBtn.length; i++) {
+    addToCartBtn[i].addEventListener("click", dodajProizvod);
+}
+document.getElementsByClassName("order-btn")[0].addEventListener("click", naruci);
+}
+
+//Funkcija za naruci btn
+function naruci() {
+    let kupi = document.getElementsByClassName("carts-items")[0];
+    if(kupi.hasChildNodes()) {
+        document.getElementsByClassName("order-btn")[0].addEventListener("click", (window.location = "form.html"));
+    }else {
+        alert("Niste odabrali artikle!");
+    }
+
+    while(kupi.hasChildNodes()) {
+        kupi.removeChild(kupi.firstChild);
+    }
+    azurirajCenu();
+}
+
+//Funkcija za uzimanje izabranog proizvoda
+function dodajProizvod(button) {
+    let dugme = button.target;  //Gadjamo bas taj element koji dodje u funkciju
+    let shopItem = dugme.parentElement;
+    let naslov = shopItem.getElementsByClassName("shopping-card-title")[0].innerText;
+    let cena = shopItem.getElementsByClassName("shopping-card-price")[0].innerText;
+    let slika = shopItem.getElementsByClassName("shopping-card-img")[0].src;
+    dodajUKorpu(naslov, cena, slika);
+    azurirajCenu();
+}
+
+//Funkcija za dodavanje proizvoda u korpu
+function dodajUKorpu(naslov, cena, slika) {
+    let cartRow = document.createElement("div");  //red u koji treba da smestimo proizvode
+    cartRow.classList.add("cart-row"); //da napravim ovu klasu naknadno
+    let cartItems = document.querySelector(".carts-items"); //div u koji smestamo proizvod
+    let naslovProvera = cartItems.getElementsByClassName("shopping-card-title");
+    for(let i = 0; i < naslovProvera.length; i++) {
+        if(naslovProvera[i].innerText == naslov) {
+            alert("Ovaj proizvod se vec nalazi u korpi!");
+            return;
+        }
+    }
+    let html = `<div class='cart-item cart-column' >     
+                    <img class='cart-item-image' src="${slika}">
+                    <span class="cart-item-title">${naslov}</span>
+                </div>
+                <span class="cart-price cart-column">${cena}</span>
+                <div class="cart-quantity  cart-column">
+                    <input type="number" class="cart-quantity-input" value="1" max="10">
+                    <button class="btn btn-remove" type="button"><i class="fas fa-trash"></i></button>
+                </div>                 
+            `;
+    cartRow.innerHTML = html;
+    cartItems.append(cartRow);
+    cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click", deleteItem);
+    cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", promeniKolicinu);
+}
+
+//Funkcija za brisanje artikla iz korpe 
+function deleteItem(item) {
+    let dugme = item.target;
+    dugme.parentElement.parentElement.parentElement.remove();
+    azurirajCenu();
+}
+
+//Funkcija za azuriranje cene prilikom dodavanja artikala
+function azurirajCenu() {
+    let cartItems = document.querySelector(".carts-items");
+    let cartRows = cartItems.getElementsByClassName("cart-row");
+    let suma = 0;  //Treba nam brojac kako bi sabrali cenu
+    for(let i = 0; i < cartRows.length; i++) {
+        let cenaE = cartRows[i].querySelector(".cart-price").innerText;
+        let kolicina = cartRows[i].querySelector(".cart-quantity-input").value;
+        let cena = parseFloat(cenaE);
+        suma = suma + cena * kolicina;
+    }
+    document.getElementsByClassName("carts-total-price")[0].innerText = suma.toFixed(2);
+}
+
+//Funkcija za promenu kolicine istog proizvoda
+function promeniKolicinu(item) {
+    let input = item.target.value;
+    if(isNaN(input) || input <= 0) {
+        input = 1;
+    }
+    azurirajCenu();
+}

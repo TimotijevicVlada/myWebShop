@@ -66,6 +66,23 @@ html {
 .shopping-carts-img img {
   width: 300px;
 }
+.order-products {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 100px;
+}
+.order-btn {
+  font-size: 1.3em;
+  padding: 8px 12px;
+  border: none;
+  background-color: black;
+  color: white;
+}
+.order-btn:hover {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
 
 /*BTN GO UP*/
 .btn-up {
