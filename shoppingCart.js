@@ -1,19 +1,20 @@
+
 if (document.readyState == "loading") {
     //Sa ovime izbegavamo situaciju da nam pucaju liseneri a nije nam ucitan DOM
-    document.addEventListener("DOMContentLoaded", ucitavanje);
+    document.addEventListener("DOMContentLoaded", loading)
   } else {
-    ucitavanje(); //Inicijalizacija
+    loading(); //Inicijalizacija
   }
 
-  function ucitavanje() {
-    let dodajDugmici = document.getElementsByClassName("shop-item-button");
+  function loading() {
+    let addButton = document.getElementsByClassName("shop-item-button");
     //console.log(dodajDugmici)
-    for (let i = 0; i < dodajDugmici.length; i++) {
-    dodajDugmici[i].addEventListener("click", dodajArtikal);  //Da proverim zasto mi ovaj lisener ne reaguje nekada 
+    for (let i = 0; i < addButton.length; i++) {
+    addButton[i].addEventListener("click", addItem);  //Da proverim zasto mi ovaj lisener ne reaguje nekada 
     }
-    document.getElementsByClassName("order-btn")[0].addEventListener("click", naruci);  //I ovaj lisener nije u redu
+    //document.getElementsByClassName("order-btn")[0].addEventListener("click", naruci);  //I ovaj lisener nije u redu
   }
-  
+  /*
   function naruci() {
     let kupi = document.getElementsByClassName("cart-items")[0];
     if (kupi.hasChildNodes()) {
@@ -27,22 +28,21 @@ if (document.readyState == "loading") {
       //Ako ovaj div ima childove...
       cartItems.removeChild(cartItems.firstChild);
     }
-    azurirajCenu();
-  }
+    updatePrice();
+  }*/
   
-  function dodajArtikal(event) {
+  function addItem(event) {
     //Funkcija za dodavanje artikala u korpu
     let dugme = event.target; //Target isto kao opcija "this" samo sto sa target gadjamo bas taj element a sa this roditeljski
     let shopItem = dugme.parentElement;
     let naslov = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
     let cena = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
     let slika = shopItem.getElementsByClassName("shop-item-image")[0].src;
-    dodajUKorpu(naslov, cena, slika); //Ove parametre treba da prosledimo u korpu
-    azurirajCenu();
+    addToCart(naslov, cena, slika); //Ove parametre treba da prosledimo u korpu
+    updatePrice();
   }
   
-  function dodajUKorpu(naslov, cena, slika) {
-    //Opet navodimo parametre koje prosledjujemo u korpu
+  function addToCart(naslov, cena, slika) {
     let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
     cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
     let cartItems = document.querySelector(".cart-items"); //Dohvatamo cartItems
@@ -67,17 +67,18 @@ if (document.readyState == "loading") {
               `;
     cartRow.innerHTML = ispis;
     cartItems.append(cartRow);
-    cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click", obrisiArtikal);
-    cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", promeniKolicinu);
+    cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click", deleteItem);
+    cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", changeQuantity);
   }
   
-  function obrisiArtikal(event) {
+  function deleteItem(event) {
     let dugme = event.target;
     dugme.parentElement.parentElement.parentElement.remove(); //Brisemo ceo red tako da moramo da se vratimo 3 koraka u nazad
-    azurirajCenu();
+    updatePrice();
   }
   
-  function azurirajCenu() {
+  function updatePrice() {
+    let totalCount = document.getElementsByClassName("brojac-proizvoda")[0];  //Brojac proizvoda na korpi
     let cartItems = document.querySelector(".cart-items");
     let cartRows = cartItems.getElementsByClassName("cart-row");
     let suma = 0; //Treba nam brojac kako bi sabirali cenu
@@ -87,18 +88,18 @@ if (document.readyState == "loading") {
       let cena = parseFloat(cenaE); //Posto je RSD zalepljeno za cenu moramo da izbrisemo kako bi mogli da radimo racunske operacije
       suma = suma + cena * kolicina; //Funkcija za sabiranje cene i kolicine proizvoda
     }
-    document.getElementsByClassName("cart-total-price")[0].innerText =
-      suma.toFixed(2); //Renderujemo RSD + dobijena suma
+    totalCount.innerText = cartRows.length;   //Broj proizvoda je broj cartRows elemenata
+    document.getElementsByClassName("cart-total-price")[0].innerText = suma.toFixed(2); //dobijena suma
   }
   
-  function promeniKolicinu(event) {
+  function changeQuantity(event) {
     let input = event.target; //Razlika izmedju target i this je ta sto sa this gadjamo roditeljski element
     if (isNaN(input.value) || input.value <= 0) {
       //a sa targetom bas taj element koji je u dogadjaju!
       input.value = 1; //Naravno sve ovo moze da se resi i sa this opcijom
     }
-    azurirajCenu();
+    updatePrice();
   }
 
-  
+ 
   
