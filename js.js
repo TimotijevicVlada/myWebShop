@@ -107,16 +107,16 @@ function fetchJson(json, container) {
     let html = "";
     for(let i in object) {
         html += `
-            <div class="shopping-card">
-                <h3 class="shopping-card-title">${object[i].name}</h3>
-                <img class="shopping-card-img ${object[i].imageSize}" src="${object[i].image}" alt="">
+            <div class="shopping-card shop-item">
+                <h3 class="shop-item-title">${object[i].name}</h3>
+                <img class="shop-item-image ${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
                 <p>${object[i].naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
                 <p>Materijal: <span class="boldovano">${object[i].material}</span></p>
                 <p>Garancija: <span class="boldovano">${object[i].guaranty}</span></p>
                 <p>Dostupno: <span class="boldovano">${object[i].dostupno}</span></p>
-                <p class="shopping-card-price">Cena: <span class="boldovano boldovanaCena">${object[i].price}<sup>${object[i].currency}</sup></span></p>
-                <div class="btn btn-purchase">${object[i].btn}</div>
+                <p>Cena: <span class="boldovano boldovanaCena shop-item-price">${object[i].price}<sup>${object[i].currency}</sup></span></p>
+                <div class="btn btn-purchase shop-item-button">${object[i].btn}</div>
             </div>
         `;
     }
@@ -307,7 +307,7 @@ liseneri(sortAvailable, "change");
 liseneri(filterDostupno, "change");
 
 /************************************************************************/
-
+/*
 //Pravimo ispis za dodavanje u korpu
 if(document.readyState == "loading") {
 //Sa ovime izbegavamo situaciju da nam pucaju liseneri a nije nam ucitan DOM
@@ -407,4 +407,4 @@ function promeniKolicinu(item) {
         input = 1;
     }
     azurirajCenu();
-}
+}*/

@@ -7,7 +7,7 @@
         "material": "ratan",
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 6.999,
+        "price": 6999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -20,7 +20,7 @@
         "material": ["pruce", "metal"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 4.999,
+        "price": 4999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -33,7 +33,7 @@
         "material": ["metal", "plastika"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 6.999,
+        "price": 6999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -46,7 +46,7 @@
         "material": "ratan",
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 4.999,
+        "price": 4999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -59,7 +59,7 @@
         "material": ["plastika", "metal"],
         "guaranty": "5 godina",
         "dostupno": "Online",
-        "price": 39.999,
+        "price": 39999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -72,7 +72,7 @@
         "material": ["plastika", "metal"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 34.999,
+        "price": 34999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -85,7 +85,7 @@
         "material": ["plastika", "metal"],
         "guaranty": "5 godina",
         "dostupno": "Online",
-        "price": 36.999,
+        "price": 36999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -98,7 +98,7 @@
         "material": ["staklo", "metal"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 12.999,
+        "price": 12999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -111,7 +111,7 @@
         "material": ["plastika", "metal"],
         "guaranty": "6 godina",
         "dostupno": "Online",
-        "price": 10.999,
+        "price": 10999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -124,7 +124,7 @@
         "material": "drvo",
         "guaranty": "3 godine",
         "dostupno": "In store",
-        "price": 11.999,
+        "price": 11999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -137,7 +137,7 @@
         "material": ["plastika", "sundjer", "stof"],
         "guaranty": "4 godine",
         "dostupno": "Online",
-        "price": 29.999,
+        "price": 29999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -150,7 +150,7 @@
         "material": ["metal", "stof"],
         "guaranty": "3 godine",
         "dostupno": "In store",
-        "price": 15.999,
+        "price": 15999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"

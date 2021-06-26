@@ -7,7 +7,7 @@
         "material": ["drvo", "staklo"],
         "guaranty": "7 godina",
         "dostupno": "Online",
-        "price": 44.999,
+        "price": 44999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -20,7 +20,7 @@
         "material": ["drvo", "sundjer"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 55.999,
+        "price": 55999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -33,7 +33,7 @@
         "material": ["drvo", "sundjer"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 49.999,
+        "price": 49999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -46,7 +46,7 @@
         "material": ["drvo", "metal"],
         "guaranty": "3 godine",
         "dostupno": "Online",
-        "price": 7.999,
+        "price": 7999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -59,7 +59,7 @@
         "material": "drvo",
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 34.999,
+        "price": 34999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -72,7 +72,7 @@
         "material": "drvo",
         "guaranty": "3 godine",
         "dostupno": "In store",
-        "price": 5.999,
+        "price": 5999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -85,7 +85,7 @@
         "material": "drvo",
         "guaranty": "3 godine",
         "dostupno": "In store",
-        "price": 6.999,
+        "price": 6999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -98,7 +98,7 @@
         "material": "stof",
         "guaranty": "5 godina",
         "dostupno": "Online",
-        "price": 64.999,
+        "price": 64999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -111,7 +111,7 @@
         "material": ["drvo", "sundjer"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 54.999,
+        "price": 54999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -124,7 +124,7 @@
         "material": "drvo",
         "guaranty": "5 godina",
         "dostupno": "Online",
-        "price": 33.999,
+        "price": 33999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -137,7 +137,7 @@
         "material": ["pamuk", "perje"],
         "guaranty": "3 godine",
         "dostupno": "In store",
-        "price": 6.999,
+        "price": 6999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -150,7 +150,7 @@
         "material": ["pamuk", "memorijska pena"],
         "guaranty": "3 godine",
         "dostupno": "Online",
-        "price": 8.999,
+        "price": 8999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"

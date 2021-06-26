@@ -17,8 +17,9 @@ html {
   position: fixed;
   right: -100%;
   z-index: 25;
-  background-color: rgb(247, 247, 247);
+  background-color: white;
   transition: all 0.5s ease;
+  overflow-y: scroll;
 }
 .exit {
   position: absolute;
@@ -30,7 +31,8 @@ html {
 .carts-info {
   margin: 70px 100px 0px 100px;
   display: flex;
-  background-color: lightblue;
+  background-color: black;
+  color: white;
   font-size: 1.5em;
   font-weight: bold;
   padding-top: 20px;
@@ -45,7 +47,7 @@ html {
 .carts-quantity {
   width: 35%;
 }
-.carts-in-total {
+.cart-in-total {
   display: flex;
   justify-content: flex-end;
   padding: 0.5em 0em;
@@ -55,7 +57,7 @@ html {
   font-weight: bold;
   margin-top: 30px;
 }
-.carts-in-total span {
+.cart-in-total span {
   margin: 0 0.2em;
 }
 .shopping-carts-img {
@@ -82,6 +84,57 @@ html {
   background-color: white;
   border: 1px solid black;
   color: black;
+}
+.cart-row {
+  display: flex;
+  width: 86.8%;
+  margin: 0px 100px;
+  height: 110px;
+  border-bottom: 1px solid black;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  width: 45%;
+}
+.cart-price {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.cart-quantity {
+  width: 35%;
+  display: flex;
+  align-items: center;
+}
+.cart-quantity input[type=number] {
+  padding: 5px;
+  font-size: 1.3em;
+  font-weight: bold;
+  width: 50px;
+  margin-right: 10px;
+  border-color: lightgray;
+}
+.cart-item-image {
+  width: 130px;
+}
+.cart-item-title {
+  font-weight: bold;
+  font-size: 1.4em;
+  margin-left: 30px;
+}
+.btn-remove {
+  background-color: white;
+  border: none;
+}
+.fa-trash {
+  font-size: 2em;
+}
+.fa-trash:hover {
+  cursor: pointer;
+  color: red;
 }
 
 /*BTN GO UP*/
@@ -144,6 +197,7 @@ html {
 }
 .navbar .menu-list {
     display: flex; 
+    align-items: center;
 }
 .menu-list li {
     list-style-type: none;
@@ -154,10 +208,9 @@ html {
     font-weight: bold;
     margin-left: 25px;
     text-decoration: none;
-    transition: all 0.5s ease;
 }
 .menu-list li a:hover {
-    color: rgb(47, 148, 243);
+    border-bottom: 2px solid;
 }
 .probna-slika {     
     background: url("images/pocetnaImg/livningRoom.jpg") no-repeat;
@@ -212,6 +265,14 @@ html {
 }
 .fa-shopping-bag {
   font-size: 25px;
+  position: relative;
+}
+.brojac-proizvoda {
+  position: absolute;
+  font-size: 0.6em;
+  color: red;
+  top: -15px;
+  margin-top: 5px;
 }
 
 /*MAIN SECTION*/
