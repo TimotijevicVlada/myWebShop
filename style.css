@@ -275,6 +275,30 @@ html {
   margin-top: 5px;
 }
 
+/*KONVERTER VALUTA*/
+.converter-wrapper {
+  margin: 0px 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+.converter-inner h2 {
+  text-align: center;
+  margin: 20px 0px;
+  font-size: 1.7em;
+  letter-spacing: 5px;
+}
+.input-converter {
+  padding: 7px;
+  font-size: 1.2em;
+}
+.select-converter {
+  padding: 7px;
+  font-size: 1.2em;
+}
+.equal {
+  font-size: 3em;
+}
+
 /*MAIN SECTION*/
 .categories h1 {
   text-align: center;
