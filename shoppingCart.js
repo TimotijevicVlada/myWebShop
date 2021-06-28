@@ -1,61 +1,58 @@
+document.addEventListener("DOMContentLoaded", loading);
 
-if (document.readyState == "loading") {
-    //Sa ovime izbegavamo situaciju da nam pucaju liseneri a nije nam ucitan DOM
-    document.addEventListener("DOMContentLoaded", loading)
+function loading() {
+  const addButton = document.getElementsByClassName("shop-item-button");
+  setTimeout(function () {   //Odlozili smo okidanje lisenera za 0.1 sekund da bi radili
+    for (let item of addButton) {
+      item.addEventListener("click", addItem);
+    }
+  }, 100);
+  document.getElementsByClassName("order-btn")[0].addEventListener("click", orderProducts); //I ovaj lisener nije u redu
+}
+function orderProducts() {
+  let kupi = document.getElementsByClassName("cart-items")[0];
+  if (kupi.hasChildNodes()) {
+    //Provera da li u korpi ima artikala
+    document
+      .getElementsByClassName("order-btn")[0]
+      .addEventListener("click", (window.location = "form.html"));
   } else {
-    loading(); //Inicijalizacija
+    alert("Niste odabrali artikle!"); //Ako nema artikala ispisi alert "Niste odabrali artikle!"
   }
+  let cartItems = document.getElementsByClassName("cart-items")[0]; //Div koji je prazan i u koji treba da se ubace proizvodi
+  while (cartItems.hasChildNodes()) {
+    //Ako ovaj div ima childove...
+    cartItems.removeChild(cartItems.firstChild);
+  }
+  updatePrice();
+}
 
-  function loading() {
-    let addButton = document.getElementsByClassName("shop-item-button");
-    //console.log(dodajDugmici)
-    for (let i = 0; i < addButton.length; i++) {
-    addButton[i].addEventListener("click", addItem);  //Da proverim zasto mi ovaj lisener ne reaguje nekada 
+function addItem(event) {
+  //Funkcija za dodavanje artikala u korpu
+  let dugme = event.target; //Target isto kao opcija "this" samo sto sa target gadjamo bas taj element a sa this roditeljski
+  let shopItem = dugme.parentElement;
+  let naslov = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
+  let cena = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
+  let slika = shopItem.getElementsByClassName("shop-item-image")[0].src;
+  console.log(shopItem);
+  addToCart(naslov, cena, slika); //Ove parametre treba da prosledimo u korpu
+  updatePrice();
+}
+
+function addToCart(naslov, cena, slika) {
+  let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
+  cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
+  let cartItems = document.querySelector(".cart-items"); //Dohvatamo cartItems
+  let naslovProvera = cartItems.getElementsByClassName("cart-item-title"); //Provera sa IF da ne bi ubacivali dva puta isti element u korpu
+  for (let i = 0; i < naslovProvera.length; i++) {
+    if (naslovProvera[i].innerText == naslov) {
+      //Ako je naslov jednako naslov onda ne ubacuj u korpu
+      alert("Ovaj proizvod ste vec ubacili u korpu!");
+      return; //Returnom izlazimo iz ove funkcije
     }
-    //document.getElementsByClassName("order-btn")[0].addEventListener("click", orderProducts);  //I ovaj lisener nije u redu
   }
-  
-  function orderProducts() {
-    let kupi = document.getElementsByClassName("cart-items")[0];
-    if (kupi.hasChildNodes()) {
-      //Provera da li u korpi ima artikala
-      document.getElementsByClassName("order-btn")[0].addEventListener("click", (window.location = "form.html"));
-    } else {
-      alert("Niste odabrali artikle!"); //Ako nema artikala ispisi alert "Niste odabrali artikle!"
-    }
-    let cartItems = document.getElementsByClassName("cart-items")[0]; //Div koji je prazan i u koji treba da se ubace proizvodi
-    while (cartItems.hasChildNodes()) {
-      //Ako ovaj div ima childove...
-      cartItems.removeChild(cartItems.firstChild);
-    }
-    updatePrice();
-  }
-  
-  function addItem(event) {
-    //Funkcija za dodavanje artikala u korpu
-    let dugme = event.target; //Target isto kao opcija "this" samo sto sa target gadjamo bas taj element a sa this roditeljski
-    let shopItem = dugme.parentElement;
-    let naslov = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
-    let cena = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
-    let slika = shopItem.getElementsByClassName("shop-item-image")[0].src;
-    addToCart(naslov, cena, slika); //Ove parametre treba da prosledimo u korpu
-    updatePrice();
-  }
-  
-  function addToCart(naslov, cena, slika) {
-    let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
-    cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
-    let cartItems = document.querySelector(".cart-items"); //Dohvatamo cartItems
-    let naslovProvera = cartItems.getElementsByClassName("cart-item-title"); //Provera sa IF da ne bi ubacivali dva puta isti element u korpu
-    for (let i = 0; i < naslovProvera.length; i++) {
-      if (naslovProvera[i].innerText == naslov) {
-        //Ako je naslov jednako naslov onda ne ubacuj u korpu
-        alert("Ovaj proizvod ste vec ubacili u korpu!");
-        return; //Returnom izlazimo iz ove funkcije
-      }
-    }
-    //Pravimo elemente koji ce da se ispisuju nakon klika na Dodaj u korpu
-    let ispis = `<div class='cart-item cart-column' >     
+  //Pravimo elemente koji ce da se ispisuju nakon klika na Dodaj u korpu
+  let ispis = `<div class='cart-item cart-column' >     
                   <img class='cart-item-image' src="${slika}">
                   <span class="cart-item-title">${naslov}</span>
                  </div>
@@ -65,41 +62,43 @@ if (document.readyState == "loading") {
                     <button class="btn btn-remove" type="button"><i class="fas fa-trash"></i></button>
                  </div>                 
               `;
-    cartRow.innerHTML = ispis;
-    cartItems.append(cartRow);
-    cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click", deleteItem);
-    cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", changeQuantity);
-  }
-  
-  function deleteItem(event) {
-    let dugme = event.target;
-    dugme.parentElement.parentElement.parentElement.remove(); //Brisemo ceo red tako da moramo da se vratimo 3 koraka u nazad
-    updatePrice();
-  }
-  
-  function updatePrice() {
-    let totalCount = document.getElementsByClassName("brojac-proizvoda")[0];  //Brojac proizvoda na korpi
-    let cartItems = document.querySelector(".cart-items");
-    let cartRows = cartItems.getElementsByClassName("cart-row");
-    let suma = 0; //Treba nam brojac kako bi sabirali cenu
-    for (let i = 0; i < cartRows.length; i++) {
-      let cenaE = cartRows[i].querySelector(".cart-price").innerText;
-      let kolicina = cartRows[i].querySelector(".cart-quantity-input").value;
-      let cena = parseFloat(cenaE); //Posto je RSD zalepljeno za cenu moramo da izbrisemo kako bi mogli da radimo racunske operacije
-      suma = suma + cena * kolicina; //Funkcija za sabiranje cene i kolicine proizvoda
-    }
-    totalCount.innerText = cartRows.length;   //Broj proizvoda je broj cartRows elemenata
-    document.getElementsByClassName("cart-total-price")[0].innerText = suma.toFixed(2); //dobijena suma
-  }
-  
-  function changeQuantity(event) {
-    let input = event.target; //Razlika izmedju target i this je ta sto sa this gadjamo roditeljski element
-    if (isNaN(input.value) || input.value <= 0) {
-      //a sa targetom bas taj element koji je u dogadjaju!
-      input.value = 1; //Naravno sve ovo moze da se resi i sa this opcijom
-    }
-    updatePrice();
-  }
+  cartRow.innerHTML = ispis;
+  cartItems.append(cartRow);
+  cartRow
+    .getElementsByClassName("btn-remove")[0]
+    .addEventListener("click", deleteItem);
+  cartRow
+    .getElementsByClassName("cart-quantity-input")[0]
+    .addEventListener("change", changeQuantity);
+}
 
- 
-  
+function deleteItem(event) {
+  let dugme = event.target;
+  dugme.parentElement.parentElement.parentElement.remove(); //Brisemo ceo red tako da moramo da se vratimo 3 koraka u nazad
+  updatePrice();
+}
+
+function updatePrice() {
+  let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
+  let cartItems = document.querySelector(".cart-items");
+  let cartRows = cartItems.getElementsByClassName("cart-row");
+  let suma = 0; //Treba nam brojac kako bi sabirali cenu
+  for (let i = 0; i < cartRows.length; i++) {
+    let cenaE = cartRows[i].querySelector(".cart-price").innerText;
+    let kolicina = cartRows[i].querySelector(".cart-quantity-input").value;
+    let cena = parseFloat(cenaE);
+    suma = suma + cena * kolicina; //Funkcija za sabiranje cene i kolicine proizvoda
+  }
+  totalCount.innerText = cartRows.length; //Broj proizvoda je broj cartRows elemenata
+  document.getElementsByClassName("cart-total-price")[0].innerText =
+    suma.toFixed(2); //dobijena suma
+}
+
+function changeQuantity(event) {
+  let input = event.target; //Razlika izmedju target i this je ta sto sa this gadjamo roditeljski element
+  if (isNaN(input.value) || input.value <= 0) {
+    //a sa targetom bas taj element koji je u dogadjaju!
+    input.value = 1; //Naravno sve ovo moze da se resi i sa this opcijom
+  }
+  updatePrice();
+}

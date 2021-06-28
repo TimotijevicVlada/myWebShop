@@ -206,11 +206,12 @@ function printStars(brojZvezdica) {
 }
 
 //Fetch-ovanje kategorija na pocetnoj strani
+const categoriesDiv = document.getElementsByClassName("section-inner")[0];
+if(categoriesDiv) {
 fetch("json/categories.json").then(function(response) {
     return response.json();
 }).then(function(data) {
     //console.log(data);
-    let container = document.getElementsByClassName("section-inner")[0];
     let html = "";
     for(let i in data) {
         html += `
@@ -222,10 +223,11 @@ fetch("json/categories.json").then(function(response) {
                     </div>
                 `;
             }
-    container.innerHTML = html;
+    categoriesDiv.innerHTML = html;
 }).catch(function(error) {
     console.log(error);
 })
+}
 
 //Fetch-ovanje ikonica za drustvene mreze
 fetch("json/socialNetwork.json").then(function(response) {
@@ -306,105 +308,3 @@ liseneri(searchInput, "keyup");
 liseneri(sortAvailable, "change");
 liseneri(filterDostupno, "change");
 
-/************************************************************************/
-/*
-//Pravimo ispis za dodavanje u korpu
-if(document.readyState == "loading") {
-//Sa ovime izbegavamo situaciju da nam pucaju liseneri a nije nam ucitan DOM
-    document.addEventListener("DOMContentLoaded", ucitavanje);
-}else {
-    ucitavanje();  //inicijalizacija
-}
-
-//Stavljamo lisenere na "Add-to-cart" dugmice
-function ucitavanje() {
-let addToCartBtn = document.getElementsByClassName("btn-purchase");
-for(let i = 0; i < addToCartBtn.length; i++) {
-    addToCartBtn[i].addEventListener("click", dodajProizvod);
-}
-document.getElementsByClassName("order-btn")[0].addEventListener("click", naruci);
-}
-
-//Funkcija za naruci btn
-function naruci() {
-    let kupi = document.getElementsByClassName("carts-items")[0];
-    if(kupi.hasChildNodes()) {
-        document.getElementsByClassName("order-btn")[0].addEventListener("click", (window.location = "form.html"));
-    }else {
-        alert("Niste odabrali artikle!");
-    }
-
-    while(kupi.hasChildNodes()) {
-        kupi.removeChild(kupi.firstChild);
-    }
-    azurirajCenu();
-}
-
-//Funkcija za uzimanje izabranog proizvoda
-function dodajProizvod(button) {
-    let dugme = button.target;  //Gadjamo bas taj element koji dodje u funkciju
-    let shopItem = dugme.parentElement;
-    let naslov = shopItem.getElementsByClassName("shopping-card-title")[0].innerText;
-    let cena = shopItem.getElementsByClassName("shopping-card-price")[0].innerText;
-    let slika = shopItem.getElementsByClassName("shopping-card-img")[0].src;
-    dodajUKorpu(naslov, cena, slika);
-    azurirajCenu();
-}
-
-//Funkcija za dodavanje proizvoda u korpu
-function dodajUKorpu(naslov, cena, slika) {
-    let cartRow = document.createElement("div");  //red u koji treba da smestimo proizvode
-    cartRow.classList.add("cart-row"); //da napravim ovu klasu naknadno
-    let cartItems = document.querySelector(".carts-items"); //div u koji smestamo proizvod
-    let naslovProvera = cartItems.getElementsByClassName("shopping-card-title");
-    for(let i = 0; i < naslovProvera.length; i++) {
-        if(naslovProvera[i].innerText == naslov) {
-            alert("Ovaj proizvod se vec nalazi u korpi!");
-            return;
-        }
-    }
-    let html = `<div class='cart-item cart-column' >     
-                    <img class='cart-item-image' src="${slika}">
-                    <span class="cart-item-title">${naslov}</span>
-                </div>
-                <span class="cart-price cart-column">${cena}</span>
-                <div class="cart-quantity  cart-column">
-                    <input type="number" class="cart-quantity-input" value="1" max="10">
-                    <button class="btn btn-remove" type="button"><i class="fas fa-trash"></i></button>
-                </div>                 
-            `;
-    cartRow.innerHTML = html;
-    cartItems.append(cartRow);
-    cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click", deleteItem);
-    cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", promeniKolicinu);
-}
-
-//Funkcija za brisanje artikla iz korpe 
-function deleteItem(item) {
-    let dugme = item.target;
-    dugme.parentElement.parentElement.parentElement.remove();
-    azurirajCenu();
-}
-
-//Funkcija za azuriranje cene prilikom dodavanja artikala
-function azurirajCenu() {
-    let cartItems = document.querySelector(".carts-items");
-    let cartRows = cartItems.getElementsByClassName("cart-row");
-    let suma = 0;  //Treba nam brojac kako bi sabrali cenu
-    for(let i = 0; i < cartRows.length; i++) {
-        let cenaE = cartRows[i].querySelector(".cart-price").innerText;
-        let kolicina = cartRows[i].querySelector(".cart-quantity-input").value;
-        let cena = parseFloat(cenaE);
-        suma = suma + cena * kolicina;
-    }
-    document.getElementsByClassName("carts-total-price")[0].innerText = suma.toFixed(2);
-}
-
-//Funkcija za promenu kolicine istog proizvoda
-function promeniKolicinu(item) {
-    let input = item.target.value;
-    if(isNaN(input) || input <= 0) {
-        input = 1;
-    }
-    azurirajCenu();
-}*/
