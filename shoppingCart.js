@@ -12,10 +12,10 @@ if (document.readyState == "loading") {
     for (let i = 0; i < addButton.length; i++) {
     addButton[i].addEventListener("click", addItem);  //Da proverim zasto mi ovaj lisener ne reaguje nekada 
     }
-    //document.getElementsByClassName("order-btn")[0].addEventListener("click", naruci);  //I ovaj lisener nije u redu
+    //document.getElementsByClassName("order-btn")[0].addEventListener("click", orderProducts);  //I ovaj lisener nije u redu
   }
-  /*
-  function naruci() {
+  
+  function orderProducts() {
     let kupi = document.getElementsByClassName("cart-items")[0];
     if (kupi.hasChildNodes()) {
       //Provera da li u korpi ima artikala
@@ -29,7 +29,7 @@ if (document.readyState == "loading") {
       cartItems.removeChild(cartItems.firstChild);
     }
     updatePrice();
-  }*/
+  }
   
   function addItem(event) {
     //Funkcija za dodavanje artikala u korpu

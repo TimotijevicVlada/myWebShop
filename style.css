@@ -463,8 +463,9 @@ input[type=checkbox] {
   padding: 20px 0px;
 }
 .sub-menu-wrapper {
-  display: flex;   /*Ovo cemo da promeni na grid kasnije*/
-  justify-content: center;  /*I ovo brisemo kada bude grid*/
+  display: flex;   
+  justify-content: center;  
+  flex-wrap: wrap;
 }
 .sub-menu-wrapper div {
   padding-bottom: 20px;
@@ -497,6 +498,9 @@ input[type=checkbox] {
 .form-loginBy {
   flex-direction: column;
   align-items: center;
+}
+.form-loginBy div:hover a {
+  color: red;
 }
 .form-loginBy div {
   display: flex;
@@ -722,7 +726,7 @@ footer div img {
   justify-content: space-evenly;
 }
 .info div {
-  width: 20%;
+  width: 200px;
   padding: 3em 0em;
   text-align: center;
   height: 200px;
@@ -821,5 +825,11 @@ footer div img {
     }
     .navbar.show .menu-list li a {
         margin-left: 0px;
+    }
+    .section-wrapper {
+      margin: 0px 0px;
+    }
+    .products-wrapper {
+      margin: 0px 0px;
     }
 }
