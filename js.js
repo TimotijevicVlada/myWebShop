@@ -111,10 +111,10 @@ function fetchJson(json, container) {
                 <h3 class="shop-item-title">${object[i].name}</h3>
                 <img class="shop-item-image ${object[i].imageSize}" src="${object[i].image}" alt="">
                 <p>${printStars(object[i].stars)}</p>
-                <p>${object[i].naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
-                <p>Materijal: <span class="boldovano">${object[i].material}</span></p>
-                <p>Garancija: <span class="boldovano">${object[i].guaranty}</span></p>
-                <p>Dostupno: <span class="boldovano">${object[i].dostupno}</span></p>
+                <p class="shop-item-naStanju">${object[i].naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
+                <p>Materijal: <span class="boldovano shop-item-material">${object[i].material}</span></p>
+                <p>Garancija: <span class="boldovano shop-item-guaranty">${object[i].guaranty}</span></p>
+                <p>Dostupno: <span class="boldovano shop-item-dostupno">${object[i].dostupno}</span></p>
                 <p>Cena: <span class="boldovano boldovanaCena shop-item-price">${object[i].price}<sup>${object[i].currency}</sup></span></p>
                 <div class="btn btn-purchase shop-item-button">${object[i].btn}</div>
             </div>

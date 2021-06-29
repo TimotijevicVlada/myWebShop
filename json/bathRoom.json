@@ -7,7 +7,7 @@
         "material": ["staklo", "metal"],
         "guaranty": "7 godina",
         "dostupno": "In store",
-        "price": 8999,
+        "price": 8.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -20,7 +20,7 @@
         "material": ["staklo", "metal"],
         "guaranty": "7 godina",
         "dostupno": "Online",
-        "price": 10999,
+        "price": 10.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -33,7 +33,7 @@
         "material": "pamuk",
         "guaranty": "2 godine",
         "dostupno": "In store",
-        "price": 1999,
+        "price": 1.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -46,7 +46,7 @@
         "material": "pamuk",
         "guaranty": "4 godine",
         "dostupno": "Online",
-        "price": 4999,
+        "price": 4.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -59,7 +59,7 @@
         "material": "pamuk",
         "guaranty": "2 godine",
         "dostupno": "Online",
-        "price": 1599,
+        "price": 1.599,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -72,7 +72,7 @@
         "material": "pamuk",
         "guaranty": "4 godine",
         "dostupno": "In store",
-        "price": 4999,
+        "price": 4.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -85,7 +85,7 @@
         "material": "pamuk",
         "guaranty": "2 godine",
         "dostupno": "Online",
-        "price": 1799,
+        "price": 1.799,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -111,7 +111,7 @@
         "material": "plastika",
         "guaranty": "5 godina",
         "dostupno": "Online",
-        "price": 1299,
+        "price": 1.299,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"

@@ -7,7 +7,7 @@
         "material": "drvo",
         "guaranty": "5 years",
         "dostupno": "In store",
-        "price": 12999,
+        "price": 12.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -20,7 +20,7 @@
         "material": ["stof", " metal"],
         "guaranty": "4 years",
         "dostupno": "In store",
-        "price": 22999,
+        "price": 22.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -33,7 +33,7 @@
         "material": ["stof", " metal"],
         "guaranty": "4 years",
         "dostupno": "In store",
-        "price": 25999,
+        "price": 25.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -46,7 +46,7 @@
         "material": ["stof", " drvo"],
         "guaranty": "7 years",
         "dostupno": "In store",
-        "price": 59999,
+        "price": 59.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -59,7 +59,7 @@
         "material": ["stof", " drvo"],
         "guaranty": "7 years",
         "dostupno": "In store",
-        "price": 109999,
+        "price": 109.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -72,7 +72,7 @@
         "material": "drvo",
         "guaranty": "5 years",
         "dostupno": "Online",
-        "price": 15999,
+        "price": 15.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -85,7 +85,7 @@
         "material": "drvo",
         "guaranty": "5 years",
         "dostupno": "In store",
-        "price": 5999,
+        "price": 5.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -98,7 +98,7 @@
         "material": ["drvo", " metal"],
         "guaranty": "5 years",
         "dostupno": "Online",
-        "price": 9999,
+        "price": 9.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -111,7 +111,7 @@
         "material": ["stof", " metal"],
         "guaranty": "7 years",
         "dostupno": "In store",
-        "price": 49999,
+        "price": 49.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -124,7 +124,7 @@
         "material": ["stof", " drvo"],
         "guaranty": "7 years",
         "dostupno": "In store",
-        "price": 54999,
+        "price": 54.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -137,7 +137,7 @@
         "material": ["stof", " drvo"],
         "guaranty": "5 years",
         "dostupno": "In store",
-        "price": 34999,
+        "price": 34.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"
@@ -150,7 +150,7 @@
         "material": ["stof", " drvo"],
         "guaranty": "5 years",
         "dostupno": "Online",
-        "price": 32999,
+        "price": 32.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "small-img"

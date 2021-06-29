@@ -7,7 +7,7 @@
         "material": ["metal", "drvo"],
         "guaranty": "7 godina",
         "dostupno": "Online",
-        "price": 3999,
+        "price": 3.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -20,7 +20,7 @@
         "material": ["drvo", "metal"],
         "guaranty": "7 godina",
         "dostupno": "Online",
-        "price": 4999,
+        "price": 4.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -33,7 +33,7 @@
         "material": ["vestacka koza", "metal"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 7999,
+        "price": 7.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -46,7 +46,7 @@
         "material": ["vestacka koza", "metal"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 8999,
+        "price": 8.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -59,7 +59,7 @@
         "material": ["metal", "vestacka koza", "plastika"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 6999,
+        "price": 6.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "very-big-img"
@@ -72,7 +72,7 @@
         "material": "drvo",
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 6999,
+        "price": 6.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -85,7 +85,7 @@
         "material": "drvo",
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 5999,
+        "price": 5.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -98,7 +98,7 @@
         "material": "drvo",
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 9999,
+        "price": 9.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -111,7 +111,7 @@
         "material": ["drvo", "metal"],
         "guaranty": "4 godine",
         "dostupno": "In store",
-        "price": 7999,
+        "price": 7.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -124,7 +124,7 @@
         "material": ["metal", "drvo"],
         "guaranty": "5 godina",
         "dostupno": "In store",
-        "price": 8999,
+        "price": 8.999,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -137,7 +137,7 @@
         "material": ["stof", "metal", "plastika"],
         "guaranty": "4 godine",
         "dostupno": "In store",
-        "price": 6599,
+        "price": 6.599,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"
@@ -150,7 +150,7 @@
         "material": "drvo",
         "guaranty": "7 godina",
         "dostupno": "In store",
-        "price": 3599,
+        "price": 3.599,
         "currency": "RSD",
         "btn": "Add to cart",
         "imageSize": "big-img"

@@ -4,7 +4,9 @@ function loading() {
   const addButton = document.getElementsByClassName("shop-item-button");
   setTimeout(function () {   //Odlozili smo okidanje lisenera za 0.1 sekund da bi radili
     for (let item of addButton) {
-      item.addEventListener("click", addItem);
+      if(addButton) {   //Ako postoji addButton onda postavi lisener na njega, pre toga ne!
+        item.addEventListener("click", addItem);
+      }
     }
   }, 100);
   document.getElementsByClassName("order-btn")[0].addEventListener("click", orderProducts); //I ovaj lisener nije u redu
@@ -34,12 +36,16 @@ function addItem(event) {
   let naslov = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
   let cena = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
   let slika = shopItem.getElementsByClassName("shop-item-image")[0].src;
+  let naStanju = shopItem.getElementsByClassName("shop-item-naStanju")[0].innerText;
+  let materijal = shopItem.getElementsByClassName("shop-item-material")[0].innerText;
+  let guaranty = shopItem.getElementsByClassName("shop-item-guaranty")[0].innerText;
+  let dostupno = shopItem.getElementsByClassName("shop-item-dostupno")[0].innerText;
   console.log(shopItem);
-  addToCart(naslov, cena, slika); //Ove parametre treba da prosledimo u korpu
+  addToCart(naslov, cena, slika, naStanju, materijal, guaranty, dostupno); //Ove parametre treba da prosledimo u korpu
   updatePrice();
 }
 
-function addToCart(naslov, cena, slika) {
+function addToCart(naslov, cena, slika, naStanju, materijal, guaranty, dostupno) {
   let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
   cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
   let cartItems = document.querySelector(".cart-items"); //Dohvatamo cartItems
@@ -57,10 +63,16 @@ function addToCart(naslov, cena, slika) {
                   <span class="cart-item-title">${naslov}</span>
                  </div>
                   <span class="cart-price cart-column">${cena}</span>
+                 <div class="cart-item-description">
+                  <p><i class="fas fa-angle-right"></i> ${naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
+                  <p><i class="fas fa-angle-right"></i> Materijal: <span class="boldovano">${materijal}</span></p>
+                  <p><i class="fas fa-angle-right"></i> Garancija: <span class="boldovano">${guaranty}</span></p>
+                  <p><i class="fas fa-angle-right"></i> Dostupno: <span class="boldovano">${dostupno}</span></p>
+                 </div> 
                  <div class="cart-quantity  cart-column">
                     <input type="number" class="cart-quantity-input" value="1" max="10">
                     <button class="btn btn-remove" type="button"><i class="fas fa-trash"></i></button>
-                 </div>                 
+                 </div>                
               `;
   cartRow.innerHTML = ispis;
   cartItems.append(cartRow);
@@ -86,7 +98,7 @@ function updatePrice() {
   for (let i = 0; i < cartRows.length; i++) {
     let cenaE = cartRows[i].querySelector(".cart-price").innerText;
     let kolicina = cartRows[i].querySelector(".cart-quantity-input").value;
-    let cena = parseFloat(cenaE);
+    let cena = parseFloat(cenaE.replace(".", ""));  //Sklanjam tacku da bi sabrao realno sve cene
     suma = suma + cena * kolicina; //Funkcija za sabiranje cene i kolicine proizvoda
   }
   totalCount.innerText = cartRows.length; //Broj proizvoda je broj cartRows elemenata
