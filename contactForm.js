@@ -18,6 +18,73 @@ signupLink.addEventListener("click", function() {
     return false;
 })
 
+//Eye view on the login password 
+const inputPass = document.querySelector("#passInput");
+const showBtn = document.querySelector(".fa-eye");
+const hideBtn = document.querySelector(".fa-eye-slash");
+showBtn.onclick = () => {
+    if(inputPass.type === "password") {
+        inputPass.type = "text"; 
+        showBtn.style.display = "none";
+        hideBtn.style.display = "block";
+    }else {
+        inputPass.type = "password";
+    }
+}
+hideBtn.onclick = () => {
+    if(inputPass.type === "text") {
+        inputPass.type = "password";
+        hideBtn.style.display = "none";
+        showBtn.style.display = "block";
+    }else {
+        inputPass.type = "text";
+    }
+}
+//Eye view on the signup password
+const inputSignupPass = document.querySelector("#passInputSignup");
+const showBtn1 = document.querySelector(".eye-second");
+const hideBtn1 = document.querySelector(".eye-second-slash");
+showBtn1.onclick = () => {
+    if(inputSignupPass.type === "password") {
+        inputSignupPass.type = "text"; 
+        showBtn1.style.display = "none";
+        hideBtn1.style.display = "block";
+    }else {
+        inputSignupPass.type = "password";
+    }
+}
+hideBtn1.onclick = () => {
+    if(inputSignupPass.type === "text") {
+        inputSignupPass.type = "password";
+        hideBtn1.style.display = "none";
+        showBtn1.style.display = "block";
+    }else {
+        inputSignupPass.type = "text";
+    }
+}
+//Eye view on the signup password confirm
+const inputConfirmSign = document.querySelector("#passConfirmInputSignup");
+const showBtn2 = document.querySelector(".eye-third");
+const hideBtn2 = document.querySelector(".eye-third-slash");
+showBtn2.onclick = () => {
+    if(inputConfirmSign.type === "password") {
+        inputConfirmSign.type = "text"; 
+        showBtn2.style.display = "none";
+        hideBtn2.style.display = "block";
+    }else {
+        inputConfirmSign.type = "password";
+    }
+}
+hideBtn2.onclick = () => {
+    if(inputConfirmSign.type === "text") {
+        inputConfirmSign.type = "password";
+        hideBtn2.style.display = "none";
+        showBtn2.style.display = "block";
+    }else {
+        inputConfirmSign.type = "text";
+    }
+}
+
 //Regexi za kontakt formu
     //Lisener za login dugme 
     document.getElementById("loginBtn").addEventListener("click", function(e) {

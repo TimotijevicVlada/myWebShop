@@ -347,6 +347,11 @@ html {
 }
 
 /*FILTER MENU*/
+.filters-title {
+  text-align: center;
+  color: gray;
+  margin: 10px;
+}
 .empty-div {
   height: 150px;
 }
@@ -704,6 +709,19 @@ input[type=checkbox] {
   }
   .fa-times-circle {
     color: red;
+  }
+  .fa-eye-slash, .fa-eye {
+    position: absolute;
+    right: 60px;
+    top: 27%;
+    font-size: 1.5em;
+    color: gray;
+  }
+  .fa-eye-slash:hover, .fa-eye:hover {
+    cursor: pointer;
+  }
+  .fa-eye-slash {
+    display: none;
   }
 
 /*FOOTER*/
