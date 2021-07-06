@@ -32,7 +32,7 @@ function orderProducts() {
 function addItem(event) {
   //Funkcija za dodavanje artikala u korpu
   let dugme = event.target; //Target isto kao opcija "this" samo sto sa target gadjamo bas taj element a sa this roditeljski
-  let shopItem = dugme.parentElement;
+  let shopItem = dugme.parentElement.parentElement;
   let naslov = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
   let cena = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
   let slika = shopItem.getElementsByClassName("shop-item-image")[0].src;
@@ -110,7 +110,57 @@ function changeQuantity(event) {
   let input = event.target; //Razlika izmedju target i this je ta sto sa this gadjamo roditeljski element
   if (isNaN(input.value) || input.value <= 0) {
     //a sa targetom bas taj element koji je u dogadjaju!
-    input.value = 1; //Naravno sve ovo moze da se resi i sa this opcijom
+    input.value = 1; //sve ovo moze da se resi i sa this opcijom
   }
   updatePrice();
 }
+
+
+//Funkcije za Details prozor
+const bluredWindow = document.getElementsByClassName("blurred-div")[0];
+const exitBlured = document.getElementsByClassName("cancel-blurred")[0];
+const container = document.getElementsByClassName("details-inner")[0];
+
+console.log(bluredWindow)
+console.log(exitBlured)
+if(bluredWindow) {
+  exitBlured.onclick = () => {
+  bluredWindow.style.marginLeft = "-100%";
+  container.innerHTML = "";
+  }
+}
+const detailsBtn = document.getElementsByClassName("details-btn");
+console.log(detailsBtn)
+setTimeout(() => {
+for(let i in detailsBtn) {
+  detailsBtn[i].addEventListener("click", showDetails);
+}
+}, 100)
+
+function showDetails(items) {
+  let btn = items.target;
+  let productDiv = btn.parentElement.parentElement;
+  let title = productDiv.getElementsByClassName("shop-item-title")[0].innerText;
+  let price = productDiv.getElementsByClassName("shop-item-price")[0].innerText;
+  let picture = productDiv.getElementsByClassName("shop-item-image")[0].src;
+  let state = productDiv.getElementsByClassName("shop-item-naStanju")[0].innerText;
+  let material = productDiv.getElementsByClassName("shop-item-material")[0].innerText;
+  let guaranty = productDiv.getElementsByClassName("shop-item-guaranty")[0].innerText;
+  let available = productDiv.getElementsByClassName("shop-item-dostupno")[0].innerText;
+
+  let html = "";
+
+  html = `
+      <i class="fas fa-times cancel-blurred"></i>
+      <h1>${title}</h1>
+      <img src="${picture}">
+      <p>${state}</p>
+      <p>${material}</p>
+      <p>${guaranty}</p>
+      <p>${available}</p>
+      <p>${price}</p>
+  `;
+  container.innerHTML = html;
+  bluredWindow.style.marginLeft = "0%";
+}
+

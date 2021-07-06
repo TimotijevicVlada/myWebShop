@@ -446,28 +446,60 @@ input[type=checkbox] {
 .shopping-card h3 {
   margin-top: 5px;
 }
-.shopping-card .btn {
+.shopping-card .btn, .details-btn {
   font-weight: bold;
-  background-color: black;
-  color: white;
-  padding: 6px 10px;
   width: 50%;
+  padding: 6px 10px;
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
-  border: 1px solid transparent;
-}
-.shopping-card .btn:hover {
+
+  margin: 0px 3px 5px 3px;
   border: 1px solid black;
-  background-color: white;
-  color: black;
+
+}
+.shopping-card .btn:hover, .details-btn:hover {
+  background-color: black;
+  color: white;
   cursor: pointer;
+}
+
+.products-buttons {
+  display: flex;
+  width: 88%;
 }
 .boldovano {
   font-weight: bold;
 }
 .boldovanaCena {
   font-size: 1.2em;
+}
+
+/*DETAILS DIV*/
+.blurred-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);  /*blur background*/
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -100%;
+}
+.details-inner {
+  position: relative;
+  width: 50%;
+  height: 60%;
+  background-color: white;
+  border: 2px solid gray;
+}
+.details-inner .fa-times {
+  position: absolute;
+  font-size: 1.4em;
+  right: 10px;
+  top: 5px;
 }
 
 /*SUBMENU CATEGORIES*/
