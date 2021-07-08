@@ -10,7 +10,8 @@
         "price": 12.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Fotelja Zumbul",
@@ -23,7 +24,8 @@
         "price": 22.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "big-img"
+        "imageSize": "big-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Fotelja Ruza",
@@ -36,7 +38,8 @@
         "price": 25.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "big-img"
+        "imageSize": "big-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Sofa Kaktus",
@@ -49,7 +52,8 @@
         "price": 59.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Ugaona garnitura Bagrem",
@@ -62,7 +66,8 @@
         "price": 109.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Tv komoda Marija",
@@ -75,7 +80,8 @@
         "price": 15.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Klub sto Lana",
@@ -88,7 +94,8 @@
         "price": 5.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     }, 
     {
         "name": "Klub sto Masa",
@@ -101,7 +108,8 @@
         "price": 9.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "big-img"
+        "imageSize": "big-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     }, 
     {
         "name": "Ugaona garnitura Maslacak",
@@ -114,7 +122,8 @@
         "price": 49.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Ugaona garnitura Neven",
@@ -127,7 +136,8 @@
         "price": 54.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     }, 
     {
         "name": "Sofa Ruza",
@@ -140,7 +150,8 @@
         "price": 34.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     },
     {
         "name": "Sofa Suncokret",
@@ -153,6 +164,7 @@
         "price": 32.999,
         "currency": "RSD",
         "btn": "Add to cart",
-        "imageSize": "small-img"
+        "imageSize": "small-img",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam sed, doloremque molestiae optio sapiente inventore, cumque soluta eos impedit veniam itaque ducimus odio necessitatibus aliquam corrupti maxime omnis amet."
     }
 ]
