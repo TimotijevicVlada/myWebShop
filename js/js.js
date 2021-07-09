@@ -475,3 +475,12 @@ function changeQuantity(item) {
   }
   updatePrice();
 }
+
+//Delete all btn u korpi
+const cartContainer = document.getElementsByClassName("cart-items")[0];
+const deleteAllBtn = document.getElementsByClassName("fa-trash-alt")[0];
+
+deleteAllBtn.onclick = () => {
+    cartContainer.innerHTML = "";
+    updatePrice();
+}

@@ -84,6 +84,18 @@ hideBtn2.onclick = () => {
         inputConfirmSign.type = "text";
     }
 }
+//Pasword on focus display require message
+const requireLoginMsg = document.getElementsByClassName("require-msg")[0];
+inputPass.onfocus = () => {
+    requireLoginMsg.style.display = "block";
+}
+const requireSignupMsg = document.getElementsByClassName("require-msg-signup")[0];
+inputSignupPass.onfocus = () => {
+    requireSignupMsg.style.display = "block";
+}
+inputConfirmSign.onfocus = () => {
+    requireSignupMsg.style.display = "block";
+}
 
 //Regexi za kontakt formu
     //Lisener za login dugme 

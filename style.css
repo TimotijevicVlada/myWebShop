@@ -2,13 +2,16 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
+}
+@font-face {
+  src: url("./fonts/Questrial-Regular.ttf");
+  font-family: "Questrial";
 }
 html {
   background-color: rgb(247, 247, 247);
+  font-family: "Questrial";
 }
-
 
 /*CARTS*/
 .carts {
@@ -47,7 +50,7 @@ html {
   width: 20%;
 }
 .carts-quantity {
-  width: 15%;
+  width: 10%;
 }
 .cart-in-total {
   display: flex;
@@ -108,7 +111,7 @@ html {
   font-weight: bold;
 }
 .cart-quantity {
-  width: 15%;
+  width: 10%;
   display: flex;
   align-items: center;
 }
@@ -143,6 +146,24 @@ html {
 }
 .fa-trash:hover {
   cursor: pointer;
+  color: red;
+}
+.fa-trash-alt {
+  font-size: 1.5em;
+  padding-bottom: 10px;
+}
+.delete-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.delete-all span {
+  font-size: 0.5em;
+  color: red;
+}
+.fa-trash-alt:hover {
   color: red;
 }
 
@@ -278,7 +299,7 @@ html {
 }
 .brojac-proizvoda {
   position: absolute;
-  font-size: 0.6em;
+  font-size: 0.7em;
   color: red;
   top: -15px;
   margin-top: 5px;
@@ -790,6 +811,59 @@ input[type=checkbox] {
   .fa-eye-slash {
     display: none;
   }
+.require-msg, .require-msg-signup {
+  margin: 10px 0px;
+  display: none;
+}
+
+/*SEND MESSAGE PAGE*/
+.contact-page-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.contactUs-div {
+  width: 500px;
+}
+.message-form {
+  display: flex;
+  flex-direction: column;
+}
+.message-form div {
+  margin: 8px 0px;
+  width: 100%;
+}
+.message-form div input, .message-form div textarea {
+  width: 100%;
+  border: 2px solid lightgray;
+  padding: 10px;
+}
+.message-submit-div {
+  display: flex;
+  justify-content: flex-end;
+}
+.message-submit {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+}
+.message-submit:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+.message-form input::placeholder, .message-form textarea {
+  font-size: 1.2em;
+}
+.contact-info td {
+  font-size: 1.2em;
+  padding: 17px 0px;
+}
+.contact-info td i {
+  font-size: 1.3em;
+}
 
 /*FOOTER*/
 footer {
