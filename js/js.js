@@ -331,6 +331,7 @@ const container = document.getElementsByClassName("details-inner")[0];
 function exitDetails() {
     bluredWindow.style.marginLeft = "-100%";
     container.innerHTML = "";
+    document.body.style.overflow = "auto";  //Vracam scroll bar za skrolovanje
 }
 
 function showDetails(items) {
@@ -369,6 +370,9 @@ function showDetails(items) {
   `;
   container.innerHTML = html;
   bluredWindow.style.marginLeft = "0%";
+  
+  //Sakrivam scroll bar kako bih onemogucio skrolovanje dok je prozor otvoren
+  document.body.style.overflow = "hidden";  
 
   let exitBlured = document.getElementsByClassName("cancel-blurred")[0];
     exitBlured.addEventListener("click" , exitDetails);
