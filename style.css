@@ -629,9 +629,9 @@ input[type=checkbox] {
 .wrapper{
     width: 70%;
     overflow: hidden;
-    background: #fff;
+    /*background: #fff;*/
     padding: 30px;
-    box-shadow: 0px 15px 20px rgba(0,0,0,0.5);
+    /*box-shadow: 0px 15px 20px rgba(0,0,0,0.5);*/
   }
   .wrapper .title-text{
     display: flex;
@@ -652,7 +652,7 @@ input[type=checkbox] {
     overflow: hidden;
     margin: 30px 0 10px 0;
     justify-content: space-between;
-    border: 1px solid lightgrey;
+    border: 2px solid lightgrey;
   }
   .slide-controls .slide{
     height: 100%;
@@ -722,7 +722,7 @@ input[type=checkbox] {
     width: 100%;
     outline: none;
     padding-left: 15px;
-    border: 1px solid lightgrey;
+    border: 2px solid lightgray;
     border-bottom-width: 2px;
     font-size: 17px;
     transition: all 0.3s ease;
