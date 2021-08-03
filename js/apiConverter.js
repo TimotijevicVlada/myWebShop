@@ -12,7 +12,7 @@ async function currency() {
     //console.log(data);
     const arrKeys = Object.keys(data.rates);
     const rates = data.rates;
-    console.log(rates);
+    //console.log(rates);
     //console.log(arrKeys);
     arrKeys.map(item => {
         return html += `<option value="${item}">${item}</option>`;

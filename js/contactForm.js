@@ -1,68 +1,3 @@
-//let name = document.getElementById("nameInputSignup");
-//let email = document.getElementById("emailInputSignup");
-//let pass = document.getElementById("passInputSignup");
-//let passConfirm = document.getElementById("passConfirmInputSignup");
-//fje koje komuniciraju sa LS jedna je citanje, druga je pisanje u LS
-
-const get_korisnici = () => {
-  return JSON.parse(localStorage.getItem("korisnici"));
-};
-
-const set_korisnici = (korisnici) => {
-  localStorage.setItem("korisnici", JSON.stringify(korisnici));
-};
-
-var korisnici_svi = get_korisnici();
-if (korisnici_svi == null) {
-  korisnici_svi = [
-    new Korisnik("pera", "pera@gmail.com", "password", "password"),
-  ];
-  set_korisnici(korisnici_svi);
-  console.log(korisnici_svi);
-}
-
-const get_korisnik = () => {
-  return JSON.parse(localStorage.getItem("korisnik"));
-};
-
-const set_korisnik = (korisnik) => {
-  localStorage.setItem("korisnik", JSON.stringify(korisnik));
-};
-
-function Korisnik(ime, email, password, confirm_password) {
-  this.ime = ime;
-  this.email = email;
-  this.password = password;
-  this.confirm_password = confirm_password;
-  this.korpa = [];
-}
-
-//deo koda za register
-
-//var registruj = document.getElementById("signupBtn");
-
-//let ime = document.getElementById("nameInputSignup").value;
-//let email = document.getElementById("emailInputSignup").value;
-//let password = document.getElementById("passInputSignup").value;
-////let confirm_password = document.getElementById("passConfirmInputSignup").value;
-
-//provara da li je umnet podatak, treba za svaku stavku, mozda moze i pametnije
-//if (ime === "") {
-//  odgovor.innerHTML = "niste uneli ime";
-//  return;
-//}
-
-//deo provere emaila regexima
-// if(!validateEmail(email)){
-//   alert("los email");
-//   return;
-//}
-
-//var k = new Korisnik(ime, email, password, confirm_password);
-//var svi_korisnici = get_korisnici();
-//svi_korisnici.push(k);
-//set_korisnici(svi_korisnici);
-//alert("registracija uspesna");
 
 //Style za kontakt formu
 const loginText = document.querySelector(".title-text .login");
@@ -164,71 +99,44 @@ inputConfirmSign.onfocus = () => {
   requireSignupMsg.style.display = "block";
 };
 
-//Regexi za kontakt formu Vlada
 
+//Local storage za kontakt formu
+const get_korisnici = () => {
+    return JSON.parse(localStorage.getItem("korisnici"));
+  };
+  
+  const set_korisnici = (korisnici) => {
+    localStorage.setItem("korisnici", JSON.stringify(korisnici));
+  };
+  
+  var korisnici_svi = get_korisnici();
+  if (korisnici_svi == null) {
+    korisnici_svi = [
+      new Korisnik("pera", "pera@gmail.com", "password", "password"),
+    ];
+    set_korisnici(korisnici_svi);
+    console.log(korisnici_svi);
+  }
+  
+  const get_korisnik = () => {
+    return JSON.parse(localStorage.getItem("korisnik"));
+  };
+  
+  const set_korisnik = (korisnik) => {
+    localStorage.setItem("korisnik", JSON.stringify(korisnik));
+  };
+  
+  function Korisnik(ime, email, password, confirm_password) {
+    this.ime = ime;
+    this.email = email;
+    this.password = password;
+    this.confirm_password = confirm_password;
+    this.korpa = [];
+  }
 
-
-//const uloguj = document.getElementById("loginBtn");
-//Lisener za login dugme
-
-// uloguj.addEventListener("click", function (e) {
-//   e.preventDefault(); //Da ponistimo default funkciju dugmeta submit
-
-//   let name = document.getElementById("nameInput");
-//   let email = document.getElementById("emailInput");
-//   let pass = document.getElementById("passInput");
-
-//   let nameRegex = /^[A-Z][a-z]{2,}/;
-//   let emailRegex =
-//     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-//   let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-
-//   let nameTest = nameRegex.test(name.value);
-//   let emailTest = emailRegex.test(email.value);
-//   let passTest = passRegex.test(pass.value);
-
-//   let nameTrue = document.getElementById("nameTrue");
-//   let nameFalse = document.getElementById("nameFalse");
-//   let emailTrue = document.getElementById("emailTrue");
-//   let emailFalse = document.getElementById("emailFalse");
-//   let passTrue = document.getElementById("passTrue");
-//   let passFalse = document.getElementById("passFalse");
-
-//   if (nameTest) {
-//     nameTrue.style.display = "block";
-//     name.style.borderColor = "green";
-//     nameFalse.style.display = "none";
-//   } else {
-//     nameFalse.style.display = "block";
-//     name.style.borderColor = "red";
-//     nameTrue.style.display = "none";
-//   }
-
-//   if (emailTest) {
-//     emailTrue.style.display = "block";
-//     email.style.borderColor = "green";
-//     emailFalse.style.display = "none";
-//   } else {
-//     emailFalse.style.display = "block";
-//     email.style.borderColor = "red";
-//     emailTrue.style.display = "none";
-//   }
-
-//   if (passTest) {
-//     passTrue.style.display = "block";
-//     pass.style.borderColor = "green";
-//     passFalse.style.display = "none";
-//   } else {
-//     passFalse.style.display = "block";
-//     pass.style.borderColor = "red";
-//     passTrue.style.display = "none";
-//   }
-// });
-
+//Regexi za kontakt formu
 //Lisener za signup dugme
 const registruj = document.getElementById("signupBtn");
-
-if (registruj != null) {
   registruj.addEventListener("click", function (e) {
     e.preventDefault();
 
@@ -312,42 +220,86 @@ if (registruj != null) {
       alert("registracija uspesna");
     }
   });
-}
 
 
-const uloguj = document.getElementById("loginBtn");
-if (uloguj != null) {
-  // u slucaju da je korisnik vec ulogovan, sakriva se login forma
-  if (get_korisnik() != null) {
-    alert("Vec ste ulogovani!");
-    //var forma_login = document.getElementById("forma_login");
-    //forma_login.style.display="none";
+//Lisener za login dugme
+const login = document.getElementById("loginBtn");
+login.addEventListener("click", function (e) {
+  e.preventDefault(); //Da ponistimo default funkciju dugmeta submit
+
+  let name = document.getElementById("nameInput");
+  let email = document.getElementById("emailInput");
+  let pass = document.getElementById("passInput");
+
+  let nameRegex = /^[A-Z][a-z]{2,}/;
+  let emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+
+  let nameTest = nameRegex.test(name.value);
+  let emailTest = emailRegex.test(email.value);
+  let passTest = passRegex.test(pass.value);
+
+  let nameTrue = document.getElementById("nameTrue");
+  let nameFalse = document.getElementById("nameFalse");
+  let emailTrue = document.getElementById("emailTrue");
+  let emailFalse = document.getElementById("emailFalse");
+  let passTrue = document.getElementById("passTrue");
+  let passFalse = document.getElementById("passFalse");
+
+  if (nameTest) {
+    nameTrue.style.display = "block";
+    name.style.borderColor = "green";
+    nameFalse.style.display = "none";
   } else {
-    uloguj.addEventListener("click", (e) => {
-      e.preventDefault();
-      let ime = document.getElementById("nameInput");
-      let email = document.getElementById("emailInput");
-      let lozinka = document.getElementById("passInput");
-
-      let svi_korisnici = get_korisnici();
-      console.log(svi_korisnici.length);
-      for (let j = 0; j < svi_korisnici.length; j++) {
-        let k = svi_korisnici[j];
-        if (ime.value == k.ime && email.value == k.email && lozinka.value == k.password) {
-          alert("uspesno logovanje");
-
-          //treba da znam ako je korisnik ulogovan
-          //npr: korisnik dodje na stranicu za logovanje i uloguje se
-          //zatim ode da stavi proizvod u korpu
-          //moram da znam da li je korisnik ulogovan
-          //to radim tako sto proverim da li u localstorage postoji kljuc korisnik
-          set_korisnik(k);
-          // document.location.href="index.html";
-          return;
-        }
-        
-      }
-      alert("pogresni podaci");
-    });
+    nameFalse.style.display = "block";
+    name.style.borderColor = "red";
+    nameTrue.style.display = "none";
   }
-}
+
+  if (emailTest) {
+    emailTrue.style.display = "block";
+    email.style.borderColor = "green";
+    emailFalse.style.display = "none";
+  } else {
+    emailFalse.style.display = "block";
+    email.style.borderColor = "red";
+    emailTrue.style.display = "none";
+  }
+
+  if (passTest) {
+    passTrue.style.display = "block";
+    pass.style.borderColor = "green";
+    passFalse.style.display = "none";
+  } else {
+    passFalse.style.display = "block";
+    pass.style.borderColor = "red";
+    passTrue.style.display = "none";
+  }
+
+
+  if (nameTest && emailTest && passTest) {
+    let user = document.getElementsByClassName("user")[0];
+    console.log(user);
+    let svi_korisnici = get_korisnici();
+    //console.log(svi_korisnici.length);
+    for (let j = 0; j < svi_korisnici.length; j++) {
+      let k = svi_korisnici[j];
+      if (name.value == k.ime && email.value == k.email && pass.value == k.password) {
+        alert("uspesno logovanje");
+        //treba da znam ako je korisnik ulogovan
+        //npr: korisnik dodje na stranicu za logovanje i uloguje se
+        //zatim ode da stavi proizvod u korpu
+        //moram da znam da li je korisnik ulogovan
+        //to radim tako sto proverim da li u localstorage postoji kljuc korisnik
+        set_korisnik(k);
+        //document.location.href="index.html";
+        let current_user = get_korisnik();
+        user.innerHTML = "Ulogovani korisnik: " + current_user.ime;
+        
+        return;
+      }
+    }
+    alert("pogresni podaci");
+  }
+});
