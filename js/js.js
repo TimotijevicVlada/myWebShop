@@ -27,10 +27,12 @@ fetch("json/navBar.json").then(function(response) {
         cartsIcon.addEventListener("click", function(e) {
         e.preventDefault();
         cartsPage.style.right = "0%";
+        document.body.style.overflow = "hidden"; 
         });
         cartsExit.addEventListener("click", function(e) {
         e.preventDefault();
         cartsPage.style.right = "-100%";
+        document.body.style.overflow = "auto"; 
         });
 
         //Funkcija za responzivan navBar
@@ -412,6 +414,8 @@ function addToCart(item) {
   let materijal = shopItem.getElementsByClassName("shop-item-material")[0].innerText;
   let guaranty = shopItem.getElementsByClassName("shop-item-guaranty")[0].innerText;
   let dostupno = shopItem.getElementsByClassName("shop-item-dostupno")[0].innerText;
+
+
  
   let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
   cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
@@ -466,9 +470,10 @@ function updatePrice() {
     let cena = parseFloat(cenaE.replace(".", ""));  //Sklanjam tacku da bi sabrao realno sve cene
     suma = suma + cena * kolicina; //Funkcija za sabiranje cene i kolicine proizvoda
   }
+
   totalCount.innerText = cartRows.length; //Broj proizvoda je broj cartRows elemenata
   document.getElementsByClassName("cart-total-price")[0].innerText =
-    suma.toFixed(2); //dobijena suma
+  suma.toFixed(2); //dobijena suma
 }
 
 function changeQuantity(item) {
@@ -488,3 +493,5 @@ deleteAllBtn.onclick = () => {
     cartContainer.innerHTML = "";
     updatePrice();
 }
+
+

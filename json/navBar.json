@@ -16,6 +16,10 @@
         "href": "form.html"
     },
     {
+        "name": "Users",
+        "href": "users.html"
+    },
+    {
         "name": "<i class='fas fa-shopping-bag'><span class='brojac-proizvoda'>0</span></i>",
         "href": "#"
     }

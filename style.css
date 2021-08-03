@@ -727,9 +727,6 @@ input[type=checkbox] {
     font-size: 17px;
     transition: all 0.3s ease;
   }
-  .form-inner form .field input:focus{
-    border-color: rgb(47, 148, 243);
-  }
   .form-inner form .field input::placeholder{
     color: #999;
     transition: all 0.3s ease;
@@ -864,6 +861,16 @@ input[type=checkbox] {
 .contact-info td i {
   font-size: 1.3em;
 }
+
+
+/*USERS*/
+.list-of-users {
+  text-align: center;
+}
+#ispis {
+  text-align: center ;
+}
+
 
 /*FOOTER*/
 footer {

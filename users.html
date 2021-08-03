@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>myWebShop</title>
+  </head>
+  <body>
+      <!--Go up btn-->
+    <div class="btn-up">
+        <a href="#"><i class="fas fa-chevron-up"></i></a>
+      </div>
+  
+      <!--CARTS-->
+      <div class="carts">
+        <i class="exit fas fa-times"></i>
+        <div class="carts-info">
+          <span class="carts-product">Product</span>
+          <span class="carts-price">Price</span>
+          <span class="carts-description">Description</span>
+          <span class="carts-quantity">Quantity</span>
+          <div class="delete-all">
+            <i class="fas fa-trash-alt"></i>
+            <span>Delete-all</span>
+          </div>
+        </div>
+        <div class="cart-items"></div>  <!--Div u koji se ubacuju proizvodi-->
+        <div class="cart-in-total">
+          <span class="cart-total">Ukupno</span>
+          <span class="cart-currency">RSD</span>
+          <span class="cart-total-price">0.00</span>
+        </div>
+        <div class="order-products">
+            <button class="order-btn">Purchase</button>
+        </div>
+      </div>
+  
+      <!--NAVBAR-->
+      <nav class="navbar">
+        <div class="content">
+          <div class="logo">
+            <a href="#">my<span>Shop</span></a>
+          </div>
+          <ul class="menu-list">
+            <div class="icon cancel-btn">
+              <i class="fas fa-times"></i>
+            </div>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="form.html"><i class="fas fa-user"></i> Account</a></li>
+            <li>
+              <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            </li>
+          </ul>
+          <div class="icon menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+  
+      <!--Div sa kojim pravim siri prostor-->
+      <div class="empty-div"></div>
+
+
+      <div>
+        <h3 class="list-of-users">List of users:</h3>
+        <div id="ispis">nesto</div>
+      </div>
+
+
+
+
+    <div class="div-line"></div>
+
+    <div class="info" id="info">
+      <!--JS dynamic display-->
+    </div>
+
+    <div class="div-line"></div>
+
+    <!--Social network icons-->
+    <div class="social-network">
+      <!--JS dynamic display-->
+    </div>
+
+    <footer>
+      <div>
+        <p>&copy; Internet shop by |<span> Vladimir Timotijevic</span></p>
+      </div>
+      <div class="footer-cards">
+        <!--JS dynamic display-->
+      </div>
+    </footer>
+
+    <script src="js/js.js" type="text/javascript"></script>
+  </body>
+</html>
