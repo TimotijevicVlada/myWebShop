@@ -1,3 +1,19 @@
+//Ispisivanje current-user u navbaru
+const get_korisnik2 = () => {
+    return JSON.parse(localStorage.getItem("korisnik"));
+  };
+
+const ispisi_korisnika = () => {
+    //alert("uspelo")
+    let privremeno = get_korisnik2();
+    console.log(privremeno);
+    let za_ispis = document.getElementById("current-user"); 
+    if (privremeno != null) {
+      za_ispis.innerText='User: ' + privremeno.ime;
+    } else {
+      za_ispis.innerText = "There is no logged user!";
+    }
+  };
 
 //Fetch-ovanje navBar-a 
 fetch("json/navBar.json").then(function(response) {
@@ -18,6 +34,8 @@ fetch("json/navBar.json").then(function(response) {
             `;
         }
         div.innerHTML = html;
+        //Ispisivanje trenutnog korisnika
+        ispisi_korisnika();
    
         //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];

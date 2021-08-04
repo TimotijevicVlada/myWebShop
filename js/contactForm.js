@@ -101,7 +101,7 @@ inputConfirmSign.onfocus = () => {
 
 
 //Local storage za kontakt formu
-const get_korisnici = () => {
+  const get_korisnici = () => {
     return JSON.parse(localStorage.getItem("korisnici"));
   };
   
@@ -112,7 +112,7 @@ const get_korisnici = () => {
   var korisnici_svi = get_korisnici();
   if (korisnici_svi == null) {
     korisnici_svi = [
-      new Korisnik("pera", "pera@gmail.com", "password", "password"),
+      new Korisnik("Pera", "pera@gmail.com", "Password123", "Password123"),
     ];
     set_korisnici(korisnici_svi);
     console.log(korisnici_svi);
@@ -293,13 +293,15 @@ login.addEventListener("click", function (e) {
         //moram da znam da li je korisnik ulogovan
         //to radim tako sto proverim da li u localstorage postoji kljuc korisnik
         set_korisnik(k);
+        ispisi_korisnika();
         //document.location.href="index.html";
-        let current_user = get_korisnik();
-        user.innerHTML = "Ulogovani korisnik: " + current_user.ime;
-        
+       // let current_user = get_korisnik();
+        // user.innerHTML = "Ulogovani korisnik: " + current_user.ime;
+        // console.log(current_user);
         return;
       }
     }
     alert("pogresni podaci");
+    //ispisi_korisnika();
   }
 });
