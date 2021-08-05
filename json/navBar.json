@@ -1,26 +1,32 @@
 [
     {
         "name": "Home",
-        "href": "index.html"
+        "href": "index.html",
+        "class": "menu-word"
     },
     {
-        "name": "Info",
-        "href": "#info"
+        "name": "Logout",
+        "href": "/",
+        "class": "menu-word logout"
     },
     {
         "name": "Contact",
-        "href": "contact.html"
+        "href": "contact.html",
+        "class": "menu-word"
     },
     {
         "name": "Account",
-        "href": "form.html"
+        "href": "form.html",
+        "class": "menu-word"
     },
     {
         "name": "Users",
-        "href": "users.html"
+        "href": "users.html",
+        "class": "menu-word"
     },
     {
         "name": "<i class='fas fa-shopping-bag'><span class='brojac-proizvoda'>0</span></i>",
-        "href": "#"
+        "href": "#",
+        "class": "menu-word"
     }
 ]
