@@ -6,7 +6,7 @@ const get_korisnik2 = () => {
 const ispisi_korisnika = () => {
     //alert("uspelo")
     let privremeno = get_korisnik2();
-    console.log(privremeno);
+    //console.log(privremeno);
     let za_ispis = document.getElementById("current-user"); 
     if (privremeno != null) {
       za_ispis.innerText='User: ' + privremeno.ime;
@@ -14,6 +14,35 @@ const ispisi_korisnika = () => {
       za_ispis.innerText = "There is no logged user!";
     }
   };
+
+//Shopping cart local storage
+const get_user = () => {
+    return JSON.parse(localStorage.getItem("korisnik"));
+}
+const set_user = (user) => {
+    localStorage.setItem("korisnik", JSON.stringify(user));
+  };
+//console.log(get_user());
+const set_products = (naslov, cena, slika, naStanju, materijal, guaranty, dostupno) => {
+    let product = {
+        title: naslov,
+        price: cena,
+        img: slika,
+        state: naStanju,
+        material: materijal,
+        guaranty: guaranty,
+        available: dostupno
+    }
+    
+    let user = get_user();
+    //console.log(user);
+    let cart = user.korpa;
+    cart.push(product);
+    //console.log(korpa)
+    set_user(user);
+    //console.log(user);
+}
+
 
 //Fetch-ovanje navBar-a 
 fetch("json/navBar.json").then(function(response) {
@@ -434,42 +463,61 @@ function addToCart(item) {
   let dostupno = shopItem.getElementsByClassName("shop-item-dostupno")[0].innerText;
 
 
- 
+  //Ako je neko ulogovan dozvoljavamo stavljanje u korpu a ako nije onda ne dozvoljavamo!
+  let current_user = document.getElementById("current-user");
+  if(current_user.innerHTML == "There is no logged user!") {
+      alert("Your are not logged!")
+  }else {
+      set_products(naslov, cena, slika, naStanju, materijal, guaranty, dostupno);
+    }
+    displayCart();
+}
+
+function displayCart() {
   let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
   cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
   let cartItems = document.querySelector(".cart-items"); //Dohvatamo cartItems
-  let naslovProvera = cartItems.getElementsByClassName("cart-item-title"); //Provera sa IF da ne bi ubacivali dva puta isti element u korpu
-  for (let i = 0; i < naslovProvera.length; i++) {
-    if (naslovProvera[i].innerText == naslov) {
-      //Ako je naslov jednako naslov onda ne ubacuj u korpu
-      alert("Ovaj proizvod ste vec ubacili u korpu!");
-      return; //Returnom izlazimo iz ove funkcije
-    }
-  }
+// let naslovProvera = cartItems.getElementsByClassName("cart-item-title"); //Provera sa IF da ne bi ubacivali dva puta isti element u korpu
+//  for (let i = 0; i < naslovProvera.length; i++) {
+//    if (naslovProvera[i].innerText == naslov) {
+//      //Ako je naslov jednako naslov onda ne ubacuj u korpu
+//      alert("Ovaj proizvod ste vec ubacili u korpu!");
+//      return; //Returnom izlazimo iz ove funkcije
+//    }
+// }
   //Pravimo elemente koji ce da se ispisuju nakon klika na Dodaj u korpu
-  let ispis = `<div class='cart-item cart-column' >     
-                  <img class='cart-item-image' src="${slika}">
-                  <span class="cart-item-title">${naslov}</span>
+
+  let user = get_user();
+  let cart = user.korpa;
+  console.log(cart.length);
+  let html = "";
+  for(let i in cart) {
+   console.log(cart[i].title);  //Ovde vidim proizvode ali ispod ne vidim
+   html = `<div class='cart-item cart-column' >     
+                  <img class='cart-item-image' src="${cart[i].img}">
+                  <span class="cart-item-title">${cart[i].title}</span>
                  </div>
-                  <span class="cart-price cart-column">${cena}</span>
+                  <span class="cart-price cart-column">${cart[i].price}</span>
                  <div class="cart-item-description">
-                  <p><i class="fas fa-angle-right"></i> ${naStanju ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
-                  <p><i class="fas fa-angle-right"></i> Materijal: <span class="boldovano">${materijal}</span></p>
-                  <p><i class="fas fa-angle-right"></i> Garancija: <span class="boldovano">${guaranty}</span></p>
-                  <p><i class="fas fa-angle-right"></i> Dostupno: <span class="boldovano">${dostupno}</span></p>
+                  <p><i class="fas fa-angle-right"></i> ${cart[i].state ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
+                  <p><i class="fas fa-angle-right"></i> Materijal: <span class="boldovano">${cart[i].material}</span></p>
+                  <p><i class="fas fa-angle-right"></i> Garancija: <span class="boldovano">${cart[i].guaranty}</span></p>
+                  <p><i class="fas fa-angle-right"></i> Dostupno: <span class="boldovano">${cart[i].available}</span></p>
                  </div> 
                  <div class="cart-quantity  cart-column">
                     <input type="number" class="cart-quantity-input" value="1" max="10">
                     <button class="btn btn-remove" type="button"><i class="fas fa-trash"></i></button>
                  </div>                
               `;
-  cartRow.innerHTML = ispis;
+  };            
+  cartRow.innerHTML = html;
   cartItems.append(cartRow);
   cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click", deleteItem);
   cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", changeQuantity);
     
   updatePrice();
 }
+
 
 function deleteItem(item) {
   let dugme = item.target;
@@ -511,5 +559,34 @@ deleteAllBtn.onclick = () => {
     cartContainer.innerHTML = "";
     updatePrice();
 }
+
+
+
+//Kod za ispisivanje svih registrovanih korisnika
+
+const get_users = () => {
+    return JSON.parse(localStorage.getItem("korisnici"));
+  };
+
+const display_all_users = () => {
+  let all_users = get_users();
+  console.log(all_users); //Dobijamo sve usere 
+  const all_users_div = document.getElementById("all_users");   //Iznekog razloga mi ne vidi ovaj element
+  console.log(all_users_div);
+
+  let html = "";
+  for(let i in all_users) {
+      html += `<div>
+            <p>${all_users[i].ime}</p>
+            <p>${all_users[i].email}</p>
+            <p>${all_users[i].password}</p>
+      </div>`
+  }
+  
+      all_users_div.innerHTML = html;
+  
+}
+
+display_all_users();
 
 
