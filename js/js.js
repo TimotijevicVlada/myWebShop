@@ -43,6 +43,35 @@ const set_products = (naslov, cena, slika, naStanju, materijal, guaranty, dostup
     //console.log(user);
 }
 
+//Kod za ispisivanje svih registrovanih korisnika
+const get_users = () => {
+    return JSON.parse(localStorage.getItem("korisnici"));
+  };
+
+const display_all_users = () => {
+  let all_users = get_users();
+  //console.log(all_users); //Dobijamo sve usere 
+  let all_users_div = document.getElementById("all_users");  
+  //console.log(all_users_div);
+
+  let html = "";
+      html += `<table class="users_table">
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+  `;
+  for(let i in all_users) {
+      html += `<tr>
+                    <td>${all_users[i].ime}</td>
+                    <td>${all_users[i].email}</td>
+                    <td>${all_users[i].password}</td>
+                </tr>`
+            }
+      html += `</table>`;
+      all_users_div.innerHTML = html;
+}
 
 //Fetch-ovanje navBar-a 
 fetch("json/navBar.json").then(function(response) {
@@ -63,9 +92,7 @@ fetch("json/navBar.json").then(function(response) {
             `;
         }
         div.innerHTML = html;
-        //Ispisivanje trenutnog korisnika
-        ispisi_korisnika();
-   
+
         //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];
         const cartsIcon = document.getElementsByClassName("fa-shopping-bag")[0];
@@ -111,6 +138,10 @@ fetch("json/navBar.json").then(function(response) {
                 navBarWords.classList.remove("white");
             }
         })
+
+        //Ispisivanje trenutnog korisnika
+        ispisi_korisnika();
+        display_all_users();
 
     }).catch(function(error) {
     console.log(error);
@@ -562,31 +593,6 @@ deleteAllBtn.onclick = () => {
 
 
 
-//Kod za ispisivanje svih registrovanih korisnika
 
-const get_users = () => {
-    return JSON.parse(localStorage.getItem("korisnici"));
-  };
-
-const display_all_users = () => {
-  let all_users = get_users();
-  console.log(all_users); //Dobijamo sve usere 
-  const all_users_div = document.getElementById("all_users");   //Iznekog razloga mi ne vidi ovaj element
-  console.log(all_users_div);
-
-  let html = "";
-  for(let i in all_users) {
-      html += `<div>
-            <p>${all_users[i].ime}</p>
-            <p>${all_users[i].email}</p>
-            <p>${all_users[i].password}</p>
-      </div>`
-  }
-  
-      all_users_div.innerHTML = html;
-  
-}
-
-display_all_users();
 
 

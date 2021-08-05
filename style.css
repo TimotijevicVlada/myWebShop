@@ -870,9 +870,24 @@ input[type=checkbox] {
 /*USERS*/
 .list-of-users {
   text-align: center;
+  margin: 20px;
 }
 #ispis {
   text-align: center ;
+}
+
+/*all_users_div*/
+#all_users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.users_table, .users_table td, .users_table th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.users_table td, .users_table th {
+  padding: 10px;
 }
 
 
