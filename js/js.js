@@ -581,9 +581,6 @@ function addToCart(item) {
 }
 
 function displayCart() {
-  //let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
-  //cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
-  let cartItems = document.querySelector(".cart-items"); //Dohvatamo cartItems
 // let naslovProvera = cartItems.getElementsByClassName("cart-item-title"); //Provera sa IF da ne bi ubacivali dva puta isti element u korpu
 //  for (let i = 0; i < naslovProvera.length; i++) {
 //    if (naslovProvera[i].innerText == naslov) {
@@ -592,17 +589,13 @@ function displayCart() {
 //      return; //Returnom izlazimo iz ove funkcije
 //    }
 // }
+
   //Pravimo elemente koji ce da se ispisuju nakon klika na Dodaj u korpu
-
-
   let user = get_user();
   let cart = user.korpa;
-  //console.log(cart);
+  let cartItems = document.querySelector(".cart-items"); //Div u html u koji upisujemo sve
   let html = "";
-  for(let i = 0; i < cart.length; i++) {
-
-      //alert("USao u petlju!")
-   //console.log(cart[i].title);  //Ovde vidim proizvode ali ispod ne vidim
+  for(let i in cart) {
    html += `<div class="cart-row">
                  <div class='cart-item cart-column' >     
                   <img class='cart-item-image' src="${cart[i].img}">
@@ -621,20 +614,23 @@ function displayCart() {
                  </div>  
             </div>
               `;
-     cartItems.innerHTML = html;   
-    //let cartRow = document.getElementsByClassName("cart-row")[0];
-    //console.log(cartRow);
-    //let remove = document.getElementsByClassName("btn-remove")[0];
-    //console.log(remove);
-    //remove.addEventListener("click", deleteItem);
-    //let quantity = document.getElementsByClassName("cart-quantity-input")[0];
-    //quantity.addEventListener("change", changeQuantity);       
-  };            
- 
-  updatePrice();
+     cartItems.innerHTML = html;     
+  };      
 
+        //Liseneri za delete btn
+        let removeBtn = document.getElementsByClassName("btn-remove");
+            for (let btn of removeBtn) {
+                btn.addEventListener("click", deleteItem);
+            }  
+
+        //Liseneri za quantity btn
+        let quantity = document.getElementsByClassName("cart-quantity-input");
+            for(let btn of quantity) {
+                btn.addEventListener("click", changeQuantity);
+            }
+
+        updatePrice();
 }
-
 
 function deleteItem(item) {
   let dugme = item.target;
