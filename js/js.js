@@ -1,3 +1,4 @@
+
 //Ispisivanje current-user u navbaru
 const get_korisnik2 = () => {
     return JSON.parse(localStorage.getItem("korisnik"));
@@ -15,6 +16,10 @@ const ispisi_korisnika = () => {
     }
   };
 
+  const set_users = (users) => {
+    localStorage.setItem("korisnici", JSON.stringify(users));
+  };
+
 //Shopping cart local storage
 const get_user = () => {
     return JSON.parse(localStorage.getItem("korisnik"));
@@ -25,13 +30,13 @@ const set_user = (user) => {
 //console.log(get_user());
 const set_products = (naslov, cena, slika, naStanju, materijal, guaranty, dostupno) => {
     let product = {
-        title: naslov,
-        price: cena,
-        img: slika,
-        state: naStanju,
-        material: materijal,
-        guaranty: guaranty,
-        available: dostupno
+       title: naslov,
+       price: cena,
+       img: slika,
+       state: naStanju,
+       material: materijal,
+       guaranty: guaranty,
+       available: dostupno
     }
     
     let user = get_user();
@@ -41,12 +46,33 @@ const set_products = (naslov, cena, slika, naStanju, materijal, guaranty, dostup
     //console.log(korpa)
     set_user(user);
     //console.log(user);
+    let users = get_users();
+    //console.log(users)
+    //console.log(user)
+    for(let i = 0; i < users.length; i++) {
+        if(users[i].email == user.email ) {
+            users[i] = user;
+            set_users(users);
+        }
+    }
+    product_number();
 }
 
 //Kod za ispisivanje svih registrovanih korisnika
 const get_users = () => {
     return JSON.parse(localStorage.getItem("korisnici"));
   };
+
+const product_number = () =>{
+    let user = get_user();
+    console.log(user)
+    let product_num = user.korpa.length;
+    console.log(product_num);
+    let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
+    //alert("TU SAM");
+    totalCount.innerHTML = product_num;
+}
+
 
 const display_all_users = () => {
   let all_users = get_users();
@@ -92,7 +118,7 @@ fetch("json/navBar.json").then(function(response) {
             `;
         }
         div.innerHTML = html;
-
+        product_number();
         
         //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];
@@ -143,6 +169,7 @@ fetch("json/navBar.json").then(function(response) {
         //Ispisivanje trenutnog korisnika
         ispisi_korisnika();
         display_all_users();
+        
 
     }).catch(function(error) {
     console.log(error);
@@ -205,6 +232,7 @@ function fetchJson(json, container) {
         `;
     }
     container.innerHTML = html;
+    displayCart();
     
     //Liseneri za add to cart button
     let addButton = document.getElementsByClassName("shop-item-button");
@@ -498,6 +526,8 @@ carouselSlide.addEventListener("transitionend", () => {
     }
 })
 
+
+//Izlazak iz details prozora
   let exitBlured = document.getElementsByClassName("cancel-blurred")[0];
     exitBlured.addEventListener("click" , exitDetails);
 }
@@ -545,13 +575,14 @@ function addToCart(item) {
       alert("Your are not logged!")
   }else {
       set_products(naslov, cena, slika, naStanju, materijal, guaranty, dostupno);
+      displayCart();
     }
-    displayCart();
+    
 }
 
 function displayCart() {
-  let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
-  cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
+  //let cartRow = document.createElement("div"); //cartRow Je red koji treba da se pojavi kada ubacimo u korpu (Za sada se on ne vidi)
+  //cartRow.classList.add("cart-row"); //Moramo da mu dodamo klasu kako bi ga formatirali
   let cartItems = document.querySelector(".cart-items"); //Dohvatamo cartItems
 // let naslovProvera = cartItems.getElementsByClassName("cart-item-title"); //Provera sa IF da ne bi ubacivali dva puta isti element u korpu
 //  for (let i = 0; i < naslovProvera.length; i++) {
@@ -563,13 +594,17 @@ function displayCart() {
 // }
   //Pravimo elemente koji ce da se ispisuju nakon klika na Dodaj u korpu
 
+
   let user = get_user();
   let cart = user.korpa;
-  console.log(cart.length);
+  //console.log(cart);
   let html = "";
-  for(let i in cart) {
-   console.log(cart[i].title);  //Ovde vidim proizvode ali ispod ne vidim
-   html = `<div class='cart-item cart-column' >     
+  for(let i = 0; i < cart.length; i++) {
+
+      //alert("USao u petlju!")
+   //console.log(cart[i].title);  //Ovde vidim proizvode ali ispod ne vidim
+   html += `<div class="cart-row">
+                 <div class='cart-item cart-column' >     
                   <img class='cart-item-image' src="${cart[i].img}">
                   <span class="cart-item-title">${cart[i].title}</span>
                  </div>
@@ -583,15 +618,21 @@ function displayCart() {
                  <div class="cart-quantity  cart-column">
                     <input type="number" class="cart-quantity-input" value="1" max="10">
                     <button class="btn btn-remove" type="button"><i class="fas fa-trash"></i></button>
-                 </div>                
+                 </div>  
+            </div>
               `;
+     cartItems.innerHTML = html;   
+    //let cartRow = document.getElementsByClassName("cart-row")[0];
+    //console.log(cartRow);
+    //let remove = document.getElementsByClassName("btn-remove")[0];
+    //console.log(remove);
+    //remove.addEventListener("click", deleteItem);
+    //let quantity = document.getElementsByClassName("cart-quantity-input")[0];
+    //quantity.addEventListener("change", changeQuantity);       
   };            
-  cartRow.innerHTML = html;
-  cartItems.append(cartRow);
-  cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click", deleteItem);
-  cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", changeQuantity);
-    
+ 
   updatePrice();
+
 }
 
 
@@ -602,7 +643,7 @@ function deleteItem(item) {
 }
 
 function updatePrice() {
-  let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
+  //let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
   let cartItems = document.querySelector(".cart-items");
   let cartRows = cartItems.getElementsByClassName("cart-row");
   let suma = 0; //Treba nam brojac kako bi sabirali cenu
@@ -613,7 +654,7 @@ function updatePrice() {
     suma = suma + cena * kolicina; //Funkcija za sabiranje cene i kolicine proizvoda
   }
 
-  totalCount.innerText = cartRows.length; //Broj proizvoda je broj cartRows elemenata
+  //totalCount.innerText = cartRows.length; //Broj proizvoda je broj cartRows elemenata
   document.getElementsByClassName("cart-total-price")[0].innerText =
   suma.toFixed(2); //dobijena suma
 }

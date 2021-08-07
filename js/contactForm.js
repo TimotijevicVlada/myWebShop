@@ -294,14 +294,27 @@ login.addEventListener("click", function (e) {
         //to radim tako sto proverim da li u localstorage postoji kljuc korisnik
         set_korisnik(k);
         ispisi_korisnika();
+        product_number_contact();
         //document.location.href="index.html";
        // let current_user = get_korisnik();
         // user.innerHTML = "Ulogovani korisnik: " + current_user.ime;
         // console.log(current_user);
         return;
       }
+      
     }
     alert("pogresni podaci");
     //ispisi_korisnika();
   }
+  
 });
+
+const product_number_contact = () =>{
+  let user = get_user();
+  console.log(user)
+  let product_num = user.korpa.length;
+  console.log(product_num);
+  let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
+  //alert("TU SAM");
+  totalCount.innerHTML = product_num;
+}
