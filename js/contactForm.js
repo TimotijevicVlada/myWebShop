@@ -301,12 +301,10 @@ login.addEventListener("click", function (e) {
         // console.log(current_user);
         return;
       }
-      
     }
     alert("pogresni podaci");
     //ispisi_korisnika();
   }
-  
 });
 
 const product_number_contact = () =>{
@@ -318,3 +316,4 @@ const product_number_contact = () =>{
   //alert("TU SAM");
   totalCount.innerHTML = product_num;
 }
+
