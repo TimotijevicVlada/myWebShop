@@ -117,7 +117,8 @@ fetch("json/navBar.json").then(function(response) {
             `;
         }
         div.innerHTML = html;
-
+        product_number();
+        displayCart();
         
         //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];
@@ -133,6 +134,7 @@ fetch("json/navBar.json").then(function(response) {
         e.preventDefault();
         cartsPage.style.right = "-100%";
         document.body.style.overflow = "auto"; 
+        product_number();    //Posle izlaska iz korpe zovem funkciju da ispise broj porizvoda
         });
 
         //Funkcija za responzivan navBar
@@ -230,6 +232,7 @@ function fetchJson(json, container) {
         `;
     }
     container.innerHTML = html;
+    product_number();
     
     //Liseneri za add to cart button
     let addButton = document.getElementsByClassName("shop-item-button");
@@ -242,6 +245,8 @@ function fetchJson(json, container) {
     for(let i = 0; i < detailsBtn.length; i++) {
         detailsBtn[i].addEventListener("click", showDetails);
     }
+
+    displayCart();
 
     }).catch(function(error) {
         console.log(error);
@@ -636,8 +641,6 @@ function deleteItem(item) {
   let user = get_user();
   let cart = user.korpa;
 
-
-
   for(let i = 0; i < cart.length; i++) {
     if(cart[i].title == title) {
         cart.splice(cart[i], 1);
@@ -645,9 +648,7 @@ function deleteItem(item) {
         updateUser.korpa = cart;
         set_user(updateUser);
         parent.remove();
-
         let users = get_users();
-    
     for(let i = 0; i < users.length; i++) {
         if(users[i].email == updateUser.email ) {
             users[i] = updateUser;
@@ -655,7 +656,6 @@ function deleteItem(item) {
         }
     }
         updatePrice();
-        
         return;
     }
   }
@@ -679,20 +679,6 @@ function updatePrice() {
         novaCena.toFixed(3); //dobijena suma
         //console.log(novaCena.toFixed(3))
       
-//   //let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
-//   let cartItems = document.querySelector(".cart-items");
-//   let cartRows = cartItems.getElementsByClassName("cart-row");
-//   let suma = 0; //Treba nam brojac kako bi sabirali cenu
-//   for (let i = 0; i < cartRows.length; i++) {
-//     let cenaE = cartRows[i].querySelector(".cart-price").innerText;
-//     let kolicina = cartRows[i].querySelector(".cart-quantity-input").value;
-//     let cena = parseFloat(cenaE.replace(".", ""));  //Sklanjam tacku da bi sabrao realno sve cene
-//     suma = suma + cena * kolicina; //Funkcija za sabiranje cene i kolicine proizvoda
-//   }
-
-//   //totalCount.innerText = cartRows.length; //Broj proizvoda je broj cartRows elemenata
-//   document.getElementsByClassName("cart-total-price")[0].innerText =
-//   suma.toFixed(2); //dobijena suma
 }
 
 function changeQuantity(item) {
@@ -707,28 +693,11 @@ function changeQuantity(item) {
   //console.log(user)
   for(let i = 0; i < userCart.length; i++) {
     if(userCart[i].title == title) {
-        ////let userPrice = userCart[i].price;
         userCart[i].price = novaCena;
-        //console.log(userCart[i].price)
-        //let updateUser = get_user();
-        //let updateCart = updateUser.korpa;
-        //for(let i = 0; i < updateCart.length; i++) {
-        //    if(updateUser[i].title == )
-        //}
-        //set_user(user);
     }
-    
-    
-    //console.log(user)
   }
-  //console.log(novaCena.toFixed(3))
-  //updatePrice(novaCena);
-  //console.log(input)
-//   if (isNaN(input.value) || input.value <= 0) {
-//     input.value = 1; 
-//   }
-set_user(user);
-  updatePrice();
+    set_user(user);
+    updatePrice();
 }
 
 //Delete all btn u korpi
@@ -736,7 +705,11 @@ const cartContainer = document.getElementsByClassName("cart-items")[0];
 const deleteAllBtn = document.getElementsByClassName("fa-trash-alt")[0];
 
 deleteAllBtn.onclick = () => {
-    cartContainer.innerHTML = "";
+    let user = get_user();
+    let cart = user.korpa;
+    cart.splice(0, cart.length);
+    set_user(user);
+    displayCart();
     updatePrice();
 }
 
