@@ -5,11 +5,6 @@
         "class": "menu-word"
     },
     {
-        "name": "Logout",
-        "href": "/",
-        "class": "menu-word logout"
-    },
-    {
         "name": "Contact",
         "href": "contact.html",
         "class": "menu-word"

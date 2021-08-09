@@ -18,6 +18,16 @@ const ispisi_korisnika = () => {
   const set_users = (users) => {
     localStorage.setItem("korisnici", JSON.stringify(users));
   };
+/*
+//Logout opcija
+const logoutBtn = document.getElementsByClassName("logout")[0];
+console.log(logoutBtn)
+logoutBtn.addEventListener("click", logout);
+const logout = () => {
+let user = get_user();
+user.splice(0, user.length);
+set_user(user);
+}*/
 
 
 //Shopping cart local storage
@@ -65,9 +75,9 @@ const get_users = () => {
 
   const product_number = () =>{
     let user = get_user();
-    console.log(user)
+    //console.log(user)
     let product_num = user.korpa.length;
-    console.log(product_num);
+    //console.log(product_num);
     let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
     //alert("TU SAM");
     totalCount.innerHTML = product_num;
@@ -118,7 +128,6 @@ fetch("json/navBar.json").then(function(response) {
         }
         div.innerHTML = html;
         product_number();
-        displayCart();
         
         //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];
@@ -167,7 +176,9 @@ fetch("json/navBar.json").then(function(response) {
             }
         })
 
+
         //Ispisivanje trenutnog korisnika
+        displayCart();
         ispisi_korisnika();
         display_all_users();
 
@@ -616,7 +627,7 @@ function displayCart() {
                   `;
       };      
             cartItems.innerHTML = html;  
-            
+           
             //Liseneri za delete btn
             let removeBtn = document.getElementsByClassName("btn-remove");
                 for (let btn of removeBtn) {
@@ -626,7 +637,7 @@ function displayCart() {
             //Liseneri za quantity btn
             let quantity = document.getElementsByClassName("cart-quantity-input");
                 for(let btn of quantity) {
-                    btn.addEventListener("click", changeQuantity);
+                    btn.addEventListener("change", changeQuantity);
                 }
     
             updatePrice();
@@ -660,9 +671,6 @@ function deleteItem(item) {
     }
   }
   displayCart();
-  
-  //set_products();
-  
 }
 
 function updatePrice() {
@@ -682,6 +690,7 @@ function updatePrice() {
 }
 
 function changeQuantity(item) {
+    
   let input = item.target; 
   let quantity = parseInt(input.value);
   let parent = input.parentElement.parentElement;
@@ -694,17 +703,17 @@ function changeQuantity(item) {
   for(let i = 0; i < userCart.length; i++) {
     if(userCart[i].title == title) {
         userCart[i].price = novaCena;
+        set_user(user);
     }
   }
-    set_user(user);
     updatePrice();
 }
 
 //Delete all btn u korpi
-const cartContainer = document.getElementsByClassName("cart-items")[0];
-const deleteAllBtn = document.getElementsByClassName("fa-trash-alt")[0];
+const deleteAllBtn = document.getElementsByClassName("deleteAll-btn")[0];
+deleteAllBtn.addEventListener("click", deleteAllProducts);
 
-deleteAllBtn.onclick = () => {
+function deleteAllProducts() {
     let user = get_user();
     let cart = user.korpa;
     cart.splice(0, cart.length);
@@ -712,9 +721,3 @@ deleteAllBtn.onclick = () => {
     displayCart();
     updatePrice();
 }
-
-
-
-
-
-

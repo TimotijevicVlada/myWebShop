@@ -78,15 +78,16 @@ html {
   justify-content: flex-end;
   margin: 0px 100px;
 }
-.order-btn {
+.order-btn, .deleteAll-btn {
   font-size: 1.3em;
   padding: 8px 12px;
   margin-bottom: 30px;
-  border: none;
+  margin: 0 10px 30px 0;
+  border: 1px solid transparent;
   background-color: black;
   color: white;
 }
-.order-btn:hover {
+.order-btn:hover, .deleteAll-btn:hover {
   background-color: white;
   border: 1px solid black;
   color: black;
@@ -148,24 +149,10 @@ html {
   cursor: pointer;
   color: red;
 }
-.fa-trash-alt {
-  font-size: 1.5em;
-  padding-bottom: 10px;
-}
-.delete-all {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 5px;
-}
-.delete-all span {
-  font-size: 0.5em;
-  color: red;
-}
-.fa-trash-alt:hover {
-  color: red;
-}
+
+
+
+
 
 /*BTN GO UP*/
 .btn-up {
@@ -217,7 +204,7 @@ html {
     justify-content: space-between;
 }
 .navbar .logo a {
-    color: black;  
+    color: white;  
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
@@ -305,8 +292,22 @@ html {
   margin-top: 5px;
 }
 #current-user {
+  color: white;
   margin-left: 30px;
   text-decoration: underline;
+}
+.logout {
+  border: none;
+  padding: 4px 10px;
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid transparent;
+}
+.logout:hover {
+  background-color: black;
+  border: 1px solid white;
+  color: white;
 }
 
 /*KONVERTER VALUTA*/
