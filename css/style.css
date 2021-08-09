@@ -5,7 +5,7 @@
     scroll-behavior: smooth;
 }
 @font-face {
-  src: url("./fonts/Questrial-Regular.ttf");
+  src: url("../fonts/Questrial-Regular.ttf");
   font-family: "Questrial";
 }
 html {
@@ -161,6 +161,7 @@ html {
   right: 50px;
   bottom: 50px;
   border: 2px solid gray;
+  z-index: 10;
 }
 .btn-up:hover {
   border-color: black;
@@ -187,16 +188,17 @@ html {
     position: fixed;
     width: 100%;
     z-index: 20;
-    padding: 25px 0px;
+    padding: 8px 0px;
     transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.sticky {     /*Ova klasa ce da bude dodata naknadno preko JS*/
+.sticky {     
     background-color: black;
     padding: 10px 0px;
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .navbar.sticky a {
-  color: white;  /*Ova klasa se dodaje na navbar*/
+  color: white;  
 }
 .navbar .content {
     display: flex;
@@ -209,7 +211,7 @@ html {
     font-weight: bold;
     text-decoration: none;
 }
-.white {       /*Dodajemo preko JS*/
+.white {       
   color: white;
 }
 .navbar .menu-list {
@@ -220,7 +222,7 @@ html {
     list-style-type: none;
 }
 .menu-list li a {
-    color: black; 
+    color: white; 
     font-size: 18px;
     font-weight: bold;
     margin-left: 25px;
@@ -230,7 +232,7 @@ html {
     border-bottom: 2px solid;
 }
 .probna-slika {     
-    background: url("images/pocetnaImg/livningRoom.jpg") no-repeat;
+    background: url("../images/pocetnaImg/livningRoom.jpg") no-repeat;
     height: 100vh;
     background-size: cover;
     background-position: bottom;
@@ -950,6 +952,9 @@ footer div img {
   font-size: 3em;
   margin-bottom: 0.5em;
 }
+.info div h3 {
+  font-size: 1.2em;
+}
 .div-line {
   margin: 40px 100px 0px 100px;
   border-bottom: 2px solid lightgray;
@@ -986,62 +991,3 @@ footer div img {
 
 
 
-/*RESPONSIVE*/
-@media screen and (max-width: 1230px) {
-    .content {
-        padding: 0px 60px;
-    }
-}
-@media screen and (max-width: 1100px) {
-    .content {
-        padding: 0px 40px;
-    }
-}
-@media screen and (max-width: 900px) {
-    .content {
-        padding: 0px 30px;
-    }
-}
-@media screen and (max-width: 768px) {
-    body.disabled {       /*Ovo ce da bude aktivirano sa JS*/
-        overflow: hidden;
-    }
-    .icon {
-        display: block;
-    }
-    .icon.hide {
-        display: none;  /*Ovo ce da bude aktivirano sa JS*/
-    }
-    .navbar .menu-list {
-        position: fixed;
-        height: 100vh;
-        width: 100%;
-        left: -100%;
-        top: 0px;
-        display: block;
-        padding: 40px 0px;
-        text-align: center;
-        background-color:black;
-        transition: all 0.3s ease;
-    }
-    .navbar.show .menu-list {    /*Ovo ce da bude kasnije aktivirano*/
-        left: 0%;
-    }
-    .navbar .menu-list li {
-        margin-top: 45px;
-    }
-    .navbar .menu-list li a {
-        font-size: 23px;
-        margin-left: -100%;
-        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    .navbar.show .menu-list li a {
-        margin-left: 0px;
-    }
-    .section-wrapper {
-      margin: 0px 0px;
-    }
-    .products-wrapper {
-      margin: 0px 0px;
-    }
-}
