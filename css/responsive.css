@@ -25,6 +25,7 @@
   .icon.hide {
     display: none; /*Ovo ce da bude aktivirano sa JS*/
   }
+  /*NAVBAR*/
   .navbar .menu-list {
     position: fixed;
     height: 100vh;
@@ -38,7 +39,6 @@
     transition: all 0.3s ease;
   }
   .navbar.show .menu-list {
-    /*Ovo ce da bude kasnije aktivirano*/
     left: 0%;
   }
   .navbar .menu-list li {
@@ -135,4 +135,184 @@
   footer div img {
       width: 3rem;
   }
+  /*FILTER MENU*/
+  .filters-title {
+      font-size: 1.5em;
+  }
+  .empty-div {
+    height: 60px;
+  }
+  .filter-menu {
+      margin: 0 10px;
+  }
+  .filter-menu div {
+    margin: 0px 0px;
+    padding: 5px 10px;
+  }
+  .custom-select {
+      font-size: 0.8em;
+      padding: 4px 6px;
+      border-radius: 2px;
+      width: 120px;
+  }
+  input[type=search] {
+    font-size: 0.8em;
+    padding: 4px 6px;
+    border-radius: 2px;
+    width: 120px;
+  }
+  input[type=checkbox] {
+    height: 12px;
+    width: 12px;
+  }
+  #uRadnji-Online {
+      display: flex;
+  }
+  #uRadnji-Online li {
+      margin: 0 5px;
+  }
+  #uRadnji-Online li span {
+    font-size: 0.9em;
+  }
+  /*PRODUCTS PAGE*/
+  .naslov h1 {
+      font-size: 1.5em;
+      padding-top: 20px;
+  }
+  .products-wrapper {
+    margin: 0 10px;
+    padding: 20px 0 0 0;
+  }
+  /*SUBMENU*/
+  .sub-menu h2 {
+      font-size: 1.2em;
+  }
+  .sub-menu-wrapper div {
+    padding-bottom: 10px;
+    margin: 0 5px;
+  }
+  /*CART*/
+  .exit {
+    top: 15px;
+    right: 15px;
+    font-size: 1.2em;
+  }
+  .carts-info {
+    margin: 45px 5px 0px 5px;
+    font-size: 1em;
+    padding: 10px 0px 5px 0px;
+  }
+  .cart-items {
+    margin: 0px 5px;
+  }
+  .cart-row {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cart-item-title {
+    font-size: 0.8em;
+    margin-left: 15px;
+  }
+  .fa-trash {
+    font-size: 1.3em;
+  }
+  .cart-item-description {
+    font-size: 0.7em;
+  }
+  .cart-price {
+    font-size: 0.8em;
+  }
+  .cart-item-image {
+    width: 110px;
+  }
+  .cart-quantity input[type=number] {
+    padding: 3px;
+    font-size: 0.8em;
+    width: 30px;
+    margin-right: 5px;
+  }
+  .cart-in-total {
+    padding: 0.3em 0em;
+    margin: 0 10px;
+    font-size: 1.2em;
+  }
+  .order-products {
+    margin: 0px 10px;
+  }
+  .order-btn, .deleteAll-btn {
+    font-size: 0.9em;
+    padding: 4px 8px;
+    margin: 0 10px 30px 0;
+  }
+  /*CONTACT FORM*/
+  .wrapper-of-form {
+    flex-direction: column;
+  }
+  .wrapper-form-side, .form-loginBy {
+    width: 100%;
+  }
+  .form-middle {
+    width: 100%;
+  }
+  .wrapper{
+    width: 100%;
+  }
+  .wrapper .title{
+    font-size: 25px;
+  }
+  .wrapper .slide-controls{
+    margin: 10px 0 5px 0;
+  }
+  .form-inner form .field{
+    height: 50px;
+    margin-top: 10px;
+  }
+  .form-loginBy {
+      margin: 10px 5px;
+      flex-direction: row;
+  }
+  .form-loginBy div {
+    width: 30%;
+    margin: 0.3em 0.1em;
+  }
+  .google, .facebook, .apple {
+    font-size: 1.5em;
+    margin: 0 0.3em;
+  }
+  .form-loginBy div a {
+    margin: 0 5px;
+  }
+  /*USERS*/
+  .users_table td, .users_table th {
+    padding: 8px 3px;
+  }
+  /*SEND MESSAGE PAGE*/
+  .contact-page-wrapper {
+    flex-direction: column;
+  }
+  .contactUs-div, .contact-info {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .message-form div input, .message-form div textarea {
+    padding: 8px;
+  }
+  .message-submit {
+    padding: 4px 8px;
+  }
+  .message-form input::placeholder, .message-form textarea {
+    font-size: 1.1em;
+  }
+  .contact-info td {
+    font-size: 1em;
+    padding: 10px 0px;
+  }
+  .contact-info td i {
+    font-size: 1em;
+    margin-right: 10px;
+  }
+  .contactUs-div h2 {
+      font-size: 1.2em;
+  }
+
 }

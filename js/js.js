@@ -164,18 +164,6 @@ fetch("json/navBar.json").then(function(response) {
             navBar.classList.remove("show");
             menuBtn.classList.remove("hide");
         })
-/*
-        //Scroll funkcija za navBar
-        window.addEventListener("scroll", function() {
-            if(this.scrollY > 20) {
-                navBar.classList.add("sticky");
-                navBarWords.classList.add("white");
-            }else {
-                navBar.classList.remove("sticky");
-                navBarWords.classList.remove("white");
-            }
-        })*/
-
 
         //Ispisivanje trenutnog korisnika
         displayCart();

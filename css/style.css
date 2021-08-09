@@ -50,7 +50,7 @@ html {
   width: 20%;
 }
 .carts-quantity {
-  width: 10%;
+  width: 15%;
 }
 .cart-in-total {
   display: flex;
@@ -112,7 +112,7 @@ html {
   font-weight: bold;
 }
 .cart-quantity {
-  width: 10%;
+  width: 15%;
   display: flex;
   align-items: center;
 }
@@ -424,6 +424,9 @@ input[type=checkbox] {
 }
 #uRadnji-Online li {
   list-style-type: none;
+}
+#uRadnji-Online li span {
+  font-size: 1.1em;
 }
 
 
