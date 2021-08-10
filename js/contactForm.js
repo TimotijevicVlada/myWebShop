@@ -217,7 +217,7 @@ const registruj = document.getElementById("signupBtn");
       svi_korisnici.push(k);
       //console.log(k);
       set_korisnici(svi_korisnici);
-      alert("registracija uspesna");
+      alert("Successful registration");
     }
   });
 
@@ -286,24 +286,15 @@ login.addEventListener("click", function (e) {
     for (let j = 0; j < svi_korisnici.length; j++) {
       let k = svi_korisnici[j];
       if (name.value == k.ime && email.value == k.email && pass.value == k.password) {
-        alert("uspesno logovanje");
-        //treba da znam ako je korisnik ulogovan
-        //npr: korisnik dodje na stranicu za logovanje i uloguje se
-        //zatim ode da stavi proizvod u korpu
-        //moram da znam da li je korisnik ulogovan
-        //to radim tako sto proverim da li u localstorage postoji kljuc korisnik
+        alert("Successful login");
         set_korisnik(k);
         ispisi_korisnika();
         product_number_contact();
-        //document.location.href="index.html";
-       // let current_user = get_korisnik();
-        // user.innerHTML = "Ulogovani korisnik: " + current_user.ime;
-        // console.log(current_user);
+        window.location.href="index.html";
         return;
       }
     }
-    alert("pogresni podaci");
-    //ispisi_korisnika();
+    alert("Wrong data");
   }
 });
 
@@ -313,7 +304,6 @@ const product_number_contact = () =>{
   let product_num = user.korpa.length;
   console.log(product_num);
   let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
-  //alert("TU SAM");
   totalCount.innerHTML = product_num;
 }
 

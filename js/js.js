@@ -2,6 +2,8 @@
 const get_korisnik2 = () => {
     return JSON.parse(localStorage.getItem("korisnik"));
   };
+
+  //Funkcija za ispisivanje trenutnog korisnika u navbaru
 const ispisi_korisnika = () => {
     //alert("uspelo")
     let privremeno = get_korisnik2();
@@ -14,6 +16,7 @@ const ispisi_korisnika = () => {
     }
   };
 
+  //Funkcija koja setuje korisnike u local storage
   const set_users = (users) => {
     localStorage.setItem("korisnici", JSON.stringify(users));
   };
@@ -68,6 +71,7 @@ const get_users = () => {
     return JSON.parse(localStorage.getItem("korisnici"));
   };
 
+//Funkcija za prikaz broja proizvoda u navbaru
 const product_number = () =>{
     let user = get_user();
     if(user) {
@@ -77,6 +81,7 @@ const product_number = () =>{
     }
 }
 
+//Funkcija za prikaz svih registrovanih korisnika na stranici "user.html"
 const display_all_users = () => {
   let all_users = get_users();
   //console.log(all_users); //Dobijamo sve usere 
@@ -568,11 +573,12 @@ function addToCart(item) {
     
     if(user == null) {
       alert("Your are not logged!");
+      window.location.href = "form.html";
     } else {
     let cart = user.korpa;    
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].title == naslov) {
-        alert("Ovaj proizvod je vec u korpi!");
+        alert("This product is already in cart!");
         return;
       }
     }
