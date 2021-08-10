@@ -2,7 +2,6 @@
 const get_korisnik2 = () => {
     return JSON.parse(localStorage.getItem("korisnik"));
   };
-
 const ispisi_korisnika = () => {
     //alert("uspelo")
     let privremeno = get_korisnik2();
@@ -18,16 +17,12 @@ const ispisi_korisnika = () => {
   const set_users = (users) => {
     localStorage.setItem("korisnici", JSON.stringify(users));
   };
-/*
+
 //Logout opcija
-const logoutBtn = document.getElementsByClassName("logout")[0];
-console.log(logoutBtn)
-logoutBtn.addEventListener("click", logout);
 const logout = () => {
-let user = get_user();
-user.splice(0, user.length);
-set_user(user);
-}*/
+    localStorage.removeItem("korisnik");
+    location.reload();
+}
 
 
 //Shopping cart local storage
@@ -73,14 +68,13 @@ const get_users = () => {
     return JSON.parse(localStorage.getItem("korisnici"));
   };
 
-  const product_number = () =>{
+const product_number = () =>{
     let user = get_user();
-    //console.log(user)
-    let product_num = user.korpa.length;
-    //console.log(product_num);
-    let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
-    //alert("TU SAM");
-    totalCount.innerHTML = product_num;
+    if(user) {
+        let product_num = user.korpa.length;
+        let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
+        totalCount.innerHTML = product_num;
+    }
 }
 
 const display_all_users = () => {
@@ -128,6 +122,10 @@ fetch("json/navBar.json").then(function(response) {
         }
         div.innerHTML = html;
         product_number();
+
+        const logoutBtn = document.getElementsByClassName("logout")[0];
+        console.log(logoutBtn)
+        logoutBtn.addEventListener("click", logout);
         
         //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];
@@ -171,7 +169,7 @@ fetch("json/navBar.json").then(function(response) {
         display_all_users();
 
     }).catch(function(error) {
-    console.log(error);
+        console.log(error);
 })
 
 //Kontejneri gde ce biti ispisani proizvodi na svojim stranicama
@@ -463,7 +461,6 @@ function showDetails(items) {
       <div class="carousel-container">
         <div class="carousel-slide">
             <img id="lastClone" src="${picture}" alt="${title}"/>
-            <img id="firstClone" src="${picture}" alt="${title}"/>
         </div>
         <i class="fas fa-chevron-circle-left"></i>
         <i class="fas fa-chevron-circle-right"></i>
@@ -567,30 +564,29 @@ function addToCart(item) {
   let guaranty = shopItem.getElementsByClassName("shop-item-guaranty")[0].innerText;
   let dostupno = shopItem.getElementsByClassName("shop-item-dostupno")[0].innerText;
 
-
-  //Ako je neko ulogovan dozvoljavamo stavljanje u korpu a ako nije onda ne dozvoljavamo!
-  let current_user = document.getElementById("current-user");
-  if(current_user.innerHTML == "There is no logged user!") {
-      alert("Your are not logged!")
-  }else {
-      set_products(naslov, cena, slika, naStanju, materijal, guaranty, dostupno);
-      displayCart();
-    }
+    let user = get_user();
     
+    if(user == null) {
+      alert("Your are not logged!");
+    } else {
+    let cart = user.korpa;    
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].title == naslov) {
+        alert("Ovaj proizvod je vec u korpi!");
+        return;
+      }
+    }
+    set_products(naslov, cena, slika, naStanju, materijal, guaranty, dostupno);
+    displayCart();  
+   } 
 }
 
+//Funkcija za prikazivanje proizvoda u korpi
 function displayCart() {
-    // let naslovProvera = cartItems.getElementsByClassName("cart-item-title"); //Provera sa IF da ne bi ubacivali dva puta isti element u korpu
-    //  for (let i = 0; i < naslovProvera.length; i++) {
-    //    if (naslovProvera[i].innerText == naslov) {
-    //      //Ako je naslov jednako naslov onda ne ubacuj u korpu
-    //      alert("Ovaj proizvod ste vec ubacili u korpu!");
-    //      return; //Returnom izlazimo iz ove funkcije
-    //    }
-    // }
-    
       //Pravimo elemente koji ce da se ispisuju nakon klika na Dodaj u korpu
       let user = get_user();
+      //Ako imamo logovanog korisnika onda idi dalje
+      if(user != null) {
       let cart = user.korpa;
       let cartItems = document.querySelector(".cart-items"); //Div u html u koji upisujemo sve
       let html = "";
@@ -629,9 +625,11 @@ function displayCart() {
                 }
     
             updatePrice();
+        }
     }
 
 
+//Funkcija za brisanje proizvoda iz korpe
 function deleteItem(item) {
   let dugme = item.target;
   let parent = dugme.parentElement.parentElement.parentElement;
@@ -661,43 +659,56 @@ function deleteItem(item) {
   displayCart();
 }
 
+//Funkcija za promenu cene proizvoda
 function updatePrice() {
     let user = get_user();
     let userKorpa = user.korpa;
-    //console.log(userKorpa[0].price)
     let novaCena = 0;
     for(let i = 0; i < userKorpa.length; i++) {
-        let cena = userKorpa[i].price.replace("RSD", "");
-        let cenaBr = cena * 1;
-        novaCena += cenaBr;
+        let cena = userKorpa[i].price;
+        let cleanPrice;
+        if(userKorpa[i].price != Number){
+            cleanPrice = userKorpa[i].price;
+            cleanPrice = 1 * cena.replace("RSD", "");
+            novaCena += cleanPrice;
+        }else {
+            cleanPrice = userKorpa[i].price;
+            novaCena += cleanPrice;
+        }
+        
+        
+        console.log(novaCena)
     }
     document.getElementsByClassName("cart-total-price")[0].innerText =
         novaCena.toFixed(3); //dobijena suma
-        //console.log(novaCena.toFixed(3))
-      
 }
 
+//Funkcija za promenu kolicine proizvoda
 function changeQuantity(item) {
-    
-  let input = item.target; 
+  let input = item.target;
   let quantity = parseInt(input.value);
+  console.log(quantity) 
   let parent = input.parentElement.parentElement;
   let cena = parent.getElementsByClassName("cart-price")[0].innerHTML;
   let title = parent.getElementsByClassName("cart-item-title")[0].innerHTML;
   let novaCena = quantity * cena.replace("RSD", "");
+  console.log(novaCena)
   let user = get_user();
   let userCart = user.korpa;
-  //console.log(user)
+  console.log(user)
   for(let i = 0; i < userCart.length; i++) {
     if(userCart[i].title == title) {
         userCart[i].price = novaCena;
-        set_user(user);
+        return;
     }
+    
   }
+    console.log(user)
+    set_user(user);
     updatePrice();
 }
 
-//Delete all btn u korpi
+//Delete all dugme u korpi
 const deleteAllBtn = document.getElementsByClassName("deleteAll-btn")[0];
 deleteAllBtn.addEventListener("click", deleteAllProducts);
 

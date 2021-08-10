@@ -314,5 +314,36 @@
   .contactUs-div h2 {
       font-size: 1.2em;
   }
-
+  /*DETAILS DIV*/
+  .details-inner {
+    flex-direction: column;
+    width: 90%;
+    height: 70%;
+    overflow-y: scroll;
+  }
+  .carousel-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .carousel-slide img {
+    height: 100%;
+    width: auto;
+  }
+  .carousel-slide {
+    justify-content: center;
+  }
+  .details-info {
+    width: 100%;
+    margin: 0px 10px;
+    font-size: 1em;
+  }
+  .details-info h1 {
+    font-size: 1.3em;
+  }
+  .details-info .details-price {
+    font-size: 1.2em;
+  }
+  .details-stars {
+    font-size: 1.2em;
+  }
 }

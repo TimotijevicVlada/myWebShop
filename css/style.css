@@ -150,10 +150,6 @@ html {
   color: red;
 }
 
-
-
-
-
 /*BTN GO UP*/
 .btn-up {
   /*display: none;*/
@@ -381,7 +377,7 @@ html {
   margin: 10px;
 }
 .empty-div {
-  height: 150px;
+  height: 60px;
 }
 .filter-menu {
   display: flex;
@@ -429,16 +425,15 @@ input[type=checkbox] {
   font-size: 1.1em;
 }
 
-
 /*PRODUCTS PAGES*/
 .naslov h1 {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 30px;
   color: gray;
 }
 .products-wrapper {
   margin: 0 100px;
-  padding: 50px 0 0 0;
+  padding: 10px 0 0 0;
 }
 .products-inner-livingroom,
 .products-inner-bedroom,
@@ -545,11 +540,9 @@ input[type=checkbox] {
 .carousel-slide {
   display: flex;
   align-items: center;
-  
 }
 .carousel-slide img {
   width: 100%;
-  
 }
 .fa-chevron-circle-left, .fa-chevron-circle-right {
   position: absolute;
