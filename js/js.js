@@ -225,7 +225,9 @@ function fetchJson(json, container) {
                 <p>Materijal: <span class="boldovano shop-item-material">${object[i].material}</span></p>
                 <p>Garancija: <span class="boldovano shop-item-guaranty">${object[i].guaranty}</span></p>
                 <p>Dostupno: <span class="boldovano shop-item-dostupno">${object[i].dostupno}</span></p>
-                <p>Cena: <span class="boldovano boldovanaCena shop-item-price">${object[i].price}<sup>${object[i].currency}</sup></span></p>
+                <div>
+                Cena: <span class="boldovano boldovanaCena shop-item-price">${object[i].price}</span><span><sup>RSD</sup></span>
+                </div>
                 <div class="products-buttons">
                     <div class="details-btn">Details</div>
                     <div class="btn btn-purchase shop-item-button">${object[i].btn}</div>
@@ -536,25 +538,18 @@ carouselSlide.addEventListener("transitionend", () => {
 
 /*===========================================================================================*/
 
-//Funkcije za Add to Cart btn
-document.getElementsByClassName("order-btn")[0].addEventListener("click", orderProducts); 
+//Funkcija za purchase products
+let purchase = document.getElementsByClassName("order-btn")[0];
+    purchase.addEventListener("click", orderProducts); 
 
 function orderProducts() {
-  let kupi = document.getElementsByClassName("cart-items")[0];
-  if (kupi.hasChildNodes()) {
-    //Provera da li u korpi ima artikala
-    document
-      .getElementsByClassName("order-btn")[0]
-      .addEventListener("click", (window.location.href = "form.html"));
+  //Provera da li u korpi ima artikala
+  let cartItems = document.getElementsByClassName("cart-items")[0];
+  if (cartItems.hasChildNodes()) {
+     alert("Thank you for shopping on our site!");
   } else {
-    alert("Niste odabrali artikle!"); //Ako nema artikala ispisi alert "Niste odabrali artikle!"
+     alert("You have not selected items!"); 
   }
-  let cartItems = document.getElementsByClassName("cart-items")[0]; //Div koji je prazan i u koji treba da se ubace proizvodi
-  while (cartItems.hasChildNodes()) {
-    //Ako ovaj div ima childove...
-    cartItems.removeChild(cartItems.firstChild);
-  }
-  updatePrice();
 }
 
 //Funkcija za dodavanje artikala u korpu
@@ -659,10 +654,9 @@ function deleteItem(item) {
         }
     }
         updatePrice();
-        return;
     }
   }
-  displayCart();
+  displayCart();  
 }
 
 //Funkcija za promenu cene proizvoda
@@ -675,14 +669,13 @@ function updatePrice() {
         let cleanPrice;
         if(userKorpa[i].price != Number){
             cleanPrice = userKorpa[i].price;
-            cleanPrice = 1 * cena.replace("RSD", "");
+            cleanPrice = 1 * cena;
             novaCena += cleanPrice;
         }else {
             cleanPrice = userKorpa[i].price;
             novaCena += cleanPrice;
         }
-        
-        
+
         console.log(novaCena)
     }
     document.getElementsByClassName("cart-total-price")[0].innerText =
@@ -697,7 +690,7 @@ function changeQuantity(item) {
   let parent = input.parentElement.parentElement;
   let cena = parent.getElementsByClassName("cart-price")[0].innerHTML;
   let title = parent.getElementsByClassName("cart-item-title")[0].innerHTML;
-  let novaCena = quantity * cena.replace("RSD", "");
+  let novaCena = quantity * cena;
   console.log(novaCena)
   let user = get_user();
   let userCart = user.korpa;
@@ -705,7 +698,7 @@ function changeQuantity(item) {
   for(let i = 0; i < userCart.length; i++) {
     if(userCart[i].title == title) {
         userCart[i].price = novaCena;
-        return;
+        //return;
     }
     
   }
@@ -721,8 +714,12 @@ deleteAllBtn.addEventListener("click", deleteAllProducts);
 function deleteAllProducts() {
     let user = get_user();
     let cart = user.korpa;
-    cart.splice(0, cart.length);
-    set_user(user);
-    displayCart();
-    updatePrice();
+    if(cart.length != 0) {
+        cart.splice(0, cart.length);
+        set_user(user);
+        displayCart();
+        updatePrice();
+    }else {
+        alert("You already don't have products in cart!");
+    }
 }
