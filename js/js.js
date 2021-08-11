@@ -44,7 +44,8 @@ const set_products = (naslov, cena, slika, naStanju, materijal, guaranty, dostup
         state: naStanju,
         material: materijal,
         guaranty: guaranty,
-        available: dostupno
+        available: dostupno,
+        quantity: 1
     }
     
     let user = get_user();
@@ -605,7 +606,7 @@ function displayCart() {
                       <p><i class="fas fa-angle-right"></i> Dostupno: <span class="boldovano">${cart[i].available}</span></p>
                      </div> 
                      <div class="cart-quantity  cart-column">
-                        <input type="number" class="cart-quantity-input" value="1" min="1" max="10">
+                        <input type="number" class="cart-quantity-input" value="${cart[i].quantity}" min="1" max="10">
                         <button class="btn btn-remove" type="button"><i class="fas fa-trash"></i></button>
                      </div>  
                 </div>
@@ -632,51 +633,45 @@ function displayCart() {
 
 //Funkcija za brisanje proizvoda iz korpe
 function deleteItem(item) {
-  let dugme = item.target;
-  let parent = dugme.parentElement.parentElement.parentElement;
-  let title = parent.getElementsByClassName("cart-item-title")[0].innerHTML;
-  //console.log(title);
-  let user = get_user();
-  let cart = user.korpa;
-
-  for(let i = 0; i < cart.length; i++) {
-    if(cart[i].title == title) {
-        cart.splice(cart[i], 1);
-        let updateUser = get_user();
-        updateUser.korpa = cart;
-        set_user(updateUser);
-        parent.remove();
-        let users = get_users();
-    for(let i = 0; i < users.length; i++) {
-        if(users[i].email == updateUser.email ) {
-            users[i] = updateUser;
-            set_users(users);
-        }
+    let dugme = item.target;
+    let parent = dugme.parentElement.parentElement.parentElement;
+    let title = parent.getElementsByClassName("cart-item-title")[0].innerHTML;
+    //console.log(title);
+    let user = get_user();
+    let cart = user.korpa;
+  
+    for(let i = 0; i < cart.length; i++) {
+      if(cart[i].title == title) {
+        //This part of code should be changed !!!!
+/********************************************************/ 
+          cart.splice(cart[i], 1);
+          let updateUser = get_user();
+          updateUser.korpa = cart;
+          set_user(updateUser);
+          parent.remove();
+/********************************************************/
+          let users = get_users();
+      for(let i = 0; i < users.length; i++) {
+          if(users[i].email == updateUser.email ) {
+              users[i] = updateUser;
+              set_users(users);
+          }
+      }
+          updatePrice();
+          return;
+      }
     }
-        updatePrice();
-    }
+    displayCart();
   }
-  displayCart();  
-}
 
 //Funkcija za promenu cene proizvoda
 function updatePrice() {
     let user = get_user();
     let userKorpa = user.korpa;
+    //console.log(userKorpa)
     let novaCena = 0;
     for(let i = 0; i < userKorpa.length; i++) {
-        let cena = userKorpa[i].price;
-        let cleanPrice;
-        if(userKorpa[i].price != Number){
-            cleanPrice = userKorpa[i].price;
-            cleanPrice = 1 * cena;
-            novaCena += cleanPrice;
-        }else {
-            cleanPrice = userKorpa[i].price;
-            novaCena += cleanPrice;
-        }
-
-        console.log(novaCena)
+        novaCena = novaCena + JSON.parse(userKorpa[i].price) * userKorpa[i].quantity;
     }
     document.getElementsByClassName("cart-total-price")[0].innerText =
         novaCena.toFixed(3); //dobijena suma
@@ -685,25 +680,26 @@ function updatePrice() {
 //Funkcija za promenu kolicine proizvoda
 function changeQuantity(item) {
   let input = item.target;
-  let quantity = parseInt(input.value);
-  console.log(quantity) 
+  let quantity = parseInt(input.value); 
   let parent = input.parentElement.parentElement;
-  let cena = parent.getElementsByClassName("cart-price")[0].innerHTML;
   let title = parent.getElementsByClassName("cart-item-title")[0].innerHTML;
-  let novaCena = quantity * cena;
-  console.log(novaCena)
   let user = get_user();
   let userCart = user.korpa;
-  console.log(user)
+
   for(let i = 0; i < userCart.length; i++) {
     if(userCart[i].title == title) {
-        userCart[i].price = novaCena;
-        //return;
-    }
-    
+        userCart[i].quantity = quantity;
+        set_user(user);
+        let users = get_users();
+        for(let i in users) {
+            if(users[i].email == user.email) {
+                users[i] = user;
+                set_users(users);
+            }
+        }
+    } 
   }
-    console.log(user)
-    set_user(user);
+
     updatePrice();
 }
 
