@@ -639,16 +639,18 @@ function deleteItem(item) {
     //console.log(title);
     let user = get_user();
     let cart = user.korpa;
-  
+    
     for(let i = 0; i < cart.length; i++) {
       if(cart[i].title == title) {
         //This part of code should be changed !!!!
 /********************************************************/ 
+          //console.log(cart.splice(cart[i], 1));
           cart.splice(cart[i], 1);
           let updateUser = get_user();
           updateUser.korpa = cart;
+          //console.log(updateUser)
           set_user(updateUser);
-          parent.remove();
+          displayCart();
 /********************************************************/
           let users = get_users();
       for(let i = 0; i < users.length; i++) {
@@ -658,10 +660,9 @@ function deleteItem(item) {
           }
       }
           updatePrice();
-          return;
       }
     }
-    displayCart();
+    
   }
 
 //Funkcija za promenu cene proizvoda

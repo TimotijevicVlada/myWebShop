@@ -388,11 +388,12 @@ html {
   background-color: rgb(233, 233, 233);
 }
 .filter-menu div {
-  margin: 0 20px;
+  margin: 0 5px;
   padding: 10px 20px;
 }
 .custom-select {
   color: gray;
+  width: 250px;
   font-size: 1.1em;
   padding: 8px 12px;
   border-radius: 5px;
@@ -406,6 +407,7 @@ html {
 }
 input[type=search] {
   font-size: 1.1em;
+  width: 250px;
   padding: 9px 13px;
   border: none;
   border-radius: 5px;
@@ -418,8 +420,12 @@ input[type=checkbox] {
   width: 20px;
   cursor: pointer;
 }
+#uRadnji-Online {
+  display: flex;
+}
 #uRadnji-Online li {
   list-style-type: none;
+  margin: 0 7px;
 }
 #uRadnji-Online li span {
   font-size: 1.1em;
@@ -659,7 +665,7 @@ input[type=checkbox] {
   }
   .wrapper .title{
     width: 50%;
-    font-size: 35px;
+    font-size: 28px;
     font-weight: 600;
     text-align: center;
     transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
@@ -841,6 +847,7 @@ input[type=checkbox] {
 }
 .contactUs-div {
   width: 500px;
+  margin: 20px 0px;
 }
 .message-form {
   display: flex;
@@ -873,6 +880,9 @@ input[type=checkbox] {
 }
 .message-form input::placeholder, .message-form textarea {
   font-size: 1.2em;
+}
+.contact-info {
+  margin: 20px 0px;
 }
 .contact-info td {
   font-size: 1.2em;
@@ -922,7 +932,7 @@ footer div p {
   padding: 1.2rem 0rem;
 }
 footer div p span {
-  color: rgb(47, 148, 243);;
+  color: white;
 }
 footer div img {
   width: 4rem;

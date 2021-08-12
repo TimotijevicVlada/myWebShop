@@ -1,14 +1,376 @@
 /*RESPONSIVE CSS*/
 @media screen and (max-width: 1230px) {
+  /*NAVBAR*/
   .content {
     padding: 0px 60px;
   }
+  .start-text {
+    top: 15%;
+    left: 30%;
+  }
+  /*MAIN SECTION*/
+  .section-wrapper {
+    margin: 0px 60px;
+  }
+  .section-inner div {
+    width: 350px;
+  }
+  /*INFO*/
+  .info div i {
+    font-size: 2.1em;
+  }
+  /*BTN GO UP*/
+  .btn-up {
+    right: 30px;
+    bottom: 30px;
+    font-size: 0.8em;
+  }
+  /*FILTER MENU*/
+  .filters-title {
+    font-size: 2em;
+  }
+  .filter-menu {
+    margin: 0 10px;
+  }
+  .filter-menu div {
+    margin: 0px 0px;
+    padding: 8px 10px;
+  }
+  .custom-select, input[type="search"] {
+    font-size: 1.1em;
+    padding: 8px 10px;
+    border-radius: 4px;
+    width: 200px;
+  }
+  input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+  }
+  #uRadnji-Online {
+    display: flex;
+  }
+  #uRadnji-Online li {
+    margin: 0 7px;
+  }
+  #uRadnji-Online li span {
+    font-size: 1.1em;
+  }
+  /*CART*/
+  .exit {
+    top: 15px;
+    right: 20px;
+    font-size: 1.2em;
+  }
+  .carts-info {
+    margin: 45px 5px 0px 5px;
+    font-size: 1.4em;
+    padding: 10px 0px 5px 0px;
+  }
+  .cart-items {
+    margin: 0px 5px;
+  }
+  .cart-row {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cart-item-title {
+    font-size: 1.4em;
+    margin-left: 15px;
+  }
+  .fa-trash {
+    font-size: 1.8em;
+  }
+  .cart-item-description {
+    font-size: 1.1em;
+  }
+  .cart-price {
+    font-size: 1.4em;
+  }
+  .cart-item-image {
+    width: 160px;
+  }
+  .cart-quantity input[type="number"] {
+    padding: 3px;
+    font-size: 0.9em;
+    width: 36px;
+    margin-right: 7px;
+  }
+  .cart-in-total {
+    padding: 0.3em 0em;
+    margin: 0 10px;
+    font-size: 1.4em;
+  }
+  .order-products {
+    margin: 0px 10px;
+  }
+  .order-btn,
+  .deleteAll-btn {
+    font-size: 1.1em;
+    padding: 4px 8px;
+    margin: 0 10px 30px 0;
+  }
+  /*CONTACT FORM*/
+  .wrapper {
+    width: 100%;
+  }
+  .wrapper .title {
+    font-size: 25px;
+  }
+  .wrapper .slide-controls {
+    margin: 10px 0 5px 0;
+  }
+  .form-inner form .field {
+    height: 50px;
+    margin-top: 10px;
+  }
+  .google,
+  .facebook,
+  .apple {
+    font-size: 1.5em;
+    margin: 0 0.3em;
+  }
+  .form-loginBy div a {
+    margin: 0 5px;
+  }
+  /*SEND MESSAGE PAGE*/
+  .contactUs-div,
+  .contact-info {
+    width: 50%;
+    margin: 30px 50px;
+  }
+  /*DETAILS*/
+  .details-info {
+    margin: 0px 10px;
+    font-size: 1.1em;
+  }
+  .details-info h1 {
+    font-size: 1.3em;
+  }
+  .details-info .details-price {
+    font-size: 1.3em;
+  }
+  .details-stars {
+    font-size: 1.2em;
+  }
 }
 @media screen and (max-width: 1100px) {
+  /*NAVBAR*/
   .content {
     padding: 0px 40px;
   }
+  .start-text {
+    top: 20%;
+    left: 35%;
+  }
+  .start-text .p1,
+  .start-text .p2,
+  .start-text .p3 {
+    font-size: 1.9em;
+  }
+  /*BTN GO UP*/
+  .btn-up {
+    right: 20px;
+    bottom: 20px;
+    font-size: 0.8em;
+    border: 1px solid black;
+  }
+  /*MAIN SECTION*/
+  .section-wrapper {
+    margin: 0px 20px;
+  }
+  .section-inner div {
+    width: 320px;
+  }
+  .section-inner p {
+    font-size: 1.5em;
+  }
+   /*INFO*/
+   .info div {
+    width: 130px;
+    height: 100px;
+    padding: 2em 0em;
+  }
+  .info div i {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+  }
+  .div-line {
+    margin: 30px 10px 40px 10px;
+    border-bottom: 2px solid lightgray;
+  }
+  /*KONVERTER VALUTA*/
+  .converter-inner h2 {
+    font-size: 1.4em;
+    margin: 10px 0px;
+  }
+  .input-converter {
+    padding: 6px;
+    font-size: 1.1em;
+  }
+  .select-converter {
+    padding: 6px;
+    font-size: 1.1em;
+  }
+  /*FILTER MENU*/
+  .filters-title {
+    font-size: 1.8em;
+  }
+  .filter-menu {
+    margin: 0 10px;
+  }
+  .filter-menu div {
+    margin: 0px 0px;
+    padding: 8px 10px;
+  }
+  .custom-select, input[type="search"] {
+    font-size: 1.1em;
+    padding: 6px 8px;
+    border-radius: 3px;
+    width: 170px;
+  }
+  input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+  }
+  #uRadnji-Online {
+    display: flex;
+  }
+  #uRadnji-Online li {
+    margin: 0 7px;
+  }
+  #uRadnji-Online li span {
+    font-size: 1.1em;
+  }
+  /*PRODUCTS PAGE*/
+  .naslov h1 {
+    font-size: 1.6em;
+    padding-top: 20px;
+  }
+  .products-wrapper {
+    margin: 0 20px;
+    padding: 20px 0 0 0;
+  }
+  /*CART*/
+  .exit {
+    top: 15px;
+    right: 15px;
+    font-size: 1.2em;
+  }
+  .carts-info {
+    margin: 45px 5px 0px 5px;
+    font-size: 1em;
+    padding: 10px 0px 5px 0px;
+  }
+  .cart-items {
+    margin: 0px 5px;
+  }
+  .cart-row {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cart-item-title {
+    font-size: 1.2em;
+    margin-left: 15px;
+  }
+  .fa-trash {
+    font-size: 1.7em;
+  }
+  .cart-item-description {
+    font-size: 1em;
+  }
+  .cart-price {
+    font-size: 1.2em;
+  }
+  .cart-item-image {
+    width: 150px;
+  }
+  .cart-quantity input[type="number"] {
+    padding: 3px;
+    font-size: 0.9em;
+    width: 36px;
+    margin-right: 7px;
+  }
+  .cart-in-total {
+    padding: 0.3em 0em;
+    margin: 0 10px;
+    font-size: 1.4em;
+  }
+  .order-products {
+    margin: 0px 10px;
+  }
+  .order-btn,
+  .deleteAll-btn {
+    font-size: 1.1em;
+    padding: 4px 8px;
+    margin: 0 10px 30px 0;
+  }
+  /*CONTACT FORM*/
+  .wrapper {
+    width: 100%;
+  }
+  .wrapper .title {
+    font-size: 25px;
+  }
+  .wrapper .slide-controls {
+    margin: 10px 0 5px 0;
+  }
+  .form-inner form .field {
+    height: 50px;
+    margin-top: 10px;
+  }
+  .google,
+  .facebook,
+  .apple {
+    font-size: 1.5em;
+    margin: 0 0.3em;
+  }
+  .form-loginBy div a {
+    margin: 0 5px;
+  }
+   /*SEND MESSAGE PAGE*/
+  .contactUs-div,
+  .contact-info {
+    width: 50%;
+    margin: 30px 50px;
+  }
+  .message-form div input,
+  .message-form div textarea {
+    padding: 8px;
+  }
+  .message-submit {
+    padding: 4px 8px;
+  }
+  .message-form input::placeholder,
+  .message-form textarea {
+    font-size: 1.1em;
+  }
+  .contact-info td {
+    font-size: 1em;
+    padding: 10px 0px;
+  }
+  .contact-info td i {
+    font-size: 1em;
+    margin-right: 10px;
+  }
+  .contactUs-div h2 {
+    font-size: 1.2em;
+  }
+  /*DETAILS*/
+  .details-info {
+    margin: 0px 10px;
+    font-size: 1em;
+  }
+  .details-info h1 {
+    font-size: 1.3em;
+  }
+  .details-info .details-price {
+    font-size: 1.2em;
+  }
+  .details-stars {
+    font-size: 1.2em;
+  }
 }
+
 @media screen and (max-width: 900px) {
   /*NAVBAR*/
   .content {
@@ -91,60 +453,60 @@
   }
   /*FOOTER*/
   footer {
-      flex-direction: column;
+    flex-direction: column;
   }
   footer div {
-      width: 100%;
+    width: 100%;
   }
   footer div p {
     padding: 0.8rem 0rem;
   }
   footer div img {
-      width: 3rem;
+    width: 3rem;
   }
   /*FILTER MENU*/
   .filters-title {
-      font-size: 1.5em;
+    font-size: 1.5em;
   }
   .empty-div {
     height: 60px;
   }
   .filter-menu {
-      margin: 0 10px;
+    margin: 0 10px;
   }
   .filter-menu div {
     margin: 0px 0px;
     padding: 5px 10px;
   }
   .custom-select {
-      font-size: 1em;
-      padding: 4px 6px;
-      border-radius: 2px;
-      width: 150px;
-  }
-  input[type=search] {
     font-size: 1em;
     padding: 4px 6px;
     border-radius: 2px;
     width: 150px;
   }
-  input[type=checkbox] {
+  input[type="search"] {
+    font-size: 1em;
+    padding: 4px 6px;
+    border-radius: 2px;
+    width: 150px;
+  }
+  input[type="checkbox"] {
     height: 15px;
     width: 15px;
   }
   #uRadnji-Online {
-      display: flex;
+    display: flex;
   }
   #uRadnji-Online li {
-      margin: 0 5px;
+    margin: 0 5px;
   }
   #uRadnji-Online li span {
     font-size: 1em;
   }
   /*PRODUCTS PAGE*/
   .naslov h1 {
-      font-size: 1.5em;
-      padding-top: 20px;
+    font-size: 1.5em;
+    padding-top: 20px;
   }
   .products-wrapper {
     margin: 0 10px;
@@ -152,7 +514,7 @@
   }
   /*SUBMENU*/
   .sub-menu h2 {
-      font-size: 1.2em;
+    font-size: 1.2em;
   }
   .sub-menu-wrapper div {
     padding-bottom: 10px;
@@ -192,10 +554,10 @@
   .cart-item-image {
     width: 120px;
   }
-  .cart-quantity input[type=number] {
+  .cart-quantity input[type="number"] {
     padding: 3px;
     font-size: 0.9em;
-    width: 30px;
+    width: 36px;
     margin-right: 7px;
   }
   .cart-in-total {
@@ -206,7 +568,8 @@
   .order-products {
     margin: 0px 10px;
   }
-  .order-btn, .deleteAll-btn {
+  .order-btn,
+  .deleteAll-btn {
     font-size: 1em;
     padding: 4px 8px;
     margin: 0 10px 30px 0;
@@ -215,34 +578,37 @@
   .wrapper-of-form {
     flex-direction: column;
   }
-  .wrapper-form-side, .form-loginBy {
+  .wrapper-form-side,
+  .form-loginBy {
     width: 60%;
     margin: 0 auto;
   }
   .form-middle {
     width: 100%;
   }
-  .wrapper{
+  .wrapper {
     width: 100%;
   }
-  .wrapper .title{
+  .wrapper .title {
     font-size: 25px;
   }
-  .wrapper .slide-controls{
+  .wrapper .slide-controls {
     margin: 10px 0 5px 0;
   }
-  .form-inner form .field{
+  .form-inner form .field {
     height: 50px;
     margin-top: 10px;
   }
   .form-loginBy {
-      flex-direction: row;
+    flex-direction: row;
   }
   .form-loginBy div {
     width: 30%;
     margin: 0.3em 0.1em;
   }
-  .google, .facebook, .apple {
+  .google,
+  .facebook,
+  .apple {
     font-size: 1.5em;
     margin: 0 0.3em;
   }
@@ -250,24 +616,28 @@
     margin: 0 5px;
   }
   /*USERS*/
-  .users_table td, .users_table th {
+  .users_table td,
+  .users_table th {
     padding: 8px 12px;
   }
   /*SEND MESSAGE PAGE*/
   .contact-page-wrapper {
     flex-direction: column;
   }
-  .contactUs-div, .contact-info {
+  .contactUs-div,
+  .contact-info {
     width: 60%;
     margin: 0 50px;
   }
-  .message-form div input, .message-form div textarea {
+  .message-form div input,
+  .message-form div textarea {
     padding: 8px;
   }
   .message-submit {
     padding: 4px 8px;
   }
-  .message-form input::placeholder, .message-form textarea {
+  .message-form input::placeholder,
+  .message-form textarea {
     font-size: 1.1em;
   }
   .contact-info td {
@@ -279,7 +649,7 @@
     margin-right: 10px;
   }
   .contactUs-div h2 {
-      font-size: 1.2em;
+    font-size: 1.2em;
   }
   /*DETAILS DIV*/
   .details-inner {
@@ -425,60 +795,60 @@
   }
   /*FOOTER*/
   footer {
-      flex-direction: column;
+    flex-direction: column;
   }
   footer div {
-      width: 100%;
+    width: 100%;
   }
   footer div p {
     padding: 0.8rem 0rem;
   }
   footer div img {
-      width: 3rem;
+    width: 3rem;
   }
   /*FILTER MENU*/
   .filters-title {
-      font-size: 1.5em;
+    font-size: 1.5em;
   }
   .empty-div {
     height: 60px;
   }
   .filter-menu {
-      margin: 0 10px;
+    margin: 0 10px;
   }
   .filter-menu div {
     margin: 0px 0px;
     padding: 5px 10px;
   }
   .custom-select {
-      font-size: 0.8em;
-      padding: 4px 6px;
-      border-radius: 2px;
-      width: 120px;
-  }
-  input[type=search] {
     font-size: 0.8em;
     padding: 4px 6px;
     border-radius: 2px;
     width: 120px;
   }
-  input[type=checkbox] {
+  input[type="search"] {
+    font-size: 0.8em;
+    padding: 4px 6px;
+    border-radius: 2px;
+    width: 120px;
+  }
+  input[type="checkbox"] {
     height: 12px;
     width: 12px;
   }
   #uRadnji-Online {
-      display: flex;
+    display: flex;
   }
   #uRadnji-Online li {
-      margin: 0 5px;
+    margin: 0 5px;
   }
   #uRadnji-Online li span {
     font-size: 0.9em;
   }
   /*PRODUCTS PAGE*/
   .naslov h1 {
-      font-size: 1.5em;
-      padding-top: 20px;
+    font-size: 1.5em;
+    padding-top: 20px;
   }
   .products-wrapper {
     margin: 0 10px;
@@ -486,7 +856,7 @@
   }
   /*SUBMENU*/
   .sub-menu h2 {
-      font-size: 1.2em;
+    font-size: 1.2em;
   }
   .sub-menu-wrapper div {
     padding-bottom: 10px;
@@ -526,10 +896,10 @@
   .cart-item-image {
     width: 110px;
   }
-  .cart-quantity input[type=number] {
+  .cart-quantity input[type="number"] {
     padding: 3px;
     font-size: 0.8em;
-    width: 30px;
+    width: 36px;
     margin-right: 5px;
   }
   .cart-in-total {
@@ -540,7 +910,8 @@
   .order-products {
     margin: 0px 10px;
   }
-  .order-btn, .deleteAll-btn {
+  .order-btn,
+  .deleteAll-btn {
     font-size: 0.9em;
     padding: 4px 8px;
     margin: 0 10px 30px 0;
@@ -549,34 +920,37 @@
   .wrapper-of-form {
     flex-direction: column;
   }
-  .wrapper-form-side, .form-loginBy {
+  .wrapper-form-side,
+  .form-loginBy {
     width: 80%;
   }
   .form-middle {
     width: 100%;
   }
-  .wrapper{
+  .wrapper {
     width: 100%;
   }
-  .wrapper .title{
+  .wrapper .title {
     font-size: 25px;
   }
-  .wrapper .slide-controls{
+  .wrapper .slide-controls {
     margin: 10px 0 5px 0;
   }
-  .form-inner form .field{
+  .form-inner form .field {
     height: 50px;
     margin-top: 10px;
   }
   .form-loginBy {
-      margin: 10px auto;
-      flex-direction: row;
+    margin: 10px auto;
+    flex-direction: row;
   }
   .form-loginBy div {
     width: 30%;
     margin: 0.3em 0.1em;
   }
-  .google, .facebook, .apple {
+  .google,
+  .facebook,
+  .apple {
     font-size: 1.5em;
     margin: 0 0.3em;
   }
@@ -584,24 +958,28 @@
     margin: 0 5px;
   }
   /*USERS*/
-  .users_table td, .users_table th {
+  .users_table td,
+  .users_table th {
     padding: 8px 3px;
   }
   /*SEND MESSAGE PAGE*/
   .contact-page-wrapper {
     flex-direction: column;
   }
-  .contactUs-div, .contact-info {
+  .contactUs-div,
+  .contact-info {
     width: 90%;
     margin: 0 auto;
   }
-  .message-form div input, .message-form div textarea {
+  .message-form div input,
+  .message-form div textarea {
     padding: 8px;
   }
   .message-submit {
     padding: 4px 8px;
   }
-  .message-form input::placeholder, .message-form textarea {
+  .message-form input::placeholder,
+  .message-form textarea {
     font-size: 1.1em;
   }
   .contact-info td {
@@ -613,7 +991,7 @@
     margin-right: 10px;
   }
   .contactUs-div h2 {
-      font-size: 1.2em;
+    font-size: 1.2em;
   }
   /*DETAILS DIV*/
   .details-inner {
