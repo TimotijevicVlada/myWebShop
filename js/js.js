@@ -439,7 +439,7 @@ liseneri(searchInput, "keyup");
 liseneri(sortAvailable, "change");
 liseneri(filterDostupno, "change");
 
-/*================================================================================================*/
+
 //Funkcije za Details prozor
 const bluredWindow = document.getElementsByClassName("blurred-div")[0];
 const container = document.getElementsByClassName("details-inner")[0];
@@ -536,8 +536,6 @@ carouselSlide.addEventListener("transitionend", () => {
     exitBlured.addEventListener("click" , exitDetails);
 }
 
-
-/*===========================================================================================*/
 
 //Funkcija za purchase products
 let purchase = document.getElementsByClassName("order-btn")[0];
@@ -642,16 +640,12 @@ function deleteItem(item) {
     
     for(let i = 0; i < cart.length; i++) {
       if(cart[i].title == title) {
-        //This part of code should be changed !!!!
-/********************************************************/ 
-          //console.log(cart.splice(cart[i], 1));
-          cart.splice(cart[i], 1);
+          cart.splice(i, 1);
           let updateUser = get_user();
           updateUser.korpa = cart;
-          //console.log(updateUser)
           set_user(updateUser);
           displayCart();
-/********************************************************/
+          
           let users = get_users();
       for(let i = 0; i < users.length; i++) {
           if(users[i].email == updateUser.email ) {
