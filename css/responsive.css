@@ -743,6 +743,9 @@
     margin: 0px auto;
     justify-content: center;
   }
+  .converter-inner {
+    flex-direction: column;
+  }
   .converter-inner h2 {
     font-size: 1.2em;
     margin: 10px 0px;

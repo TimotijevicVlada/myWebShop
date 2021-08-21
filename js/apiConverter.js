@@ -1,6 +1,8 @@
 const select = document.querySelectorAll(".select-converter");
 const input = document.querySelectorAll(".input-converter");
-const api_url = "http://data.fixer.io/api/latest?access_key=98c72d6c665fedb7535325f9fbd68de1";
+//Jedan kljuc mi je istekao posle mesec dana pa sam morao da aktiviram novi sa drugog naloga
+//const api_url = "http://data.fixer.io/api/latest?access_key=98c72d6c665fedb7535325f9fbd68de1";
+//const api_url = "http://data.fixer.io/api/latest?access_key=d28883bcfebcc7c0604f4a89a6476491";
 let html = "";
 //console.log(input);
 //console.log(select)

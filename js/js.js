@@ -117,9 +117,9 @@ fetch("json/navBar.json").then(function(response) {
     let div = document.getElementsByClassName("menu-list")[0];
     let html = "";
         html = `
-                <div class="icon cancel-btn">
+                <li class="icon cancel-btn">
                     <i class="fas fa-times"></i>
-                </div>
+                </li>
             `;
     for(let i in object) {
         html += `
@@ -596,7 +596,9 @@ function displayCart() {
                       <img class='cart-item-image' src="${cart[i].img}">
                       <span class="cart-item-title">${cart[i].title}</span>
                      </div>
-                      <span class="cart-price cart-column">${cart[i].price}</span>
+                     <div class="cart-price-div">
+                      <span class="cart-price cart-column">${cart[i].price}</span><span>RSD</span>
+                      </div>
                      <div class="cart-item-description">
                       <p><i class="fas fa-angle-right"></i> ${cart[i].state ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
                       <p><i class="fas fa-angle-right"></i> Materijal: <span class="boldovano">${cart[i].material}</span></p>
