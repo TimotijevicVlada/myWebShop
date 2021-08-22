@@ -1,76 +1,39 @@
-//Ispisivanje current-user u navbaru
-const get_korisnik2 = () => {
+//Funkcija za uzimanje pojedinacnog korisnika
+const get_user = () => {
     return JSON.parse(localStorage.getItem("korisnik"));
+}
+//Funkcija za setovanje pojedinacnog korisnika
+const set_user = (user) => {
+    localStorage.setItem("korisnik", JSON.stringify(user));
   };
 
-  //Funkcija za ispisivanje trenutnog korisnika u navbaru
-const ispisi_korisnika = () => {
-    //alert("uspelo")
-    let privremeno = get_korisnik2();
-    //console.log(privremeno);
-    let za_ispis = document.getElementById("current-user"); 
-    if (privremeno != null) {
-      za_ispis.innerText='User: ' + privremeno.ime;
-    } else {
-      za_ispis.innerText = "There is no logged user!";
-    }
+//Funkcija za uzimanje svih korisnika iz local storage
+const get_users = () => {
+    return JSON.parse(localStorage.getItem("korisnici"));
   };
 
-  //Funkcija koja setuje korisnike u local storage
-  const set_users = (users) => {
+//Funkcija koja setuje korisnike u local storage
+const set_users = (users) => {
     localStorage.setItem("korisnici", JSON.stringify(users));
   };
 
-//Logout opcija
+//Funkcija za ispisivanje trenutnog korisnika u navbaru
+const write_user_navbar = () => {
+    let user = get_user();
+    //console.log(privremeno);
+    let current_user = document.getElementById("current-user"); 
+    if (user != null) {
+      current_user.innerText='User: ' + user.ime;
+    } else {
+      current_user.innerText = "There is no logged user!";
+    }
+  };
+
+//Logout funkcija
 const logout = () => {
     localStorage.removeItem("korisnik");
     location.reload();
 }
-
-
-//Shopping cart local storage
-const get_user = () => {
-    return JSON.parse(localStorage.getItem("korisnik"));
-}
-const set_user = (user) => {
-    localStorage.setItem("korisnik", JSON.stringify(user));
-  };
-//console.log(get_user());
-const set_products = (naslov, cena, slika, naStanju, materijal, guaranty, dostupno) => {
-    let product = {
-        title: naslov,
-        price: cena,
-        img: slika,
-        state: naStanju,
-        material: materijal,
-        guaranty: guaranty,
-        available: dostupno,
-        quantity: 1
-    }
-    
-    let user = get_user();
-    //console.log(user);
-    let cart = user.korpa;
-    cart.push(product);
-    //console.log(korpa)
-    set_user(user);
-    //console.log(user);
-    let users = get_users();
-    //console.log(users)
-    //console.log(user)
-    for(let i = 0; i < users.length; i++) {
-        if(users[i].email == user.email ) {
-            users[i] = user;
-            set_users(users);
-        }
-    }
-    product_number();
-}
-
-//Kod za ispisivanje svih registrovanih korisnika
-const get_users = () => {
-    return JSON.parse(localStorage.getItem("korisnici"));
-  };
 
 //Funkcija za prikaz broja proizvoda u navbaru
 const product_number = () =>{
@@ -171,7 +134,7 @@ fetch("json/navBar.json").then(function(response) {
 
         //Ispisivanje trenutnog korisnika
         displayCart();
-        ispisi_korisnika();
+        write_user_navbar();
         display_all_users();
 
     }).catch(function(error) {
@@ -275,7 +238,7 @@ function searchProducts(data) {
       //console.log(value);
       if (value) {
         return data.filter(function (el) {
-          return el.name.toLowerCase().indexOf(value) !== -1;
+          return el.name.toLowerCase().indexOf(value) != -1;
         });
       }
       return data;
@@ -534,8 +497,7 @@ function showDetails(items) {
         if (index == totalSlides) {
          index = 0;
         }
-    } 
-    else {
+    } else {
         if (index == 0) {
              index = totalSlides - 1;
         } else {
@@ -552,21 +514,6 @@ function showDetails(items) {
  //Postavljamo lisener na dugme za izlazak iz Details prozora
   let exitBlured = document.getElementsByClassName("cancel-blurred")[0];
     exitBlured.addEventListener("click" , exitDetails);
-}
-
-
-//Funkcija za purchase products
-let purchase = document.getElementsByClassName("order-btn")[0];
-    purchase.addEventListener("click", orderProducts); 
-
-function orderProducts() {
-  //Provera da li u korpi ima artikala
-  let cartItems = document.getElementsByClassName("cart-items")[0];
-  if (cartItems.hasChildNodes()) {
-     alert("Thank you for shopping on our site!");
-  } else {
-     alert("You have not selected items!"); 
-  }
 }
 
 //Funkcija za dodavanje artikala u korpu
@@ -594,9 +541,41 @@ function addToCart(item) {
         return;
       }
     }
-    set_products(naslov, cena, slika, naStanju, materijal, guaranty, dostupno);
-    displayCart();  
+    set_products(naslov, cena, slika, naStanju, materijal, guaranty, dostupno); 
    } 
+}
+
+//Funkcija za setovanje proizvoda u korpu ulogovanog korisnika
+const set_products = (naslov, cena, slika, naStanju, materijal, guaranty, dostupno) => {
+    let product = {
+        title: naslov,
+        price: cena,
+        img: slika,
+        state: naStanju,
+        material: materijal,
+        guaranty: guaranty,
+        available: dostupno,
+        quantity: 1
+    }
+    
+    let user = get_user();
+    //console.log(user);
+    let cart = user.korpa;
+    cart.push(product);
+    //console.log(korpa)
+    set_user(user);
+    //console.log(user);
+    let users = get_users();
+    //console.log(users)
+    //console.log(user)
+    for(let i = 0; i < users.length; i++) {
+        if(users[i].email == user.email ) {
+            users[i] = user;
+            set_users(users);
+        }
+    }
+    displayCart();  
+    product_number();
 }
 
 //Funkcija za prikazivanje proizvoda u korpi
@@ -643,11 +622,29 @@ function displayCart() {
                 for(let btn of quantity) {
                     btn.addEventListener("change", changeQuantity);
                 }
+
+            //Lisener za purchase products btn
+            let purchase = document.getElementsByClassName("order-btn")[0];
+            purchase.addEventListener("click", orderProducts); 
+
+            //Lisener za delete all dugme u korpi
+            const deleteAllBtn = document.getElementsByClassName("deleteAll-btn")[0];
+            deleteAllBtn.addEventListener("click", deleteAllProducts);
     
             updatePrice();
         }
     }
 
+//Funkcija za purchase products
+function orderProducts() {
+  //Provera da li u korpi ima artikala
+  let cartItems = document.getElementsByClassName("cart-items")[0];
+  if (cartItems.hasChildNodes()) {
+     alert("Thank you for shopping on our site!");
+  } else {
+     alert("You have not selected items!"); 
+  }
+}
 
 //Funkcija za brisanje proizvoda iz korpe
 function deleteItem(item) {
@@ -676,7 +673,6 @@ function deleteItem(item) {
           updatePrice();
       }
     }
-    
   }
 
 //Funkcija za promenu cene proizvoda
@@ -718,10 +714,7 @@ function changeQuantity(item) {
     updatePrice();
 }
 
-//Delete all dugme u korpi
-const deleteAllBtn = document.getElementsByClassName("deleteAll-btn")[0];
-deleteAllBtn.addEventListener("click", deleteAllProducts);
-
+//Funkcija za "delete-all" dugme u korpi
 function deleteAllProducts() {
     let user = get_user();
     let cart = user.korpa;

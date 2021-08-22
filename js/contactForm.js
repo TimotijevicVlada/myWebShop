@@ -4,7 +4,6 @@ const loginText = document.querySelector(".title-text .login");
 const loginForm = document.querySelector("form.login");
 const loginBtn = document.querySelector("label.login");
 const signupBtn = document.querySelector("label.signup");
-const signupLink = document.querySelector("form .signup-link a");
 
 signupBtn.addEventListener("click", function () {
   loginForm.style.marginLeft = "-50%";
@@ -13,10 +12,6 @@ signupBtn.addEventListener("click", function () {
 loginBtn.addEventListener("click", function () {
   loginForm.style.marginLeft = "0%";
   loginText.style.marginLeft = "0%";
-});
-signupLink.addEventListener("click", function () {
-  signupBtn.click();
-  return false;
 });
 
 //Eye view on the login password
@@ -41,6 +36,7 @@ hideBtn.onclick = () => {
     inputPass.type = "text";
   }
 };
+
 //Eye view on the signup password
 const inputSignupPass = document.querySelector("#passInputSignup");
 const showBtn1 = document.querySelector(".eye-second");
@@ -63,6 +59,7 @@ hideBtn1.onclick = () => {
     inputSignupPass.type = "text";
   }
 };
+
 //Eye view on the signup password confirm
 const inputConfirmSign = document.querySelector("#passConfirmInputSignup");
 const showBtn2 = document.querySelector(".eye-third");
@@ -85,6 +82,7 @@ hideBtn2.onclick = () => {
     inputConfirmSign.type = "text";
   }
 };
+
 //Pasword on focus display require message
 const requireLoginMsg = document.getElementsByClassName("require-msg")[0];
 inputPass.onfocus = () => {
@@ -99,33 +97,18 @@ inputConfirmSign.onfocus = () => {
   requireSignupMsg.style.display = "block";
 };
 
-
-//Local storage za kontakt formu
-  const get_korisnici = () => {
-    return JSON.parse(localStorage.getItem("korisnici"));
-  };
-  
-  const set_korisnici = (korisnici) => {
-    localStorage.setItem("korisnici", JSON.stringify(korisnici));
-  };
-  
-  var korisnici_svi = get_korisnici();
-  if (korisnici_svi == null) {
-    korisnici_svi = [
-      new Korisnik("Pera", "pera@gmail.com", "Password123", "Password123"),
-    ];
-    set_korisnici(korisnici_svi);
-    console.log(korisnici_svi);
+  //Na refresovanje strane, ako nema upisanih korisnika 
+  //postavljamo da je u local storage prazan niz "[]" 
+  //da bi mogli da radimo metodu "push"
+  if(location.reload) {
+    let korisnici_svi = get_users();
+    if (korisnici_svi == null) {
+      korisnici_svi = [];
+      set_users(korisnici_svi);
+    }
   }
-  
-  const get_korisnik = () => {
-    return JSON.parse(localStorage.getItem("korisnik"));
-  };
-  
-  const set_korisnik = (korisnik) => {
-    localStorage.setItem("korisnik", JSON.stringify(korisnik));
-  };
-  
+ 
+  //Konstruktorska funkcija za setovanje korisnickih podataka 
   function Korisnik(ime, email, password, confirm_password) {
     this.ime = ime;
     this.email = email;
@@ -140,7 +123,7 @@ const registruj = document.getElementById("signupBtn");
   registruj.addEventListener("click", function (e) {
     e.preventDefault();
 
-    let ime = document.getElementById("nameInputSignup");
+    let name = document.getElementById("nameInputSignup");
     let email = document.getElementById("emailInputSignup");
     let password = document.getElementById("passInputSignup");
     let confirm_password = document.getElementById("passConfirmInputSignup");
@@ -151,7 +134,7 @@ const registruj = document.getElementById("signupBtn");
     let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
     let passConfirmRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
-    let nameTest = nameRegex.test(ime.value);
+    let nameTest = nameRegex.test(name.value);
     let emailTest = emailRegex.test(email.value);
     let passTest = passRegex.test(password.value);
     let passConfirmTest = passConfirmRegex.test(confirm_password.value);
@@ -167,11 +150,11 @@ const registruj = document.getElementById("signupBtn");
 
     if (nameTest) {
       nameTrue.style.display = "block";
-      ime.style.borderColor = "green";
+      name.style.borderColor = "green";
       nameFalse.style.display = "none";
     } else {
       nameFalse.style.display = "block";
-      ime.style.borderColor = "red";
+      name.style.borderColor = "red";
       nameTrue.style.display = "none";
     }
 
@@ -205,22 +188,21 @@ const registruj = document.getElementById("signupBtn");
       passConfirmTrue.style.display = "none";
     }
 
-    /*SIGNUP FORME*/
+    //Registrovanje korisnika ako su sve informacije ispravne
     if (nameTest && emailTest && passTest && passConfirmTest) {
-      let k = new Korisnik(
-        ime.value,
+      let new_user = new Korisnik(
+        name.value,
         email.value,
         password.value,
         confirm_password.value
       );
-      let svi_korisnici = get_korisnici();
-      svi_korisnici.push(k);
-      //console.log(k);
-      set_korisnici(svi_korisnici);
+      let all_users = get_users();
+      all_users.push(new_user);
+      //console.log(new_user);
+      set_users(all_users);
       alert("Successful registration");
     }
   });
-
 
 //Lisener za login dugme
 const login = document.getElementById("loginBtn");
@@ -277,19 +259,17 @@ login.addEventListener("click", function (e) {
     passTrue.style.display = "none";
   }
 
-
+//Login korisnika ako su sve informacije ispravne 
   if (nameTest && emailTest && passTest) {
-    let user = document.getElementsByClassName("user")[0];
-    console.log(user);
-    let svi_korisnici = get_korisnici();
+    let all_users = get_users();
     //console.log(svi_korisnici.length);
-    for (let j = 0; j < svi_korisnici.length; j++) {
-      let k = svi_korisnici[j];
-      if (name.value == k.ime && email.value == k.email && pass.value == k.password) {
+    for (let j = 0; j < all_users.length; j++) {
+      let user = all_users[j];
+      if (name.value == user.ime && email.value == user.email && pass.value == user.password) {
         alert("Successful login");
-        set_korisnik(k);
-        ispisi_korisnika();
-        product_number_contact();
+        set_user(user);
+        write_user_navbar();
+        product_number();
         window.location.href="index.html";
         return;
       }
@@ -297,13 +277,3 @@ login.addEventListener("click", function (e) {
     alert("Wrong data");
   }
 });
-
-const product_number_contact = () =>{
-  let user = get_user();
-  console.log(user)
-  let product_num = user.korpa.length;
-  console.log(product_num);
-  let totalCount = document.getElementsByClassName("brojac-proizvoda")[0]; //Brojac proizvoda na korpi
-  totalCount.innerHTML = product_num;
-}
-
