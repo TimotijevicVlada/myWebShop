@@ -465,14 +465,33 @@ function showDetails(items) {
   let html = "";
 
   html = `
-      <i class="fas fa-times cancel-blurred"></i>
-      <div class="carousel-container">
-        <div class="carousel-slide">
-            <img id="lastClone" src="${picture}" alt="${title}"/>
-        </div>
-        <i class="fas fa-chevron-circle-left"></i>
-        <i class="fas fa-chevron-circle-right"></i>
+    <i class="fas fa-times cancel-blurred"></i>
+    <div class="slider">
+      <div class="slider-items">
+          <div class="item active">
+             <img src="${picture}" />
+             <div class="caption">
+                Slide 1
+             </div>
+          </div>
+          <div class="item">
+             <img src="${picture}" />
+             <div class="caption">
+                Slide 2
+             </div>
+          </div>
+          <div class="item">
+             <img src="${picture}" />
+             <div class="caption">
+                Slide 3
+             </div>
+          </div>
       </div>
+        <!-- slider controls -->
+          <div class="left-slide"><i class="fas fa-chevron-circle-left"></i></div>
+          <div class="right-slide"><i class="fas fa-chevron-circle-right"></i></div>
+        <!-- slider controls -->
+   </div>
       <div class="details-info">
         <h1 class="details-title">${title}</h1>
         <div class="details-middle-div">
@@ -489,49 +508,48 @@ function showDetails(items) {
       </div>
   `;
   container.innerHTML = html;
+
+  //Postavljam div na centar ekrana 
   bluredWindow.style.marginLeft = "0%";
   
   //Sakrivam scroll bar kako bih onemogucio skrolovanje dok je prozor otvoren
   document.body.style.overflow = "hidden";  
 
-  //Carousel u details prozoru
-const carouselSlide = document.querySelector(".carousel-slide");
-const carouselImg = document.querySelectorAll(".carousel-slide img");
-const prevBtn = document.querySelector(".fa-chevron-circle-left");
-const nextBtn = document.querySelector(".fa-chevron-circle-right");
+  //Carousel
+  let slides = document.querySelector('.slider-items').children;
+  let nextSlide = document.querySelector(".right-slide");
+  let prevSlide = document.querySelector(".left-slide");
+  let totalSlides = slides.length;
+  let index = 0;
 
-let counter = 0;
-const size = carouselImg[0].clientWidth;
+  nextSlide.onclick = () => {
+    next("next");
+  }
+  prevSlide.onclick = () => {
+    next("prev");
+  }
+  const next = (direction) => {
+    if (direction == "next") {
+       index++;
+        if (index == totalSlides) {
+         index = 0;
+        }
+    } 
+    else {
+        if (index == 0) {
+             index = totalSlides - 1;
+        } else {
+             index--;
+            }
+     }
+ 
+   for (i = 0; i < slides.length; i++) {
+           slides[i].classList.remove("active");
+   }
+   slides[index].classList.add("active");     
+ }
 
-//carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-
-nextBtn.onclick = () => {
-    carouselSlide.style.transition = "transform 0.4s ease-in-out";
-    counter++;
-    //console.log(counter)
-    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-}
-prevBtn.onclick = () => {
-    carouselSlide.style.transition = "transform 0.4s ease-in-out";
-    counter--;
-    //console.log(counter)
-    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-}
-//NE VIDI MI CAROUSELIMG!!!!
-carouselSlide.addEventListener("transitionend", () => {
-    if(carouselImg[counter].id === "lastClone") {
-        console.log(carouselImg[counter].id)
-        carouselSlide.style.transition = "none";
-        counter = carouselImg.length - 2;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-    }
-    if(carouselImg[counter].id === "firstClone") {
-        carouselSlide.style.transition = "none";
-        counter = carouselImg.length - counter;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-    }
-})
-
+ //Postavljamo lisener na dugme za izlazak iz Details prozora
   let exitBlured = document.getElementsByClassName("cancel-blurred")[0];
     exitBlured.addEventListener("click" , exitDetails);
 }

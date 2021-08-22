@@ -2,7 +2,6 @@
     {
         "name": "Komoda Sofija",
         "image": "images/DnevnaSoba/tvKomodaSofija.jfif",
-        "image1": "images/DnevnaSoba/tvKomodaSofija1.jfif",
         "stars": 5,
         "naStanju": true,
         "material": "drvo",
@@ -17,7 +16,6 @@
     {
         "name": "Fotelja Zumbul",
         "image": "images/DnevnaSoba/foteljaZumbul.jfif",
-        "image1": "images/DnevnaSoba/foteljaZumbul1.jfif",
         "stars": 4,
         "naStanju": true,
         "material": ["stof", " metal"],
@@ -32,7 +30,6 @@
     {
         "name": "Fotelja Ruza",
         "image": "images/DnevnaSoba/foteljaRuza.jfif",
-        "image1": "images/DnevnaSoba/foteljaRuza1.jfif",
         "stars": 4.5,
         "naStanju": true,
         "material": ["stof", " metal"],
@@ -47,7 +44,6 @@
     {
         "name": "Sofa Kaktus",
         "image": "images/DnevnaSoba/sofaKaktus.jfif",
-        "image1": "images/DnevnaSoba/sofaKaktus1.jfif",
         "stars": 5,
         "naStanju": true,
         "material": ["stof", " drvo"],
@@ -62,7 +58,6 @@
     {
         "name": "Ugaona garnitura Bagrem",
         "image": "images/DnevnaSoba/ugaonaGarnituraBagrem.jfif",
-        "image1": "images/DnevnaSoba/ugaonaGarnituraBagrem1.jfif",
         "stars": 4.5,
         "naStanju": true,
         "material": ["stof", " drvo"],
@@ -77,7 +72,6 @@
     {
         "name": "Tv komoda Marija",
         "image": "images/DnevnaSoba/tvKomodaMarija.jfif",
-        "image1": "images/DnevnaSoba/tvKomodaMarija1.jfif",
         "stars": 3.5,
         "naStanju": true,
         "material": "drvo",
@@ -92,7 +86,6 @@
     {
         "name": "Klub sto Lana",
         "image": "images/DnevnaSoba/klubStoLana.jfif",
-        "image1": "images/DnevnaSoba/tvKomodaMarija1.jfif",
         "stars": 4,
         "naStanju": true,
         "material": "drvo",
@@ -107,7 +100,6 @@
     {
         "name": "Klub sto Masa",
         "image": "images/DnevnaSoba/klubStoMasa.jfif",
-        "image1": "images/DnevnaSoba/klubStoMasa1.jfif",
         "stars": 45,
         "naStanju": true,
         "material": ["drvo", " metal"],
@@ -122,7 +114,6 @@
     {
         "name": "Ugaona garnitura Maslacak",
         "image": "images/DnevnaSoba/ugaonaGarnituraMaslacak.jfif",
-        "image1": "images/DnevnaSoba/ugaonaGarnituraMaslacak1.jfif",
         "stars": 5,
         "naStanju": true,
         "material": ["stof", " metal"],
@@ -137,7 +128,6 @@
     {
         "name": "Ugaona garnitura Neven",
         "image": "images/DnevnaSoba/ugaonaGarnituraNeven.jfif",
-        "image1": "images/DnevnaSoba/ugaonaGarnituraNeven1.jfif",
         "stars": 4.5,
         "naStanju": false,
         "material": ["stof", " drvo"],
@@ -152,7 +142,6 @@
     {
         "name": "Sofa Ruza",
         "image": "images/DnevnaSoba/sofaRuza.jfif",
-        "image1": "images/DnevnaSoba/sofaRuza1.jfif",
         "stars": 4.5,
         "naStanju": true,
         "material": ["stof", " drvo"],
@@ -167,7 +156,6 @@
     {
         "name": "Sofa Suncokret",
         "image": "images/DnevnaSoba/sofaSuncokret.jfif",
-        "image1": "images/DnevnaSoba/sofaSuncokret1.jfif",
         "stars": 4.5,
         "naStanju": false,
         "material": ["stof", " drvo"],

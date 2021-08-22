@@ -1003,17 +1003,6 @@
     height: 70%;
     overflow-y: scroll;
   }
-  .carousel-container {
-    width: 100%;
-    margin: 0 auto;
-  }
-  .carousel-slide img {
-    height: 100%;
-    width: auto;
-  }
-  .carousel-slide {
-    justify-content: center;
-  }
   .details-info {
     width: 100%;
     margin: 0px 10px;
@@ -1027,5 +1016,10 @@
   }
   .details-stars {
     font-size: 1.2em;
+  }
+  /*CAROUSEL*/
+  .slider {
+    width: 100%;
+    overflow: visible;
   }
 }
