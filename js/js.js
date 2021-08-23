@@ -190,7 +190,7 @@ function fetchJson(json, container) {
                 <p>Garancija: <span class="boldovano shop-item-guaranty">${object[i].guaranty}</span></p>
                 <p>Dostupno: <span class="boldovano shop-item-dostupno">${object[i].dostupno}</span></p>
                 <div>
-                Cena: <span class="boldovano boldovanaCena shop-item-price">${object[i].price}</span><span><sup>RSD</sup></span>
+                Cena: <span class="boldovano boldovanaCena shop-item-price">${object[i].price}</span><span><sup><small>RSD</small></sup></span>
                 </div>
                 <div class="products-buttons">
                     <div class="details-btn">Details</div>
@@ -466,7 +466,7 @@ function showDetails(items) {
         <p class="details-stars">${stars}</p>
         <p class="details-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat deserunt facere quisquam mollitia eaque blanditiis ducimus esse sequi ex. Libero dicta doloribus fuga nemo corrupti fugit eius officiis quasi ipsam.</p>
         <div class="details-price">
-          <p>Price: <span>${price}</span></p>
+          <p>Price: <span>${price}</span><span><sup class="valute"><small>RSD</small></sup></span></p>
         </div>
       </div>
   `;

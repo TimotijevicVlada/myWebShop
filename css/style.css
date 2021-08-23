@@ -565,6 +565,9 @@ input[type=checkbox] {
 .details-info span {
   font-weight: bold;
 }
+.details-info span .valute {
+  font-weight: 200;
+}
 .details-stars {
   font-size: 1.3em;
 }
