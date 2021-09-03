@@ -270,7 +270,7 @@ login.addEventListener("click", function (e) {
         set_user(user);
         write_user_navbar();
         product_number();
-        window.location.href="index.html";
+        window.location.href=  "index.html";
         return;
       }
     }

@@ -36,7 +36,8 @@
     margin: 0px 0px;
     padding: 8px 10px;
   }
-  .custom-select, input[type="search"] {
+  .custom-select,
+  input[type="search"] {
     font-size: 1.1em;
     padding: 8px 10px;
     border-radius: 4px;
@@ -184,8 +185,8 @@
   .section-inner p {
     font-size: 1.5em;
   }
-   /*INFO*/
-   .info div {
+  /*INFO*/
+  .info div {
     width: 130px;
     height: 100px;
     padding: 2em 0em;
@@ -222,7 +223,8 @@
     margin: 0px 0px;
     padding: 8px 10px;
   }
-  .custom-select, input[type="search"] {
+  .custom-select,
+  input[type="search"] {
     font-size: 1.1em;
     padding: 6px 8px;
     border-radius: 3px;
@@ -327,7 +329,7 @@
   .form-loginBy div a {
     margin: 0 5px;
   }
-   /*SEND MESSAGE PAGE*/
+  /*SEND MESSAGE PAGE*/
   .contactUs-div,
   .contact-info {
     width: 50%;
@@ -737,6 +739,7 @@
   .start-text .p3 {
     font-size: 1.3em;
   }
+
   /*KONVERTER VALUTA*/
   .converter-wrapper {
     width: 80%;
@@ -1021,5 +1024,101 @@
   .slider {
     width: 100%;
     overflow: visible;
+  }
+}
+@media screen and (max-width: 500px) {
+  /*Navbar*/
+  .probna-slika {
+    background: url("../images/pocetnaImg/livningRoom.jpg") no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    height: 270px;
+  }
+  .navbar .logo a {
+    font-size: 20px;
+  }
+  .start-text {
+    top: 12%;
+    left: 25%;
+  }
+  .start-text .p1,
+  .start-text .p2,
+  .start-text .p3 {
+    font-size: 1em;
+  }
+  #current-user {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .navbar .logo a {
+    display: none;
+}
+  /*Konverter*/
+  .converter-inner {
+    margin-bottom: 20px;
+  }
+  /*INFO*/
+  .info div {
+    width: 60px;
+    height: 100px;
+    padding: 2em 0em;
+    justify-content: flex-start;
+    margin-bottom: 70px;
+  }
+  .info div i {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+  .info div h3 {
+    font-size: 1em;
+  }
+  .div-line {
+    margin: 30px 10px 40px 10px;
+    border-bottom: 2px solid lightgray;
+  }
+  /*Contact form*/
+  .wrapper-form-side,
+  .form-loginBy {
+    width: 100%;
+  }
+  .form-loginBy div {
+    height: 70px;
+  }
+  .google,
+  .facebook,
+  .apple {
+    font-size: 1.1em;
+    margin: 0 0.3em;
+    height: auto;
+  }
+  .form-loginBy div a {
+    margin: 0 5px;
+    
+  }
+  .fa-eye {
+    right: 10px;
+  }
+  /*USERS*/
+  .users_table td,
+  .users_table th {
+    padding: 5px 3px;
+    font-size: 11px;
+  }
+  /*CART*/
+  .cart-item-title {
+    font-size: 0.6em;
+    margin-left: 15px;
+  }
+  .cart-item-description {
+    font-size: 0.6em;
+  }
+  .cart-price {
+    font-size: 0.7em;
+  }
+  .cart-item-image {
+    width: 80px;
+  }
+  .currency {
+    font-size: 12px;
   }
 }

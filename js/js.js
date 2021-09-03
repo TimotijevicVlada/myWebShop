@@ -594,7 +594,7 @@ function displayCart() {
                       <span class="cart-item-title">${cart[i].title}</span>
                      </div>
                      <div class="cart-price-div">
-                      <span class="cart-price cart-column">${cart[i].price}</span><span>RSD</span>
+                      <span class="cart-price cart-column">${cart[i].price}</span><span class="currency">RSD</span>
                       </div>
                      <div class="cart-item-description">
                       <p><i class="fas fa-angle-right"></i> ${cart[i].state ? "Proizvod je dostupan" : "Proizvod nije dostupan"}</p>
