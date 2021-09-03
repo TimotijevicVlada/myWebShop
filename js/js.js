@@ -95,6 +95,12 @@ fetch("json/navBar.json").then(function(response) {
         const logoutBtn = document.getElementsByClassName("logout")[0];
         console.log(logoutBtn)
         logoutBtn.addEventListener("click", logout);
+        let user = get_user();
+        if(user == null) {
+            logoutBtn.style.display = "none";
+        } else {
+            logoutBtn.style.display = "inline-block";
+        }
         
         //Funkcija za sopping cart  
         const cartsPage = document.getElementsByClassName("carts")[0];

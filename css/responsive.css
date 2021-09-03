@@ -1038,8 +1038,8 @@
     font-size: 20px;
   }
   .start-text {
-    top: 12%;
-    left: 25%;
+    top: 10%;
+    left: 20%;
   }
   .start-text .p1,
   .start-text .p2,
@@ -1071,10 +1071,6 @@
   }
   .info div h3 {
     font-size: 1em;
-  }
-  .div-line {
-    margin: 30px 10px 40px 10px;
-    border-bottom: 2px solid lightgray;
   }
   /*Contact form*/
   .wrapper-form-side,
@@ -1125,5 +1121,8 @@
   .details-btn, .shop-item-button {
     font-size: 12px;
     padding: 6px 6px;
+  }
+  .div-line {
+    margin-bottom: 0px;
   }
 }
