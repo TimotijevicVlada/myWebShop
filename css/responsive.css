@@ -1063,7 +1063,7 @@
     height: 100px;
     padding: 2em 0em;
     justify-content: flex-start;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
   }
   .info div i {
     font-size: 1.2em;
@@ -1095,7 +1095,7 @@
     margin: 0 5px;
     
   }
-  .fa-eye {
+  .fa-eye, .fa-eye-slash {
     right: 10px;
   }
   /*USERS*/
@@ -1120,5 +1120,10 @@
   }
   .currency {
     font-size: 12px;
+  }
+  /*Shopping cards*/
+  .details-btn, .shop-item-button {
+    font-size: 12px;
+    padding: 6px 6px;
   }
 }
